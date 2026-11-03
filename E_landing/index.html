@@ -12,6 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.20/hls.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Life</title>
+<link rel="icon" href="data:,">
 <meta name="description" content="A twenty-second film about one word, the page that grew out of it, and thirty-three readings on being alive.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,7 +81,7 @@
   #film .under { position: absolute; left: 0; right: 0; bottom: 6vh; text-align: center; }
   #film .hud { position: absolute; right: 32px; bottom: calc(24px + env(safe-area-inset-bottom)); pointer-events: none; }
   @media (max-width: 1240px) { #film .hud { right: 20px; } }
-  #sound { pointer-events: auto; font-size: 12px; padding: 6px 0; opacity: .55; cursor: pointer; transition: opacity .3s ease; }
+  #sound { position: relative; pointer-events: auto; font-size: 12px; padding: 6px 0; opacity: .55; cursor: pointer; transition: opacity .3s ease; }
   #sound:hover { opacity: 1; }
 
   /* Life on: 커서를 따라다니는 원. 필름 어디를 눌러도 소리와 함께 처음부터 */
@@ -157,7 +158,8 @@
   #shelf .scap { position: absolute; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px; pointer-events: none; }
   #shelf .scap span:first-child { color: var(--paper); }
   #shelf .scap .sre { display: none; pointer-events: auto; padding: 0; border: 0; background: none; color: var(--paper); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-  #shelf.skip .scap .sre { display: inline; } #shelf.skip .scap .hint { display: none; }
+  #shelf.skip .scap .sre { display: inline; } #shelf.skip .scap .hint { display: none; } #shelf.past .scap .hint { visibility: hidden; }
+  #shelf .scap .sre { position: relative; } #shelf .scap .sre::after, #sound::after { content: ""; position: absolute; inset: -12px -8px; }   /* 손가락으로 누르는 자리 44px 이상(글자 크기는 그대로) */
   #shelf .sback { position: absolute; left: 32px; top: 28px; z-index: 2; display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px 9px 13px;
     font-size: 13px; border: 1px solid rgba(233, 228, 218, .35); border-radius: 999px; background: rgba(18, 18, 16, .4);
     -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); opacity: 0; pointer-events: none; transition: opacity .5s ease, border-color .25s ease; }
@@ -240,8 +242,8 @@
   @media (max-width: 760px) {
     :root { --m: 22px; }
     .opener .k, .opener .meta, .opener h2, .opener p, .feat .txt, .feat figure, .index-head span, #index .row .n, #index .row .first, #index .row .who,
-    #index .more blockquote, #index .more figure, footer .k, footer .ph, footer .tx, footer .bk, footer .fm { grid-column: 1 / -1; }
-    .opener .meta { grid-row: auto; text-align: left; margin-top: 4px; } .opener h2 { grid-row: auto; margin-top: 40px; } .opener p { grid-row: auto; margin-top: 18px; }
+    #index .more blockquote, #index .more figure, footer .k, footer .ph, footer .tx, footer .bk, footer .fm, .wrap .opener p { grid-column: 1 / -1; }
+    .opener .meta { grid-row: auto; text-align: left; margin-top: 4px; } .opener h2 { grid-row: auto; margin-top: 40px; } .wrap .opener p { grid-row: auto; margin-top: 18px; }   /* 1100px 규칙(.wrap .opener p)보다 세게: 폰에서 소개가 제목 위 좁은 단에 깔리던 것(11/3) */
     #feats .txt, #feats figure { grid-column: 1 / -1; grid-row: auto; padding: 0; margin-top: 0; align-self: start; }   /* 꼭지별 두 단 배치보다 세게 */
     #feats figure { width: 72%; margin-top: 26px; } #feats .v1 figure, #feats .v3 figure { justify-self: end; }
     #side { display: none; }
@@ -596,7 +598,9 @@
   new IntersectionObserver((es, o) => es.forEach((e) => { if (e.isIntersecting) { sframe.style.backgroundImage = `url(media/${innerWidth <= 760 ? 'shelf_m' : 'shelf'}.jpg)`; o.disconnect(); } }), { rootMargin: '120% 0px' }).observe(shelfFrame);
   shelfFrame.addEventListener('load', () => {
     const t0 = performance.now();
-    const check = () => { let ok = false; try { const a = shelfFrame.contentWindow.__app; ok = !!(a && a.ready); } catch (e) { ok = true; }
+    let handed = false;
+    const check = () => { let ok = false; try { const a = shelfFrame.contentWindow.__app; ok = !!(a && a.ready); if (a && a.drive && !handed) { handed = true; updateShelf(); } } catch (e) { ok = true; }
+      if (ok && !handed) { handed = true; updateShelf(); }                                            // 준비되자마자 스크롤 자리를 넘겨 줌: 안 그러면 책장이 화면 밖에서 혼자 넘기며 계속 그림(11/3 검수, 초당 GL 호출 1.6만)
       if (ok || performance.now() - t0 > 15000) shelfFrame.classList.add('ready'); else setTimeout(check, 200); };
     check();
   });
@@ -625,6 +629,7 @@
     sedge.style.cssText = `left:${left.toFixed(1)}px;top:${top.toFixed(1)}px;width:${vw.toFixed(1)}px;height:${vh.toFixed(1)}px;border-radius:${rad.toFixed(1)}px;opacity:${(1 - open).toFixed(3)}`;
     scap.style.cssText = `left:${(left + 6).toFixed(1)}px;top:${(top + vh + 14).toFixed(1)}px;width:${(vw - 12).toFixed(1)}px;opacity:${clamp01(1 - open * 3).toFixed(3)}`;
     sback.classList.toggle('on', open > .6 && y < span - 4);
+    shelfSec.classList.toggle('past', y > g + b);                          // 다 지나간 뒤 줄어드는 끝에선 "Scroll to open" 안내를 감춤
     const live = reduce || open > .92;                                     // 화면을 다 채웠을 때만 창 안에서 끌기·누르기(작을 땐 스크롤이 그대로 페이지로)
     if (live !== shelfLive) { shelfLive = live; shelfFrame.style.pointerEvents = live ? 'auto' : 'none'; }
     const app = shelfFrame.contentWindow && shelfFrame.contentWindow.__app;

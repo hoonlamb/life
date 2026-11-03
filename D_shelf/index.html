@@ -211,7 +211,9 @@ function foilORM(url, baseRough) {        // 금박 마스크 → 거칠기(G)·
 }
 // surface: jacket(종이 재킷) / boards(인쇄 판지) / paper / cloth / leather / marbled
 function surfaceMat(surface, gloss, mapUrl, foilUrl, lazy = false, placeholder = '#333') {
-  const m = new THREE.MeshPhysicalMaterial(lazy ? { color: placeholder, map: MAP0 } : { map: prep(loadTex(mapUrl)) });
+  // 사진이 올라오기 전엔 자리 색(MAP0 × placeholder): 늦은 망에서 책등이 검게 뜨던 것(11/3 검수)
+  const m = new THREE.MeshPhysicalMaterial({ color: placeholder, map: MAP0 });
+  if (!lazy) { const t = prep(loadTex(mapUrl, null, () => { m.map = t; m.color.set('#ffffff'); })); }
   m.userData.lazy = lazy ? { mapUrl, foilUrl, loaded: false } : null;
   if (surface === 'cloth') { m.roughness = 0.92; m.bumpMap = clothWeave; m.bumpScale = 1.2; m.sheen = 0.4; m.sheenRoughness = 0.8; m.sheenColor = new THREE.Color('#ffffff'); }
   else if (surface === 'leather') { m.roughness = 0.5; m.bumpMap = leatherGrain; m.bumpScale = 1.6; m.clearcoat = 0.25; m.clearcoatRoughness = 0.5; }
@@ -264,7 +266,7 @@ function makeBook(b) {
   const foil = (f) => (b.faces && b.faces[f] && b.faces[f].foil) || null;
   const coverMat = surfaceMat(b.coverSurface || b.surface, b.gloss, b.cover, foil('cover'), true, b.edge);
   coverMat.userData.lazy.placeholder = b.edge;
-  const spineMat = surfaceMat(b.spineSurface || b.surface, b.gloss, b.spine, foil('spine'));
+  const spineMat = surfaceMat(b.spineSurface || b.surface, b.gloss, b.spine, foil('spine'), false, b.spineEdge || b.edge);
   const inner = new THREE.Group();
   const wb = w - bulge;                                   // 판 너비
   // 앞판: +Z 면(4번 그룹)에 표지
@@ -520,7 +522,7 @@ try { await renderer.compileAsync(scene, camera); } catch (e) { renderer.compile
 requestAnimationFrame(frame);
 
 window.__app = {
-  get ready() { return pending === 0; },
+  get ready() { return pending === 0 && uploads.length === 0; },   // 다 풀리고 GPU 에도 다 올라갔을 때
   get markFont() { return markShown; },
   xs: () => books.map((g) => g.position.x),                // 시험용: 책마다 화면 가로 위치(m)
   state: () => ({ f, N, viewW, pending, calls: renderer.info.render.calls, tris: renderer.info.render.triangles, textures: renderer.info.memory.textures }),
