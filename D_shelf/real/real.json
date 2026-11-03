@@ -1,0 +1,3571 @@
+[
+ {
+  "slug": "a_little_life",
+  "title": "A Little Life",
+  "author": "Hanya Yanagihara",
+  "h": 243.1,
+  "w": 162.1,
+  "t": 49.0,
+  "dims_src": "https://www.amazon.com/dp/1035066157",
+  "dims_note": "아마존 상품 정보 6.38 x 1.93 x 9.57 inches(출판 사양, 반올림)",
+  "edition": {
+   "publisher": "Picador",
+   "year": 2025,
+   "binding": "hardcover",
+   "isbn13": "9781035066155",
+   "label": "10th Anniversary Collector's Edition",
+   "source_url": "https://www.amazon.com/dp/1035066157"
+  },
+  "spine": "real_versions/20261018-131432/a_little_life_spine.jpg",
+  "cover": "real_versions/20261018-131432/a_little_life_cover.jpg",
+  "back": null,
+  "edge": "#6f2b30",
+  "spineEdge": "#fe5c41",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/a_little_life_cover.jpg",
+    "url": "https://m.media-amazon.com/images/I/81AeqPlG6NL.jpg",
+    "px": [
+     1366,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1674,
+     2560
+    ],
+    "upscale_w": 0.82,
+    "upscale_h": 0.8,
+    "edge": "#6f2b30",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/a_little_life_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/71Yd-k+1tYL.jpg",
+    "px": [
+     349,
+     1732
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     338,
+     1732
+    ],
+    "upscale_w": 1.03,
+    "upscale_h": 1.0,
+    "edge": "#fe5c41",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "boards",
+  "gloss": 0.12,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "boards",
+  "coverSurface": "boards",
+  "backSurface": "boards"
+ },
+ {
+  "slug": "twelve_rules",
+  "title": "12 Rules for Life",
+  "author": "Jordan B. Peterson",
+  "h": 240,
+  "w": 160,
+  "t": 30,
+  "dims_src": "https://www.penguin.co.uk/books/309610/12-rules-for-life-by-peterson-jordan-b/9780241351635",
+  "dims_note": "출판사 사양 240 x 30 x 160 mm, 아마존 같은 값",
+  "edition": {
+   "publisher": "Allen Lane",
+   "year": 2018,
+   "binding": "hardcover",
+   "isbn13": "9780241351635",
+   "source_url": "https://www.amazon.com/dp/0241351634"
+  },
+  "spine": "real_versions/20261018-131432/twelve_rules_spine.jpg",
+  "cover": "real_versions/20261018-131432/twelve_rules_cover.jpg",
+  "back": "real_versions/20261018-131432/twelve_rules_back.jpg",
+  "edge": "#ffffff",
+  "spineEdge": "#ecebe6",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/twelve_rules_cover.jpg",
+    "url": "https://m.media-amazon.com/images/I/61i00-7wcyS.jpg",
+    "px": [
+     1365,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1663,
+     2560
+    ],
+    "upscale_w": 0.82,
+    "upscale_h": 0.8,
+    "edge": "#ffffff",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/twelve_rules_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/611+cCyV+JL.jpg",
+    "px": [
+     132,
+     1052
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     66,
+     1068
+    ],
+    "upscale_w": 2.0,
+    "upscale_h": 0.99,
+    "edge": "#ecebe6",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "back": {
+    "file": "real_versions/20261018-131432/twelve_rules_back.jpg",
+    "url": "https://m.media-amazon.com/images/I/71Lvmu3bLiL.jpg",
+    "px": [
+     1365,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1664,
+     2560
+    ],
+    "upscale_w": 0.82,
+    "upscale_h": 0.8,
+    "edge": "#ffffff",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": 0.15,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "tristram_shandy",
+  "title": "The Life and Opinions of Tristram Shandy",
+  "author": "Laurence Sterne",
+  "h": 266.7,
+  "w": 184.2,
+  "t": 30,
+  "dims_src": "https://www.abaa.org/book/276252528",
+  "dims_note": "높이·너비: ABAA 1980 갈색 가죽판 10 1/2 x 7 1/4 in. 두께는 같은 1980 판 다른 개체(estimablebooks.com, 26 x 18.5 x 3 cm)의 3cm. 사진 개체 실측 아님",
+  "edition": {
+   "publisher": "Easton Press",
+   "year": 1980,
+   "binding": "full leather",
+   "isbn13": null,
+   "label": "Collector's Edition (100 Greatest Books), brown leather",
+   "source_url": "https://www.abebooks.com/first-edition/Easton-Press-TRISTRAM-SHANDY-100-Greatest/31655791785/bd"
+  },
+  "spine": "real_versions/20261018-131432/tristram_shandy_spine.jpg",
+  "cover": "real_versions/20261018-131432/tristram_shandy_cover.jpg",
+  "back": null,
+  "edge": "#8e615c",
+  "spineEdge": "#442f22",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/tristram_shandy_cover.jpg",
+    "url": "https://pictures.abebooks.com/inventory/31655791785.jpg",
+    "px": [
+     1414,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     2154,
+     2297
+    ],
+    "upscale_w": 0.66,
+    "upscale_h": 0.89,
+    "edge": "#8e615c",
+    "fit_edges_px": null,
+    "foil": "real_versions/20261018-131432/tristram_shandy_cover_foil.png"
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/tristram_shandy_spine.jpg",
+    "url": "https://pictures.abebooks.com/inventory/31655791785_4.jpg",
+    "px": [
+     230,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     331,
+     2247
+    ],
+    "upscale_w": 0.69,
+    "upscale_h": 0.91,
+    "edge": "#442f22",
+    "fit_edges_px": null,
+    "foil": "real_versions/20261018-131432/tristram_shandy_spine_foil.png"
+   }
+  },
+  "binding": "hard",
+  "surface": "leather",
+  "gloss": 0.15,
+  "gilt": {
+   "top": true,
+   "fore": true,
+   "bottom": true
+  },
+  "foil": true,
+  "foilFaces": [
+   "cover",
+   "spine"
+  ],
+  "spineSurface": "leather",
+  "coverSurface": "leather",
+  "backSurface": "leather"
+ },
+ {
+  "slug": "life_of_pi",
+  "title": "Life of Pi",
+  "author": "Yann Martel",
+  "h": 246.38,
+  "w": 193.04,
+  "t": 27.94,
+  "dims_src": "https://openlibrary.org/books/OL10100610M.json",
+  "dims_note": "원문 9.7 x 7.6 x 1.1 inches. h/w/t 내림차순 정렬; inch × 25.4, mm 소수 둘째 자리 반올림.",
+  "edition": {
+   "publisher": "Harcourt",
+   "year": 2007,
+   "binding": "hardcover",
+   "isbn13": "9780151013838",
+   "source_url": "https://bookshopapocalypse.com/products/life-of-pi-by-yann-martel-tomislav-torjanac-illustrated-edition-2007-harcourt-copy"
+  },
+  "spine": "real_versions/20261018-131432/life_of_pi_spine.jpg",
+  "cover": "real_versions/20261018-131432/life_of_pi_cover.jpg",
+  "back": null,
+  "edge": "#cdcdb5",
+  "spineEdge": "#bec1bf",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/life_of_pi_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/lifeofpiillustrated-1.jpg?v=1772015103",
+    "px": [
+     1198,
+     1529
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1072,
+     1529
+    ],
+    "upscale_w": 1.12,
+    "upscale_h": 1.0,
+    "edge": "#cdcdb5",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/life_of_pi_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/lifeofpiillustrated-2.jpg?v=1772015103",
+    "px": [
+     171,
+     1504
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     163,
+     1504
+    ],
+    "upscale_w": 1.05,
+    "upscale_h": 1.0,
+    "edge": "#bec1bf",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "samui_hangaunde",
+  "title": "삶의 한가운데",
+  "author": "루이제 린저",
+  "h": 225,
+  "w": 132,
+  "t": 19.4,
+  "dims_src": "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=198265",
+  "dims_note": "알라딘: 132*225mm, 432쪽, 두께 미표기. 민음사도 132x225, 반양장으로 표기하나 388쪽. 예스24 https://www.yes24.com/product/goods/63681 에는 같은 ISBN에 382쪽 | 502g | 132*224*30mm가 명시됨. 서로 다른 쪽수·높이 정보 중 어느 것이 확보한 이미지의 실물에 해당하는지 확인하지 못해 예스24의 30mm를 채택하지 않고 t=null. 쪽수·종이·이미지 비율로 추정하지 않음. | 10/18 Claude: 두께는 알라딘이 내려 주는 평면 책등 파일(86×1000px, 인쇄용 책등 디자인)의 비율에서 225×0.086=19.4mm. 같은 알라딘 앞표지 파일 비율 1569/2657=0.591 이 공식 크기 132/225=0.587 과 맞아 서점 평면 파일이 실제 비율을 따른다고 봄. 예스24 30mm 는 다른 쇄일 수 있고, 쓰면 책등 글자가 가로로 1.55배 늘어남.",
+  "edition": {
+   "publisher": "민음사",
+   "year": 1999,
+   "binding": "soft",
+   "isbn13": "9788937460289",
+   "source_url": "https://minumsa.minumsa.com/book/1697/",
+   "note": "세계문학전집 28, 박찬일 옮김, 한국어판. 발행일 1999-06-25는 민음사·알라딘 표기. 예스24는 1999-06-30. 개별 이미지에 대응하는 쇄·인쇄 연도는 확인하지 못함."
+  },
+  "spine": "real_versions/20261018-131432/samui_hangaunde_spine.jpg",
+  "cover": "real_versions/20261018-131432/samui_hangaunde_cover.jpg",
+  "back": "real_versions/20261018-131432/samui_hangaunde_back.jpg",
+  "edge": "#ffffff",
+  "spineEdge": "#ffffff",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/samui_hangaunde_cover.jpg",
+    "url": "https://image.aladin.co.kr/product/19/82/letslook/S382933991_fl.jpg",
+    "px": [
+     1201,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1569,
+     2657
+    ],
+    "upscale_w": 0.77,
+    "upscale_h": 0.77,
+    "edge": "#ffffff",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/samui_hangaunde_spine.jpg",
+    "url": "https://image.aladin.co.kr/product/19/82/Spine/S082933849_d.jpg",
+    "px": [
+     86,
+     1000
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     86,
+     1000
+    ],
+    "upscale_w": 1.0,
+    "upscale_h": 1.0,
+    "edge": "#ffffff",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "back": {
+    "file": "real_versions/20261018-131432/samui_hangaunde_back.jpg",
+    "url": "https://image.aladin.co.kr/product/19/82/letslook/S382933991_bl.jpg",
+    "px": [
+     1201,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1554,
+     2657
+    ],
+    "upscale_w": 0.77,
+    "upscale_h": 0.77,
+    "edge": "#ffffff",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "paper",
+  "surface": "paperback",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "paperback",
+  "coverSurface": "paperback",
+  "backSurface": "paperback"
+ },
+ {
+  "slug": "henrietta_lacks",
+  "title": "The Immortal Life of Henrietta Lacks",
+  "author": "Rebecca Skloot",
+  "h": 241.81,
+  "w": 160.78,
+  "t": 32.26,
+  "dims_src": "https://www.betterworldbooks.com/product/detail/the-immortal-life-of-henrietta-lacks-9781400052172",
+  "dims_note": "원문 6.33 x 9.52 x 1.27 inches. h/w/t 내림차순 정렬; inch × 25.4, mm 소수 둘째 자리 반올림.",
+  "edition": {
+   "publisher": "Crown Publishers",
+   "year": 2010,
+   "binding": "hardcover",
+   "isbn13": "9781400052172",
+   "source_url": "https://bookshopapocalypse.com/products/the-immortal-life-of-henrietta-lacks-by-rebecca-skloot-first-edition-first-printing-2010-crown"
+  },
+  "spine": "real_versions/20261018-131432/henrietta_lacks_spine.jpg",
+  "cover": "real_versions/20261018-131432/henrietta_lacks_cover.jpg",
+  "back": null,
+  "edge": "#e0451b",
+  "spineEdge": "#cd4323",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/henrietta_lacks_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/immortallifeofhenriettalacks-1.jpg?v=1773135315",
+    "px": [
+     1007,
+     1514
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     939,
+     1514
+    ],
+    "upscale_w": 1.07,
+    "upscale_h": 1.0,
+    "edge": "#e0451b",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/henrietta_lacks_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/immortallifeofhenriettalacks-2.jpg?v=1773135315",
+    "px": [
+     198,
+     1482
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     187,
+     1482
+    ],
+    "upscale_w": 1.06,
+    "upscale_h": 1.0,
+    "edge": "#cd4323",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "secret_life_of_bees",
+  "title": "The Secret Life of Bees",
+  "author": "Sue Monk Kidd",
+  "h": 213.36,
+  "w": 142.24,
+  "t": 25.4,
+  "dims_src": "https://www.rarebookcellar.com/pages/books/69612/sue-monk-kidd/the-secret-life-of-bees",
+  "dims_note": "원문 1 x 8.4 x 5.6 Inches. h/w/t 내림차순 정렬; cm × 10 또는 mm 원값; mm 환산값 유지.",
+  "edition": {
+   "publisher": "Viking Press",
+   "year": 2002,
+   "binding": "hardcover",
+   "isbn13": "9780670032372",
+   "source_url": "https://www.rarebookcellar.com/pages/books/69612/sue-monk-kidd/the-secret-life-of-bees"
+  },
+  "spine": "real_versions/20261018-131432/secret_life_of_bees_spine.jpg",
+  "cover": "real_versions/20261018-131432/secret_life_of_bees_cover.jpg",
+  "back": null,
+  "edge": "#85747e",
+  "spineEdge": "#d1b13e",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/secret_life_of_bees_cover.jpg",
+    "url": "https://pictures.abebooks.com/inventory/31547156429.jpg",
+    "px": [
+     1365,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     2290,
+     3585
+    ],
+    "upscale_w": 0.6,
+    "upscale_h": 0.57,
+    "edge": "#85747e",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/secret_life_of_bees_spine.jpg",
+    "url": "https://rarebookcellar.cdn.bibliopolis.com/pictures/69612.jpg",
+    "px": [
+     155,
+     1305
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     152,
+     1305
+    ],
+    "upscale_w": 1.02,
+    "upscale_h": 1.0,
+    "edge": "#d1b13e",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "narrative_of_the_life_of_frederick_douglass",
+  "title": "Narrative of the Life of Frederick Douglass",
+  "author": "Frederick Douglass",
+  "h": 210.06,
+  "w": 139.95,
+  "t": 21.08,
+  "dims_src": "https://www.bookstores.com/books/narrative-of-life-of-frederick-douglass/9781435136649",
+  "dims_note": "원문 5.51 x 0.83 x 8.27 In. h/w/t 내림차순 정렬; cm × 10 또는 mm 원값; mm 환산값 유지.",
+  "edition": {
+   "publisher": "Barnes & Noble",
+   "year": 2012,
+   "binding": "hardcover",
+   "isbn13": "9781435136649",
+   "source_url": "https://bookshopapocalypse.com/products/narrative-of-the-life-of-frederick-douglass-hardcover-re-issue-2012-b-n"
+  },
+  "spine": "real_versions/20261018-131432/narrative_of_the_life_of_frederick_douglass_spine.jpg",
+  "cover": "real_versions/20261018-131432/narrative_of_the_life_of_frederick_douglass_cover.jpg",
+  "back": null,
+  "edge": "#575754",
+  "spineEdge": "#737576",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/narrative_of_the_life_of_frederick_douglass_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/narrativeofthelifeoffrederickdouglass-1sq.jpg?v=1716517955",
+    "px": [
+     1076,
+     1615
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     990,
+     1615
+    ],
+    "upscale_w": 1.09,
+    "upscale_h": 1.0,
+    "edge": "#575754",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/narrative_of_the_life_of_frederick_douglass_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/narrativeofthelifeoffrederickdouglass-3.jpg?v=1716517985",
+    "px": [
+     156,
+     1550
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     160,
+     1550
+    ],
+    "upscale_w": 0.97,
+    "upscale_h": 1.0,
+    "edge": "#737576",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "diversity_of_life",
+  "title": "The Diversity of Life",
+  "author": "Edward O. Wilson",
+  "h": 243.08,
+  "w": 163.32,
+  "t": 34.29,
+  "dims_src": "https://www.biblio.com/book/diversity-life-wilson-edward/d/453513148",
+  "dims_note": "원문 9.57 x 6.43 x 1.35 in (24.31 x 16.33 x 3.43 cm). h/w/t 내림차순 정렬; inch × 25.4, mm 소수 둘째 자리 반올림.",
+  "edition": {
+   "publisher": "Belknap Press of Harvard University Press",
+   "year": 1992,
+   "binding": "hardcover",
+   "isbn13": "9780674212985",
+   "source_url": "https://typepunchmatrix.com/pages/books/52631/edward-o-wilson/the-diversity-of-life"
+  },
+  "spine": "real_versions/20261018-131432/diversity_of_life_spine.jpg",
+  "cover": "real_versions/20261018-131432/diversity_of_life_cover.jpg",
+  "back": null,
+  "edge": "#caa252",
+  "spineEdge": "#e0d8c4",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/diversity_of_life_cover.jpg",
+    "url": "https://typepunchmatrix.cdn.bibliopolis.com/pictures/52631_3.jpg",
+    "px": [
+     1147,
+     1707
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1117,
+     1707
+    ],
+    "upscale_w": 1.03,
+    "upscale_h": 1.0,
+    "edge": "#caa252",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/diversity_of_life_spine.jpg",
+    "url": "https://typepunchmatrix.cdn.bibliopolis.com/pictures/52631_5.jpg",
+    "px": [
+     128,
+     905
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     64,
+     1243
+    ],
+    "upscale_w": 2.01,
+    "upscale_h": 0.73,
+    "edge": "#e0d8c4",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "life_among_the_savages",
+  "title": "Life Among the Savages",
+  "author": "Shirley Jackson",
+  "h": 215.9,
+  "w": 146.05,
+  "t": 25.4,
+  "dims_src": "https://www.etsy.com/listing/1308004997/life-among-the-savages-by-shirley?ref=nla_listing_details&show_sold_out_detail=1",
+  "dims_note": "원문 5 3/4 inches wide, 8 1/2 inches tall and is 1 inch thick. h/w/t 내림차순 정렬; inch × 25.4, mm 소수 둘째 자리 반올림.",
+  "edition": {
+   "publisher": "Farrar, Straus and Young",
+   "year": 1953,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.etsy.com/listing/1308004997/life-among-the-savages-by-shirley"
+  },
+  "spine": "real_versions/20261018-131432/life_among_the_savages_spine.jpg",
+  "cover": "real_versions/20261018-131432/life_among_the_savages_cover.jpg",
+  "back": null,
+  "edge": "#2a2926",
+  "spineEdge": "#3a3934",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/life_among_the_savages_cover.jpg",
+    "url": "https://i.etsystatic.com/15578267/r/il/0588d3/4175324300/il_fullxfull.4175324300_8osy.jpg",
+    "px": [
+     1287,
+     1903
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1203,
+     1903
+    ],
+    "upscale_w": 1.07,
+    "upscale_h": 1.0,
+    "edge": "#2a2926",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/life_among_the_savages_spine.jpg",
+    "url": "https://i.etsystatic.com/15578267/r/il/0553cf/4222980957/il_fullxfull.4222980957_6o7y.jpg",
+    "px": [
+     208,
+     1772
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     179,
+     1772
+    ],
+    "upscale_w": 1.16,
+    "upscale_h": 1.0,
+    "edge": "#3a3934",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "cloth",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "cloth",
+  "coverSurface": "cloth",
+  "backSurface": "cloth"
+ },
+ {
+  "slug": "hidden_life_of_trees",
+  "title": "The Hidden Life of Trees",
+  "author": "Peter Wohlleben",
+  "h": 193.0,
+  "w": 134.6,
+  "t": 27.9,
+  "dims_src": "https://www.amazon.com/dp/1771642483",
+  "dims_note": "Dimensions 5.3 x 1.1 x 7.6 inches. 아마존 페이지의 치수 사용; inch ×25.4 후 mm 소수 첫째 자리 반올림. 출판 사양의 반올림 값이며 해당 실물 실측값은 아님.",
+  "edition": {
+   "publisher": "Greystone Books",
+   "year": 2016,
+   "binding": "hardcover",
+   "isbn13": "9781771642484",
+   "source_url": "https://www.amazon.com/dp/1771642483"
+  },
+  "spine": "real_versions/20261018-131432/hidden_life_of_trees_spine.jpg",
+  "cover": "real_versions/20261018-131432/hidden_life_of_trees_cover.jpg",
+  "back": null,
+  "edge": "#f7f5de",
+  "spineEdge": "#c2bfb1",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/hidden_life_of_trees_cover.jpg",
+    "url": "https://m.media-amazon.com/images/I/717Ac6Lw1JL.jpg",
+    "px": [
+     1046,
+     1500
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1050,
+     1500
+    ],
+    "upscale_w": 1.0,
+    "upscale_h": 1.0,
+    "edge": "#f7f5de",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/hidden_life_of_trees_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/41NUfm3QdFL.jpg",
+    "px": [
+     140,
+     968
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     90,
+     968
+    ],
+    "upscale_w": 1.56,
+    "upscale_h": 1.0,
+    "edge": "#c2bfb1",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "keith_richards_life",
+  "title": "Life",
+  "author": "Keith Richards",
+  "h": 244.6,
+  "w": 165.1,
+  "t": 47.8,
+  "dims_src": "https://www.amazon.com/dp/031603438X",
+  "dims_note": "Dimensions 6.5 x 1.88 x 9.63 inches. 아마존 페이지의 치수 사용; inch ×25.4 후 mm 소수 첫째 자리 반올림. 출판 사양의 반올림 값이며 해당 실물 실측값은 아님.",
+  "edition": {
+   "publisher": "Little, Brown and Company",
+   "year": 2010,
+   "binding": "hardcover",
+   "isbn13": "9780316034388",
+   "source_url": "https://www.amazon.com/dp/031603438X"
+  },
+  "spine": "real_versions/20261018-131432/keith_richards_life_spine.jpg",
+  "cover": "real_versions/20261018-131432/keith_richards_life_cover.jpg",
+  "back": null,
+  "edge": "#654b3f",
+  "spineEdge": "#66686a",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/keith_richards_life_cover.jpg",
+    "url": "https://pictures.abebooks.com/inventory/32472474709.jpg",
+    "px": [
+     1382,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     2278,
+     3500
+    ],
+    "upscale_w": 0.61,
+    "upscale_h": 0.59,
+    "edge": "#654b3f",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/keith_richards_life_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/51xjTFh95fL.jpg",
+    "px": [
+     184,
+     939
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     153,
+     939
+    ],
+    "upscale_w": 1.2,
+    "upscale_h": 1.0,
+    "edge": "#66686a",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "private_life_of_plants",
+  "title": "The Private Life of Plants",
+  "author": "David Attenborough",
+  "h": 254.0,
+  "w": 177.8,
+  "t": 25.4,
+  "dims_src": "https://www.amazon.com/dp/0691006393",
+  "dims_note": "Dimensions 7 x 1 x 10 inches",
+  "edition": {
+   "publisher": "Princeton University Press",
+   "year": 1995,
+   "binding": "hardcover",
+   "isbn13": "9780691006390",
+   "source_url": "https://www.amazon.com/dp/0691006393"
+  },
+  "spine": "real_versions/20261018-131432/private_life_of_plants_spine.jpg",
+  "cover": "real_versions/20261018-131432/private_life_of_plants_cover.jpg",
+  "back": null,
+  "edge": "#000000",
+  "spineEdge": "#1b1c1a",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/private_life_of_plants_cover.jpg",
+    "url": "https://pictures.abebooks.com/inventory/32463020239.jpg",
+    "px": [
+     1395,
+     1993
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1428,
+     1993
+    ],
+    "upscale_w": 0.98,
+    "upscale_h": 1.0,
+    "edge": "#000000",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/private_life_of_plants_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/51IYBnOOk+L.jpg",
+    "px": [
+     87,
+     870
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     93,
+     870
+    ],
+    "upscale_w": 0.94,
+    "upscale_h": 1.0,
+    "edge": "#1b1c1a",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "life_of_birds",
+  "title": "The Life of Birds",
+  "author": "David Attenborough",
+  "h": 260.3,
+  "w": 190.5,
+  "t": 31.8,
+  "dims_src": "https://www.amazon.com/dp/069101633X",
+  "dims_note": "Dimensions 7.5 x 1.25 x 10.25 inches",
+  "edition": {
+   "publisher": "Princeton University Press",
+   "year": 1998,
+   "binding": "hardcover",
+   "isbn13": "9780691016337",
+   "source_url": "https://www.amazon.com/dp/069101633X"
+  },
+  "spine": "real_versions/20261018-131432/life_of_birds_spine.jpg",
+  "cover": "real_versions/20261018-131432/life_of_birds_cover.jpg",
+  "back": null,
+  "edge": "#3b504a",
+  "spineEdge": "#202321",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/life_of_birds_cover.jpg",
+    "url": "https://pictures.abebooks.com/inventory/30625173473.jpg",
+    "px": [
+     1499,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     2580,
+     3665
+    ],
+    "upscale_w": 0.58,
+    "upscale_h": 0.56,
+    "edge": "#3b504a",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/life_of_birds_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/51fBPoqeAyL.jpg",
+    "px": [
+     98,
+     802
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     92,
+     802
+    ],
+    "upscale_w": 1.07,
+    "upscale_h": 1.0,
+    "edge": "#202321",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "life_of_mammals",
+  "title": "The Life of Mammals",
+  "author": "David Attenborough",
+  "h": 254.0,
+  "w": 184.1,
+  "t": 31.8,
+  "dims_src": "https://www.amazon.com/dp/0691113246",
+  "dims_note": "Dimensions 7.25 x 1.25 x 10 inches",
+  "edition": {
+   "publisher": "Princeton University Press",
+   "year": 2002,
+   "binding": "hardcover",
+   "isbn13": "9780691113241",
+   "source_url": "https://www.amazon.com/dp/0691113246"
+  },
+  "spine": "real_versions/20261018-131432/life_of_mammals_spine.jpg",
+  "cover": "real_versions/20261018-131432/life_of_mammals_cover.jpg",
+  "back": null,
+  "edge": "#a9acba",
+  "spineEdge": "#3b3c38",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/life_of_mammals_cover.jpg",
+    "url": "https://rarebookcellar.cdn.bibliopolis.com/pictures/152673.jpg",
+    "px": [
+     1060,
+     1462
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     914,
+     1462
+    ],
+    "upscale_w": 1.16,
+    "upscale_h": 1.0,
+    "edge": "#a9acba",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/life_of_mammals_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/51ixedEFDJL.jpg",
+    "px": [
+     99,
+     791
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     84,
+     791
+    ],
+    "upscale_w": 1.18,
+    "upscale_h": 1.0,
+    "edge": "#3b3c38",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "picasso_life_vol2",
+  "title": "A Life of Picasso, Volume II: 1907-1917 - The Painter of Modern Life",
+  "author": "John Richardson; Marilyn McCully",
+  "h": 262.9,
+  "w": 212.3,
+  "t": 41.1,
+  "dims_src": "https://www.betterworldbooks.com/product/detail/A-Life-of-Picasso---1907-1917---The-Painter-of-Modern-Life-9780394559186",
+  "dims_note": "같은 ISBN 9780394559186; Dimensions 8.36 x 10.35 x 1.62 inches, inch ×25.4. CiNii 높이 26 cm와 2.9 mm 차이.",
+  "edition": {
+   "publisher": "Random House",
+   "year": 1996,
+   "binding": "hardcover",
+   "isbn13": "9780394559186",
+   "source_url": "https://www.amazon.com/dp/0394559185"
+  },
+  "spine": "real_versions/20261018-131432/picasso_life_vol2_spine.jpg",
+  "cover": "real_versions/20261018-131432/picasso_life_vol2_cover.jpg",
+  "back": null,
+  "edge": "#252524",
+  "spineEdge": "#20201e",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/picasso_life_vol2_cover.jpg",
+    "url": "https://m.media-amazon.com/images/I/61XAVoCQ3uL.jpg",
+    "px": [
+     703,
+     871
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     497,
+     871
+    ],
+    "upscale_w": 1.41,
+    "upscale_h": 1.0,
+    "edge": "#252524",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/picasso_life_vol2_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/51zgFcXb3gL.jpg",
+    "px": [
+     134,
+     860
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     129,
+     860
+    ],
+    "upscale_w": 1.04,
+    "upscale_h": 1.0,
+    "edge": "#20201e",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "picasso_life_vol3",
+  "title": "A Life of Picasso III: The Triumphant Years",
+  "author": "John Richardson",
+  "h": 238.5,
+  "w": 186.7,
+  "t": 50.8,
+  "dims_src": "https://www.amazon.com/dp/0307266656",
+  "dims_note": "Dimensions 7.35 x 2 x 9.39 inches",
+  "edition": {
+   "publisher": "Knopf",
+   "year": 2007,
+   "binding": "hardcover",
+   "isbn13": "9780307266651",
+   "source_url": "https://www.amazon.com/dp/0307266656"
+  },
+  "spine": "real_versions/20261018-131432/picasso_life_vol3_spine.jpg",
+  "cover": "real_versions/20261018-131432/picasso_life_vol3_cover.jpg",
+  "back": null,
+  "edge": "#484230",
+  "spineEdge": "#6e1919",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/picasso_life_vol3_cover.jpg",
+    "url": "https://m.media-amazon.com/images/I/613SlnkHJcL.jpg",
+    "px": [
+     613,
+     783
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     518,
+     783
+    ],
+    "upscale_w": 1.18,
+    "upscale_h": 1.0,
+    "edge": "#484230",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/picasso_life_vol3_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/517eE7v5I9L.jpg",
+    "px": [
+     195,
+     915
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     180,
+     915
+    ],
+    "upscale_w": 1.09,
+    "upscale_h": 1.0,
+    "edge": "#6e1919",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "greene_life_vol2",
+  "title": "The Life of Graham Greene: Volume Two: 1939-1955",
+  "author": "Norman Sherry",
+  "h": 235.7,
+  "w": 164.1,
+  "t": 43.9,
+  "dims_src": "https://www.amazon.com/dp/0670860565",
+  "dims_note": "Dimensions 9.28 x 1.73 x 6.46 inches",
+  "edition": {
+   "publisher": "Viking Adult",
+   "year": 1995,
+   "binding": "hardcover",
+   "isbn13": "9780670860562",
+   "source_url": "https://www.amazon.com/dp/0670860565"
+  },
+  "spine": "real_versions/20261018-131432/greene_life_vol2_spine.jpg",
+  "cover": "real_versions/20261018-131432/greene_life_vol2_cover.jpg",
+  "back": null,
+  "edge": "#741f1e",
+  "spineEdge": "#50201f",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/greene_life_vol2_cover.jpg",
+    "url": "https://m.media-amazon.com/images/I/61VKfDN2P4L.jpg",
+    "px": [
+     614,
+     882
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     471,
+     882
+    ],
+    "upscale_w": 1.3,
+    "upscale_h": 1.0,
+    "edge": "#741f1e",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/greene_life_vol2_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/51rhjVSN1OL.jpg",
+    "px": [
+     161,
+     862
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     148,
+     862
+    ],
+    "upscale_w": 1.09,
+    "upscale_h": 1.0,
+    "edge": "#50201f",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "greene_life_vol3",
+  "title": "The Life of Graham Greene, Volume 3: 1955-1991",
+  "author": "Norman Sherry",
+  "h": 238.8,
+  "w": 162.1,
+  "t": 46.5,
+  "dims_src": "https://www.amazon.com/dp/0670031429",
+  "dims_note": "Dimensions 6.38 x 1.83 x 9.4 inches",
+  "edition": {
+   "publisher": "Viking Adult",
+   "year": 2004,
+   "binding": "hardcover",
+   "isbn13": "9780670031429",
+   "source_url": "https://www.amazon.com/dp/0670031429"
+  },
+  "spine": "real_versions/20261018-131432/greene_life_vol3_spine.jpg",
+  "cover": "real_versions/20261018-131432/greene_life_vol3_cover.jpg",
+  "back": null,
+  "edge": "#292c33",
+  "spineEdge": "#1c1e24",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/greene_life_vol3_cover.jpg",
+    "url": "https://m.media-amazon.com/images/I/61jS+aKvkqL.jpg",
+    "px": [
+     705,
+     1038
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     369,
+     1038
+    ],
+    "upscale_w": 1.91,
+    "upscale_h": 1.0,
+    "edge": "#292c33",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/greene_life_vol3_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/51eREQxhGTL.jpg",
+    "px": [
+     202,
+     1036
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     187,
+     1036
+    ],
+    "upscale_w": 1.08,
+    "upscale_h": 1.0,
+    "edge": "#1c1e24",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "life_you_can_save",
+  "title": "The Life You Can Save: Acting Now to End World Poverty",
+  "author": "Peter Singer",
+  "h": 217.2,
+  "w": 146.0,
+  "t": 22.4,
+  "dims_src": "https://www.amazon.com/dp/1400067103",
+  "dims_note": "Dimensions 5.75 x 0.88 x 8.55 inches",
+  "edition": {
+   "publisher": "Random House",
+   "year": 2009,
+   "binding": "hardcover",
+   "isbn13": "9781400067107",
+   "source_url": "https://www.amazon.com/dp/1400067103"
+  },
+  "spine": "real_versions/20261018-131432/life_you_can_save_spine.jpg",
+  "cover": "real_versions/20261018-131432/life_you_can_save_cover.jpg",
+  "back": null,
+  "edge": "#f74345",
+  "spineEdge": "#6a2824",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/life_you_can_save_cover.jpg",
+    "url": "https://pictures.abebooks.com/inventory/31082555425.jpg",
+    "px": [
+     1304,
+     1940
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1289,
+     1940
+    ],
+    "upscale_w": 1.01,
+    "upscale_h": 1.0,
+    "edge": "#f74345",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/life_you_can_save_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/51gpclfQHQL.jpg",
+    "px": [
+     114,
+     1102
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     98,
+     1102
+    ],
+    "upscale_w": 1.16,
+    "upscale_h": 1.0,
+    "edge": "#6a2824",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "trials_of_life",
+  "title": "The Trials of Life: A Natural History of Animal Behavior",
+  "author": "David Attenborough",
+  "h": 254.0,
+  "w": 177.8,
+  "t": 19.0,
+  "dims_src": "https://www.amazon.com/dp/0316057517",
+  "dims_note": "Dimensions 7 x 0.75 x 10 inches",
+  "edition": {
+   "publisher": "Little Brown & Co.",
+   "year": 1991,
+   "binding": "hardcover",
+   "isbn13": "9780316057516",
+   "source_url": "https://www.amazon.com/dp/0316057517"
+  },
+  "spine": "real_versions/20261018-131432/trials_of_life_spine.jpg",
+  "cover": "real_versions/20261018-131432/trials_of_life_cover.jpg",
+  "back": null,
+  "edge": "#3c5368",
+  "spineEdge": "#222422",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/trials_of_life_cover.jpg",
+    "url": "https://pictures.abebooks.com/inventory/30758814976.jpg",
+    "px": [
+     1434,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     2199,
+     3194
+    ],
+    "upscale_w": 0.65,
+    "upscale_h": 0.64,
+    "edge": "#3c5368",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/trials_of_life_spine.jpg",
+    "url": "https://m.media-amazon.com/images/I/511McBqLcfL.jpg",
+    "px": [
+     63,
+     842
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     73,
+     842
+    ],
+    "upscale_w": 0.87,
+    "upscale_h": 1.0,
+    "edge": "#222422",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "bodies_winwood",
+  "title": "Bodies: Life and Death in Music",
+  "author": "Ian Winwood",
+  "h": 236.0,
+  "w": 156.0,
+  "t": 24.9,
+  "dims_src": "https://www.amazon.com/dp/0571364187",
+  "dims_note": "Dimensions 6.14 x 0.98 x 9.29 inches",
+  "edition": {
+   "publisher": "Faber & Faber",
+   "year": 2022,
+   "binding": "paperback",
+   "isbn13": "9780571364183",
+   "source_url": "https://bookshopapocalypse.com/products/bodies-life-and-death-in-music-by-ian-winwood-first-edition-paperback-2022-faber-u-k",
+   "note": "한 판매 목록의 동일 실물 표지·책등·판권 사진. 다른 개체 사진을 섞지 않음. 최종 cv2 보정본·overlay를 이미지 보기 도구로 직접 열람. 모든 글자·로고와 네 변 확인. 현행 Amazon의 날짜/브랜드가 다를 수 있어 실물 판권의 연도·임프린트를 기록. 치수만 동일 ISBN 출처로 연결.",
+   "evidence": [
+    {
+     "photo": "후보/round3/apocalypse/52/6.jpg",
+     "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/bodies-6.jpg?v=1764191299",
+     "role": "판권·ISBN·인쇄연도 사진; 하드커버 ISBN이 같이 실린 PB는 뒷표지 번호도 대조"
+    }
+   ]
+  },
+  "spine": "real_versions/20261018-131432/bodies_winwood_spine.jpg",
+  "cover": "real_versions/20261018-131432/bodies_winwood_cover.jpg",
+  "back": null,
+  "edge": "#dcdde4",
+  "spineEdge": "#c0c0c4",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/bodies_winwood_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/bodies-1.jpg?v=1764191107",
+    "px": [
+     1017,
+     1538
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     933,
+     1538
+    ],
+    "upscale_w": 1.09,
+    "upscale_h": 1.0,
+    "edge": "#dcdde4",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/bodies_winwood_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/bodies-3.jpg?v=1764191120",
+    "px": [
+     158,
+     1501
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     132,
+     1501
+    ],
+    "upscale_w": 1.2,
+    "upscale_h": 1.0,
+    "edge": "#c0c0c4",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "paper",
+  "surface": "paperback",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "paperback",
+  "coverSurface": "paperback",
+  "backSurface": "paperback"
+ },
+ {
+  "slug": "funny_woman_brice",
+  "title": "Funny Woman: The Life and Times of Fanny Brice",
+  "author": "Barbara Wallace Grossman",
+  "h": 242.3,
+  "w": 164.1,
+  "t": 31.5,
+  "dims_src": "https://www.amazon.com/dp/0253326532",
+  "dims_note": "Dimensions 6.46 x 1.24 x 9.54 inches",
+  "edition": {
+   "publisher": "Indiana University Press",
+   "year": 1991,
+   "binding": "hardcover",
+   "isbn13": "9780253326539",
+   "source_url": "https://bookshopapocalypse.com/products/funny-woman-the-life-and-times-of-fanny-brice-by-barbara-wallace-grossman-first-edition",
+   "note": "한 판매 목록의 동일 실물 표지·책등·판권 사진. 다른 개체 사진을 섞지 않음. 최종 cv2 보정본·overlay를 이미지 보기 도구로 직접 열람. 모든 글자·로고와 네 변 확인. 현행 Amazon의 날짜/브랜드가 다를 수 있어 실물 판권의 연도·임프린트를 기록. 치수만 동일 ISBN 출처로 연결.",
+   "evidence": [
+    {
+     "photo": "후보/round3/apocalypse/24/8.jpg",
+     "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/funnywoman-5.jpg?v=1647222766",
+     "role": "판권·ISBN·인쇄연도 사진; 하드커버 ISBN이 같이 실린 PB는 뒷표지 번호도 대조"
+    }
+   ]
+  },
+  "spine": "real_versions/20261018-131432/funny_woman_brice_spine.jpg",
+  "cover": "real_versions/20261018-131432/funny_woman_brice_cover.jpg",
+  "back": null,
+  "edge": "#2c519e",
+  "spineEdge": "#425898",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/funny_woman_brice_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/funnywoman-1sq.jpg?v=1647222766",
+    "px": [
+     1045,
+     1543
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     945,
+     1543
+    ],
+    "upscale_w": 1.11,
+    "upscale_h": 1.0,
+    "edge": "#2c519e",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/funny_woman_brice_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/funnywoman-2.jpg?v=1647222766",
+    "px": [
+     187,
+     1439
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     172,
+     1439
+    ],
+    "upscale_w": 1.09,
+    "upscale_h": 1.0,
+    "edge": "#425898",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "jacket",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "jacket",
+  "coverSurface": "jacket",
+  "backSurface": "jacket"
+ },
+ {
+  "slug": "last_victim_moss_pb",
+  "title": "The Last Victim: A True-Life Journey into the Mind of the Serial Killer",
+  "author": "Jason Moss with Jeffrey Kottler",
+  "h": 203.2,
+  "w": 127.0,
+  "t": 19.8,
+  "dims_src": "https://www.amazon.com/dp/0446608270",
+  "dims_note": "Dimensions 5 x 0.78 x 8 inches. 같은 ISBN 3개 추가 출처와 대조, 모든 축 최대 차이 3.2 mm.",
+  "edition": {
+   "publisher": "Warner Books / Warner Vision",
+   "year": 2000,
+   "binding": "paperback",
+   "isbn13": "9780446608275",
+   "source_url": "https://bookshopapocalypse.com/products/the-last-victim-a-true-life-journey-into-the-mind-of-the-serial-killer-by-jason-m-moss-first-paperback-printing",
+   "evidence": [
+    {
+     "photo": "후보/round3/apocalypse/35/5.jpg",
+     "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/thelastvictim-5.jpg?v=1629910543",
+     "role": "실물 첫 paperback 인쇄 2000년 2월; 판권 사진"
+    },
+    {
+     "photo": "후보/round3/apocalypse/35/3.jpg",
+     "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/thelastvictim-3.jpg?v=1629910543",
+     "role": "동일 실물 뒤표지 ISBN 0-446-60827-0"
+    }
+   ]
+  },
+  "spine": "real_versions/20261018-131432/last_victim_moss_pb_spine.jpg",
+  "cover": "real_versions/20261018-131432/last_victim_moss_pb_cover.jpg",
+  "back": null,
+  "edge": "#fcfcfa",
+  "spineEdge": "#fffdd5",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/last_victim_moss_pb_cover.jpg",
+    "url": "https://pictures.abebooks.com/inventory/31546220943.jpg",
+    "px": [
+     1280,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1507,
+     2600
+    ],
+    "upscale_w": 0.85,
+    "upscale_h": 0.79,
+    "edge": "#fcfcfa",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/last_victim_moss_pb_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/thelastvictim-2.jpg?v=1629910543",
+    "px": [
+     137,
+     1403
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     115,
+     1403
+    ],
+    "upscale_w": 1.19,
+    "upscale_h": 1.0,
+    "edge": "#fffdd5",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "paper",
+  "surface": "paperback",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "paperback",
+  "coverSurface": "paperback",
+  "backSurface": "paperback"
+ },
+ {
+  "slug": "hot_house_life",
+  "title": "The Hot House: Life Inside Leavenworth Prison",
+  "author": "Pete Earley",
+  "h": 228.6,
+  "w": 157.48,
+  "t": 27.94,
+  "dims_src": "https://www.thriftbooks.com/w/the-hot-house-life-inside-leavenworth-prison_pete-earley/252181/",
+  "dims_note": "같은 판의 출처에 실제 표기된 수치: 1.1 x 6.2 x 9.0 inches",
+  "edition": {
+   "publisher": "Bantam Books",
+   "year": 1992,
+   "binding": "hardcover",
+   "isbn13": "9780553075731",
+   "source_url": "https://bookshopapocalypse.com/products/the-hot-house-life-inside-leavenworth-prison-by-pete-earley-first-edition"
+  },
+  "spine": "real_versions/20261018-131432/hot_house_life_spine.jpg",
+  "cover": "real_versions/20261018-131432/hot_house_life_cover.jpg",
+  "back": null,
+  "edge": "#543028",
+  "spineEdge": "#cd433f",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/hot_house_life_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/thehothouse-7.jpg?v=1627687685",
+    "px": [
+     1035,
+     1502
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     602,
+     1502
+    ],
+    "upscale_w": 1.72,
+    "upscale_h": 1.0,
+    "edge": "#543028",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/hot_house_life_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/thehothouse-7.jpg?v=1627687685",
+    "px": [
+     184,
+     1505
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     126,
+     1505
+    ],
+    "upscale_w": 1.46,
+    "upscale_h": 1.0,
+    "edge": "#cd433f",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "cloth",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "cloth",
+  "coverSurface": "cloth",
+  "backSurface": "cloth"
+ },
+ {
+  "slug": "manson_life_times",
+  "title": "Manson: The Life and Times of Charles Manson",
+  "author": "Jeff Guinn",
+  "h": 228.6,
+  "w": 152.4,
+  "t": 33.0,
+  "dims_src": "https://booksrun.com/9781451645163-manson-the-life-and-times-of-charles-manson-first-edition",
+  "dims_note": "같은 판의 출처에 실제 표기된 수치: 9 x 1.3 x 6 inches",
+  "edition": {
+   "publisher": "Simon & Schuster",
+   "year": 2013,
+   "binding": "hardcover",
+   "isbn13": "9781451645163",
+   "source_url": "https://bookshopapocalypse.com/products/manson-the-life-and-times-of-charles-manson-by-jeff-guinn-first-edition-first-printing-2013-simon-schuster"
+  },
+  "spine": "real_versions/20261018-131432/manson_life_times_spine.jpg",
+  "cover": "real_versions/20261018-131432/manson_life_times_cover.jpg",
+  "back": null,
+  "edge": "#a69f98",
+  "spineEdge": "#2a333c",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/manson_life_times_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/mansonlifeandtimes-8.jpg?v=1755733568",
+    "px": [
+     1043,
+     1564
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     616,
+     1564
+    ],
+    "upscale_w": 1.69,
+    "upscale_h": 1.0,
+    "edge": "#a69f98",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/manson_life_times_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/mansonlifeandtimes-8.jpg?v=1755733568",
+    "px": [
+     231,
+     1602
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     142,
+     1602
+    ],
+    "upscale_w": 1.62,
+    "upscale_h": 1.0,
+    "edge": "#2a333c",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "like_roman_enoch_powell",
+  "title": "Like the Roman: The Life of Enoch Powell",
+  "author": "Simon Heffer",
+  "h": 240,
+  "w": 160,
+  "t": 60,
+  "dims_src": "https://rarebooksboutique.com/products/like-the-roman-by-simon-heffer",
+  "dims_note": "동일 실물 판매 목록에 명시된 3축 치수. cm ×10 환산.",
+  "edition": {
+   "publisher": "Weidenfeld & Nicolson",
+   "year": 1998,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://rarebooksboutique.com/products/like-the-roman-by-simon-heffer"
+  },
+  "spine": "real_versions/20261018-131432/like_roman_enoch_powell_spine.jpg",
+  "cover": "real_versions/20261018-131432/like_roman_enoch_powell_cover.jpg",
+  "back": null,
+  "edge": "#25191c",
+  "spineEdge": "#6186ac",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/like_roman_enoch_powell_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/0456/6872/8995/files/SAM_2443_5d49d952-7598-47f8-b58a-b58a4e82b10f.jpg?v=1783260857",
+    "px": [
+     1365,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1331,
+     2123
+    ],
+    "upscale_w": 1.03,
+    "upscale_h": 0.96,
+    "edge": "#25191c",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/like_roman_enoch_powell_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/0456/6872/8995/files/SAM_2443_5d49d952-7598-47f8-b58a-b58a4e82b10f.jpg?v=1783260857",
+    "px": [
+     512,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     326,
+     2121
+    ],
+    "upscale_w": 1.57,
+    "upscale_h": 0.97,
+    "edge": "#6186ac",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "paper",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "paper",
+  "coverSurface": "paper",
+  "backSurface": "paper"
+ },
+ {
+  "slug": "great_beast_crowley",
+  "title": "The Great Beast: The Life and Magick of Aleister Crowley",
+  "author": "John Symonds",
+  "h": 220,
+  "w": 140,
+  "t": 35,
+  "dims_src": "https://rarebooksboutique.com/products/the-great-beast-the-life-and-magick-of-aleister-crowley-by-john-symonds-1971",
+  "dims_note": "동일 실물 판매 목록에 명시된 3축 치수. cm ×10 환산.",
+  "edition": {
+   "publisher": "Macdonald & Co.",
+   "year": 1971,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://rarebooksboutique.com/products/the-great-beast-the-life-and-magick-of-aleister-crowley-by-john-symonds-1971"
+  },
+  "spine": "real_versions/20261018-131432/great_beast_crowley_spine.jpg",
+  "cover": "real_versions/20261018-131432/great_beast_crowley_cover.jpg",
+  "back": null,
+  "edge": "#423f45",
+  "spineEdge": "#504d54",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/great_beast_crowley_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/0456/6872/8995/files/SAM_1407_2ccbc9e7-0f3b-4c69-bfa0-6f73a8f61669.jpg?v=1761861734",
+    "px": [
+     1303,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     1237,
+     2315
+    ],
+    "upscale_w": 1.05,
+    "upscale_h": 0.88,
+    "edge": "#423f45",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/great_beast_crowley_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/0456/6872/8995/files/SAM_1407_2ccbc9e7-0f3b-4c69-bfa0-6f73a8f61669.jpg?v=1761861734",
+    "px": [
+     326,
+     2048
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     224,
+     2337
+    ],
+    "upscale_w": 1.45,
+    "upscale_h": 0.88,
+    "edge": "#504d54",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": "cloth",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "cloth",
+  "coverSurface": "cloth",
+  "backSurface": "cloth"
+ },
+ {
+  "slug": "almost_lost_life",
+  "title": "Almost Lost: The True Story of an Anonymous Teenager’s Life on the Streets",
+  "author": "Beatrice Sparks (editor)",
+  "h": 171.4,
+  "w": 106.4,
+  "t": 16.3,
+  "dims_src": "https://www.amazon.com/dp/038078341X",
+  "dims_note": "Dimensions 4.19 x 0.64 x 6.75 inches",
+  "edition": {
+   "publisher": "Avon Flare",
+   "year": 1996,
+   "binding": "paperback",
+   "isbn13": "9780380783410",
+   "source_url": "https://bookshopapocalypse.com/products/almost-lost-the-true-story-of-an-anonymous-teenagers-life-on-the-streets-edited-by-beatrice-sparks-first-edition-paperback-1996",
+   "note": "한 판매 목록의 동일 실물 표지·책등·판권 사진. 다른 개체 사진을 섞지 않음. 최종 cv2 보정본·overlay를 이미지 보기 도구로 직접 열람. 모든 글자·로고와 네 변 확인. 현행 Amazon의 날짜/브랜드가 다를 수 있어 실물 판권의 연도·임프린트를 기록. 치수만 동일 ISBN 출처로 연결.",
+   "evidence": [
+    {
+     "photo": "후보/round3/apocalypse/67/5.jpg",
+     "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/almostlost-6.jpg?v=1724042104",
+     "role": "판권·ISBN·인쇄연도 사진; 하드커버 ISBN이 같이 실린 PB는 뒷표지 번호도 대조"
+    }
+   ]
+  },
+  "spine": "real_versions/20261018-131432/almost_lost_life_spine.jpg",
+  "cover": "real_versions/20261018-131432/almost_lost_life_cover.jpg",
+  "back": null,
+  "edge": "#613d28",
+  "spineEdge": "#c6b20b",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/almost_lost_life_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/almostlost-1sq.jpg?v=1724042104",
+    "px": [
+     982,
+     1582
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     963,
+     1582
+    ],
+    "upscale_w": 1.02,
+    "upscale_h": 1.0,
+    "edge": "#613d28",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/almost_lost_life_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/almostlost-3.jpg?v=1724042104",
+    "px": [
+     147,
+     1542
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     148,
+     1542
+    ],
+    "upscale_w": 0.99,
+    "upscale_h": 1.0,
+    "edge": "#c6b20b",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "paper",
+  "surface": "paperback",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "paperback",
+  "coverSurface": "paperback",
+  "backSurface": "paperback"
+ },
+ {
+  "slug": "remarkable_life_don_diego",
+  "title": "The Remarkable Life of Don Diego",
+  "author": "Diego de Torres Villarroel; translated by William C. Atkinson",
+  "h": 230,
+  "w": 140,
+  "t": 30,
+  "dims_src": "https://www.f-b-a.com/product/the-remarkable-life-of-don-diego/",
+  "dims_note": "동일 실물 판매 목록의 Dimensions 14 ×23 ×3 cm.",
+  "edition": {
+   "publisher": "The Folio Society",
+   "year": 1958,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/the-remarkable-life-of-don-diego/"
+  },
+  "spine": "real_versions/20261018-131432/remarkable_life_don_diego_spine.jpg",
+  "cover": "real_versions/20261018-131432/remarkable_life_don_diego_cover.jpg",
+  "back": null,
+  "edge": "#272420",
+  "spineEdge": "#1c1b19",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/remarkable_life_don_diego_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2022/12/IMG_3993-scaled.jpg",
+    "px": [
+     772,
+     1269
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     632,
+     1269
+    ],
+    "upscale_w": 1.22,
+    "upscale_h": 1.0,
+    "edge": "#272420",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/remarkable_life_don_diego_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2022/12/IMG_3993-scaled.jpg",
+    "px": [
+     166,
+     1275
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     138,
+     1275
+    ],
+    "upscale_w": 1.2,
+    "upscale_h": 1.0,
+    "edge": "#1c1b19",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "cloth",
+  "coverSurface": "paper",
+  "backSurface": "paper"
+ },
+ {
+  "slug": "life_aztecs_soisson",
+  "title": "Life of the Aztecs in Ancient Mexico",
+  "author": "Pierre Soisson and Janine Soisson",
+  "h": 270,
+  "w": 230,
+  "t": 20,
+  "dims_src": "https://www.f-b-a.com/product/life-of-the-aztecs-in-ancient-mexico/",
+  "dims_note": "동일 실물 판매 목록의 Dimensions를 cm ×10으로 환산. 원본 HTML은 후보/round4/fba/catalog_source/49/page.html에 보존.",
+  "edition": {
+   "publisher": "Liber / Éditions Minerva",
+   "year": 1987,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/life-of-the-aztecs-in-ancient-mexico/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null.",
+   "bibliography_url": "https://books.google.com/books/about/Life_of_the_Aztecs_in_Ancient_Mexico.html?hl=en&id=HHzWAAAAMAAJ&output=html_text"
+  },
+  "spine": "real_versions/20261018-131432/life_aztecs_soisson_spine.jpg",
+  "cover": "real_versions/20261018-131432/life_aztecs_soisson_cover.jpg",
+  "back": null,
+  "edge": "#1b191a",
+  "spineEdge": "#c9bda3",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/life_aztecs_soisson_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2025/01/IMG_4830.jpg",
+    "px": [
+     909,
+     1067
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     841,
+     1067
+    ],
+    "upscale_w": 1.08,
+    "upscale_h": 1.0,
+    "edge": "#1b191a",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/life_aztecs_soisson_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2025/01/IMG_4830.jpg",
+    "px": [
+     79,
+     1071
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     57,
+     1071
+    ],
+    "upscale_w": 1.38,
+    "upscale_h": 1.0,
+    "edge": "#c9bda3",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "johnsons_life_london",
+  "title": "Johnson’s Life of London: The People Who Made the City That Made the World",
+  "author": "Boris Johnson",
+  "h": 240,
+  "w": 170,
+  "t": 30,
+  "dims_src": "https://www.f-b-a.com/product/johnstons-life-of-london/",
+  "dims_note": "동일 실물 판매 목록의 Dimensions를 cm ×10으로 환산. 원본 HTML은 후보/round4/fba/catalog_source/76/page.html에 보존.",
+  "edition": {
+   "publisher": "Riverhead Books",
+   "year": null,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/johnstons-life-of-london/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/johnsons_life_london_spine.jpg",
+  "cover": "real_versions/20261018-131432/johnsons_life_london_cover.jpg",
+  "back": null,
+  "edge": "#b0afb2",
+  "spineEdge": "#991b1a",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/johnsons_life_london_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/12/IMG_1776-scaled.jpg",
+    "px": [
+     869,
+     1227
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     879,
+     1227
+    ],
+    "upscale_w": 0.99,
+    "upscale_h": 1.0,
+    "edge": "#b0afb2",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/johnsons_life_london_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/12/IMG_1776-scaled.jpg",
+    "px": [
+     152,
+     1214
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     80,
+     1214
+    ],
+    "upscale_w": 1.9,
+    "upscale_h": 1.0,
+    "edge": "#991b1a",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "dictionary_modern_life",
+  "title": "Dr Johnson’s Dictionary of Modern Life",
+  "author": "Tom Morton",
+  "h": 240,
+  "w": 170,
+  "t": 30,
+  "dims_src": "https://www.f-b-a.com/product/dr-johnstons-dictionary-of-modern-life/",
+  "dims_note": "동일 실물 판매 목록의 Dimensions를 cm ×10으로 환산. 원본 HTML은 후보/round4/fba/catalog_source/85/page.html에 보존.",
+  "edition": {
+   "publisher": "Square Peg",
+   "year": 2010,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/dr-johnstons-dictionary-of-modern-life/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/dictionary_modern_life_spine.jpg",
+  "cover": "real_versions/20261018-131432/dictionary_modern_life_cover.jpg",
+  "back": null,
+  "edge": "#aca931",
+  "spineEdge": "#9e9f2a",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/dictionary_modern_life_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/12/IMG_0697-scaled.jpg",
+    "px": [
+     857,
+     1210
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     852,
+     1210
+    ],
+    "upscale_w": 1.01,
+    "upscale_h": 1.0,
+    "edge": "#aca931",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/dictionary_modern_life_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/12/IMG_0697-scaled.jpg",
+    "px": [
+     150,
+     1198
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     103,
+     1198
+    ],
+    "upscale_w": 1.45,
+    "upscale_h": 1.0,
+    "edge": "#9e9f2a",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "soldiers_life_hamilton",
+  "title": "A Soldier’s Life: General Sir Ian Hamilton 1853–1947",
+  "author": "John Lee",
+  "h": 240,
+  "w": 170,
+  "t": 30,
+  "dims_src": "https://www.f-b-a.com/product/a-soldiers-life-general-sir-ian-hamilton/",
+  "dims_note": "동일 실물 판매 목록의 Dimensions를 cm ×10으로 환산. 원본 HTML은 후보/round4/fba/catalog_source/90/page.html에 보존.",
+  "edition": {
+   "publisher": "Macmillan",
+   "year": 2000,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/a-soldiers-life-general-sir-ian-hamilton/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/soldiers_life_hamilton_spine.jpg",
+  "cover": "real_versions/20261018-131432/soldiers_life_hamilton_cover.jpg",
+  "back": null,
+  "edge": "#5a5f4f",
+  "spineEdge": "#191a1c",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/soldiers_life_hamilton_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/11/IMG_0209-scaled.jpg",
+    "px": [
+     922,
+     1302
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     890,
+     1302
+    ],
+    "upscale_w": 1.04,
+    "upscale_h": 1.0,
+    "edge": "#5a5f4f",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/soldiers_life_hamilton_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/11/IMG_0209-scaled.jpg",
+    "px": [
+     163,
+     1307
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     92,
+     1307
+    ],
+    "upscale_w": 1.77,
+    "upscale_h": 1.0,
+    "edge": "#191a1c",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "still_life_woodpecker",
+  "title": "Still Life with Woodpecker",
+  "author": "Tom Robbins",
+  "h": 209.0,
+  "w": 131.1,
+  "t": 15.0,
+  "dims_src": "https://www.amazon.com/dp/0553348973",
+  "dims_note": "Dimensions 5.16 x 0.59 x 8.23 inches",
+  "edition": {
+   "publisher": "Bantam",
+   "year": 2003,
+   "binding": "paperback",
+   "isbn13": "9780553348972",
+   "source_url": "https://bookshopapocalypse.com/products/still-life-with-woodpecker-by-tom-robbins-trade-paperback-re-issue-2003-bantam",
+   "note": "한 판매 목록의 동일 실물 표지·책등·판권 사진. 다른 개체 사진을 섞지 않음. 최종 cv2 보정본·overlay를 이미지 보기 도구로 직접 열람. 모든 글자·로고와 네 변 확인. 현행 Amazon의 날짜/브랜드가 다를 수 있어 실물 판권의 연도·임프린트를 기록. 치수만 동일 ISBN 출처로 연결.",
+   "evidence": [
+    {
+     "photo": "후보/round3/apocalypse/74/5.jpg",
+     "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/stilllifewithwoodpeckertrade-6.jpg?v=1711009506",
+     "role": "판권·ISBN·인쇄연도 사진; 하드커버 ISBN이 같이 실린 PB는 뒷표지 번호도 대조"
+    }
+   ]
+  },
+  "spine": "real_versions/20261018-131432/still_life_woodpecker_spine.jpg",
+  "cover": "real_versions/20261018-131432/still_life_woodpecker_cover.jpg",
+  "back": null,
+  "edge": "#9daea6",
+  "spineEdge": "#84968d",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/still_life_woodpecker_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/stilllifewithwoodpeckertrade-1sq.jpg?v=1711009508",
+    "px": [
+     930,
+     1482
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     916,
+     1482
+    ],
+    "upscale_w": 1.02,
+    "upscale_h": 1.0,
+    "edge": "#9daea6",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/still_life_woodpecker_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/files/stilllifewithwoodpeckertrade-2.jpg?v=1711009521",
+    "px": [
+     103,
+     1434
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     95,
+     1434
+    ],
+    "upscale_w": 1.09,
+    "upscale_h": 1.0,
+    "edge": "#84968d",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "paper",
+  "surface": "paperback",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "paperback",
+  "coverSurface": "paperback",
+  "backSurface": "paperback"
+ },
+ {
+  "slug": "ted_hughes_life_poet",
+  "title": "Ted Hughes: The Life of a Poet",
+  "author": "Elaine Feinstein",
+  "h": 240,
+  "w": 170,
+  "t": 30,
+  "dims_src": "https://www.f-b-a.com/product/ted-hughes-the-life-of-a-poet/",
+  "dims_note": "동일 실물 판매 목록의 Dimensions를 cm ×10으로 환산. 원본 HTML은 후보/round4/fba/catalog_source/95/page.html에 보존.",
+  "edition": {
+   "publisher": "W. W. Norton",
+   "year": 2001,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/ted-hughes-the-life-of-a-poet/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/ted_hughes_life_poet_spine.jpg",
+  "cover": "real_versions/20261018-131432/ted_hughes_life_poet_cover.jpg",
+  "back": null,
+  "edge": "#a6a4a2",
+  "spineEdge": "#a9a5a1",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/ted_hughes_life_poet_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/11/IMG_9987-scaled.jpg",
+    "px": [
+     868,
+     1225
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     846,
+     1225
+    ],
+    "upscale_w": 1.03,
+    "upscale_h": 1.0,
+    "edge": "#a6a4a2",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/ted_hughes_life_poet_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/11/IMG_9987-scaled.jpg",
+    "px": [
+     141,
+     1129
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     71,
+     1225
+    ],
+    "upscale_w": 2.0,
+    "upscale_h": 0.92,
+    "edge": "#a9a5a1",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "unruly_life_woody_allen",
+  "title": "The Unruly Life of Woody Allen",
+  "author": "Marion Meade",
+  "h": 240,
+  "w": 170,
+  "t": 40,
+  "dims_src": "https://www.f-b-a.com/product/the-unruly-life-of-woody-allen/",
+  "dims_note": "동일 실물 판매 목록의 Dimensions를 cm ×10으로 환산. 원본 HTML은 후보/round4/fba/catalog_source/99/page.html에 보존.",
+  "edition": {
+   "publisher": "Weidenfeld & Nicolson",
+   "year": 2000,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/the-unruly-life-of-woody-allen/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/unruly_life_woody_allen_spine.jpg",
+  "cover": "real_versions/20261018-131432/unruly_life_woody_allen_cover.jpg",
+  "back": null,
+  "edge": "#241f1f",
+  "spineEdge": "#a8a6a1",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/unruly_life_woody_allen_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/10/IMG_9602-scaled.jpg",
+    "px": [
+     959,
+     1354
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     913,
+     1354
+    ],
+    "upscale_w": 1.05,
+    "upscale_h": 1.0,
+    "edge": "#241f1f",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/unruly_life_woody_allen_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/10/IMG_9602-scaled.jpg",
+    "px": [
+     226,
+     1354
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     117,
+     1354
+    ],
+    "upscale_w": 1.93,
+    "upscale_h": 1.0,
+    "edge": "#a8a6a1",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "life_science_medawar",
+  "title": "The Life Science: Current Ideas of Biology",
+  "author": "P. B. Medawar and J. S. Medawar",
+  "h": 220,
+  "w": 140,
+  "t": 20,
+  "dims_src": "https://www.f-b-a.com/product/the-life-science-current-ideas-of-biology/",
+  "dims_note": "동일 실물 판매 목록의 Dimensions를 cm ×10으로 환산. 원본 HTML은 후보/round4/fba/catalog_source/14/page.html에 보존.",
+  "edition": {
+   "publisher": null,
+   "year": null,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/the-life-science-current-ideas-of-biology/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/life_science_medawar_spine.jpg",
+  "cover": "real_versions/20261018-131432/life_science_medawar_cover.jpg",
+  "back": null,
+  "edge": "#08382d",
+  "spineEdge": "#0a372c",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/life_science_medawar_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2026/03/IMG_1797.jpg",
+    "px": [
+     715,
+     1123
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     677,
+     1123
+    ],
+    "upscale_w": 1.06,
+    "upscale_h": 1.0,
+    "edge": "#08382d",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/life_science_medawar_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2026/03/IMG_1797.jpg",
+    "px": [
+     102,
+     1127
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     77,
+     1127
+    ],
+    "upscale_w": 1.32,
+    "upscale_h": 1.0,
+    "edge": "#0a372c",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "walter_mitty_life",
+  "title": "The Secret Life of Walter Mitty",
+  "author": "James Thurber",
+  "h": 198.12,
+  "w": 129.032,
+  "t": 7.112,
+  "dims_src": "https://booksrun.com/9780241282618-secret-life-of-walter-mitty",
+  "dims_note": "5.08 x 0.28 x 7.8 in; H/W/T로 축 재정렬 후 25.4 mm/in 변환.",
+  "edition": {
+   "publisher": "Penguin Modern Classics",
+   "year": 2016,
+   "binding": "paperback",
+   "isbn13": "9780241282618",
+   "source_url": "https://bookshopapocalypse.com/products/the-secret-life-of-walter-mitty-by-james-thurber-u-k-trade-paperback-2016-penguin",
+   "note": "한 판매 목록의 동일 실물 표지·책등·판권 사진. 다른 개체 사진을 섞지 않음. 최종 cv2 보정본·overlay를 이미지 보기 도구로 직접 열람. 모든 글자·로고와 네 변 확인. 현행 Amazon의 날짜/브랜드가 다를 수 있어 실물 판권의 연도·임프린트를 기록. 치수만 동일 ISBN 출처로 연결.",
+   "evidence": [
+    {
+     "photo": "후보/round3/apocalypse/8/4.jpg",
+     "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/secretlifeofwaltermitty-5.jpg?v=1681231115",
+     "role": "판권·ISBN·인쇄연도 사진; 하드커버 ISBN이 같이 실린 PB는 뒷표지 번호도 대조"
+    }
+   ]
+  },
+  "spine": "real_versions/20261018-131432/walter_mitty_life_spine.jpg",
+  "cover": "real_versions/20261018-131432/walter_mitty_life_cover.jpg",
+  "back": null,
+  "edge": "#ebc21e",
+  "spineEdge": "#f3e6ce",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/walter_mitty_life_cover.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/secretlifeofwaltermitty-1sq.jpg?v=1681231115",
+    "px": [
+     975,
+     1497
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     930,
+     1497
+    ],
+    "upscale_w": 1.05,
+    "upscale_h": 1.0,
+    "edge": "#ebc21e",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/walter_mitty_life_spine.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/3103/1574/products/secretlifeofwaltermitty-2.jpg?v=1681231182",
+    "px": [
+     51,
+     1420
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     45,
+     1420
+    ],
+    "upscale_w": 1.13,
+    "upscale_h": 1.0,
+    "edge": "#f3e6ce",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "paper",
+  "surface": "paperback",
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": "paperback",
+  "coverSurface": "paperback",
+  "backSurface": "paperback"
+ },
+ {
+  "slug": "my_life_in_pieces_callow",
+  "title": "My Life in Pieces: An Alternative Autobiography",
+  "author": "Simon Callow",
+  "h": 240,
+  "w": 170,
+  "t": 50,
+  "dims_src": "https://www.f-b-a.com/product/my-life-in-pieces-simon-callow/",
+  "dims_note": "同一 실물 판매 페이지 Dimensions와 공개 상품 API 수치가 일치. cm ×10 환산. 원본 HTML: 후보/round4/fba/catalog_source/83/page.html",
+  "edition": {
+   "publisher": "Nick Hern Books",
+   "year": 2010,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/my-life-in-pieces-simon-callow/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/my_life_in_pieces_callow_spine.jpg",
+  "cover": "real_versions/20261018-131432/my_life_in_pieces_callow_cover.jpg",
+  "back": null,
+  "edge": "#4c4a49",
+  "spineEdge": "#2e3e3a",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/my_life_in_pieces_callow_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/12/IMG_0774-scaled.jpg",
+    "px": [
+     849,
+     1198
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     853,
+     1198
+    ],
+    "upscale_w": 1.0,
+    "upscale_h": 1.0,
+    "edge": "#4c4a49",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/my_life_in_pieces_callow_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/12/IMG_0774-scaled.jpg",
+    "px": [
+     249,
+     1195
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     131,
+     1195
+    ],
+    "upscale_w": 1.9,
+    "upscale_h": 1.0,
+    "edge": "#2e3e3a",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "way_of_life_kray",
+  "title": "A Way of Life",
+  "author": "Reg Kray",
+  "h": 240,
+  "w": 170,
+  "t": 30,
+  "dims_src": "https://www.f-b-a.com/product/a-way-of-life/",
+  "dims_note": "同一 실물 판매 페이지 Dimensions와 공개 상품 API 수치가 일치. cm ×10 환산. 원본 HTML: 후보/round4/fba/catalog_source/88/page.html",
+  "edition": {
+   "publisher": "Sidgwick & Jackson",
+   "year": 2000,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/a-way-of-life/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/way_of_life_kray_spine.jpg",
+  "cover": "real_versions/20261018-131432/way_of_life_kray_cover.jpg",
+  "back": null,
+  "edge": "#181617",
+  "spineEdge": "#1d1a1a",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/way_of_life_kray_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/12/IMG_0597-scaled.jpg",
+    "px": [
+     851,
+     1201
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     848,
+     1201
+    ],
+    "upscale_w": 1.0,
+    "upscale_h": 1.0,
+    "edge": "#181617",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/way_of_life_kray_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/12/IMG_0597-scaled.jpg",
+    "px": [
+     129,
+     1029
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     64,
+     1198
+    ],
+    "upscale_w": 2.0,
+    "upscale_h": 0.86,
+    "edge": "#1d1a1a",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "love_many_things_van_gogh",
+  "title": "The Love of Many Things: A Life of Vincent Van Gogh",
+  "author": "David Sweetman",
+  "h": 240,
+  "w": 170,
+  "t": 40,
+  "dims_src": "https://www.f-b-a.com/product/the-love-of-many-things-a-life-of-vincent-van-gogh/",
+  "dims_note": "同一 실물 판매 페이지 Dimensions와 공개 상품 API 수치가 일치. cm ×10 환산. 원본 HTML: 후보/round4/fba/catalog_source/93/page.html",
+  "edition": {
+   "publisher": "John Curtis / Hodder & Stoughton",
+   "year": 1990,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/the-love-of-many-things-a-life-of-vincent-van-gogh/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/love_many_things_van_gogh_spine.jpg",
+  "cover": "real_versions/20261018-131432/love_many_things_van_gogh_cover.jpg",
+  "back": null,
+  "edge": "#a6a09c",
+  "spineEdge": "#a09c98",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/love_many_things_van_gogh_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/11/IMG_0024-scaled.jpg",
+    "px": [
+     823,
+     1162
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     778,
+     1162
+    ],
+    "upscale_w": 1.06,
+    "upscale_h": 1.0,
+    "edge": "#a6a09c",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/love_many_things_van_gogh_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/11/IMG_0024-scaled.jpg",
+    "px": [
+     192,
+     1155
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     147,
+     1155
+    ],
+    "upscale_w": 1.31,
+    "upscale_h": 1.0,
+    "edge": "#a09c98",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "stephen_spender_life_modernism",
+  "title": "Stephen Spender: A Life in Modernism",
+  "author": "David Leeming",
+  "h": 240,
+  "w": 170,
+  "t": 30,
+  "dims_src": "https://www.f-b-a.com/product/stephen-spender-a-life-in-modernism/",
+  "dims_note": "동일 실물 판매 페이지 Dimensions와 공개 상품 API 수치가 일치. cm ×10 환산. 원본 HTML: 후보/round4/fba/catalog_source/70/page.html",
+  "edition": {
+   "publisher": "Henry Holt and Company",
+   "year": null,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/stephen-spender-a-life-in-modernism/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/stephen_spender_life_modernism_spine.jpg",
+  "cover": "real_versions/20261018-131432/stephen_spender_life_modernism_cover.jpg",
+  "back": null,
+  "edge": "#2c2c31",
+  "spineEdge": "#191819",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/stephen_spender_life_modernism_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2024/01/IMG_9642-scaled.jpg",
+    "px": [
+     924,
+     1304
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     861,
+     1304
+    ],
+    "upscale_w": 1.07,
+    "upscale_h": 1.0,
+    "edge": "#2c2c31",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/stephen_spender_life_modernism_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2024/01/IMG_9642-scaled.jpg",
+    "px": [
+     162,
+     1300
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     98,
+     1300
+    ],
+    "upscale_w": 1.65,
+    "upscale_h": 1.0,
+    "edge": "#191819",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "everyday_life_aztecs_bray",
+  "title": "Everyday Life of the Aztecs",
+  "author": "Warwick Bray",
+  "h": 220,
+  "w": 150,
+  "t": 30,
+  "dims_src": "https://www.f-b-a.com/product/everyday-life-of-the-aztecs/",
+  "dims_note": "동일 실물 판매 페이지 Dimensions와 공개 상품 API 수치가 일치. cm ×10 환산. 원본 HTML: 후보/round4/fba/catalog_source/47/page.html",
+  "edition": {
+   "publisher": "B. T. Batsford",
+   "year": 1968,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/everyday-life-of-the-aztecs/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/everyday_life_aztecs_bray_spine.jpg",
+  "cover": "real_versions/20261018-131432/everyday_life_aztecs_bray_cover.jpg",
+  "back": null,
+  "edge": "#65322c",
+  "spineEdge": "#58342c",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/everyday_life_aztecs_bray_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2025/02/IMG_5232.jpg",
+    "px": [
+     680,
+     998
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     668,
+     998
+    ],
+    "upscale_w": 1.02,
+    "upscale_h": 1.0,
+    "edge": "#65322c",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/everyday_life_aztecs_bray_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2025/02/IMG_5232.jpg",
+    "px": [
+     136,
+     994
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     91,
+     994
+    ],
+    "upscale_w": 1.49,
+    "upscale_h": 1.0,
+    "edge": "#58342c",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "time_my_life_healey",
+  "title": "The Time of My Life",
+  "author": "Denis Healey",
+  "h": 240,
+  "w": 170,
+  "t": 60,
+  "dims_src": "https://www.f-b-a.com/product/the-time-of-my-life/",
+  "dims_note": "Actual-copy listing Dimensions; cm to mm x10. API matches HTML. Archived HTML: 후보/round4/fba/page2/0/page.html",
+  "edition": {
+   "publisher": "Michael Joseph",
+   "year": 1989,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/the-time-of-my-life/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/time_my_life_healey_spine.jpg",
+  "cover": "real_versions/20261018-131432/time_my_life_healey_cover.jpg",
+  "back": null,
+  "edge": "#322928",
+  "spineEdge": "#28292a",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/time_my_life_healey_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/10/IMG_9586-scaled.jpg",
+    "px": [
+     982,
+     1386
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     882,
+     1386
+    ],
+    "upscale_w": 1.11,
+    "upscale_h": 1.0,
+    "edge": "#322928",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/time_my_life_healey_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/10/IMG_9586-scaled.jpg",
+    "px": [
+     346,
+     1386
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     217,
+     1386
+    ],
+    "upscale_w": 1.59,
+    "upscale_h": 1.0,
+    "edge": "#28292a",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "new_history_life_ward",
+  "title": "A New History of Life: The Radical New Discoveries about the Origins and Evolution of Life on Earth",
+  "author": "Peter Ward and Joe Kirschvink",
+  "h": 250,
+  "w": 170,
+  "t": 40,
+  "dims_src": "https://www.f-b-a.com/product/a-new-history-of-life/",
+  "dims_note": "Actual-copy listing Dimensions; cm to mm x10. API matches HTML. Archived HTML: 후보/round4/fba/page2/85/page.html",
+  "edition": {
+   "publisher": "Bloomsbury",
+   "year": 2015,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/a-new-history-of-life/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/new_history_life_ward_spine.jpg",
+  "cover": "real_versions/20261018-131432/new_history_life_ward_cover.jpg",
+  "back": null,
+  "edge": "#131211",
+  "spineEdge": "#1f1b19",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/new_history_life_ward_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2022/02/IMG_7706.jpg",
+    "px": [
+     899,
+     1322
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     865,
+     1322
+    ],
+    "upscale_w": 1.04,
+    "upscale_h": 1.0,
+    "edge": "#131211",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/new_history_life_ward_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2022/02/IMG_7706.jpg",
+    "px": [
+     211,
+     1317
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     142,
+     1317
+    ],
+    "upscale_w": 1.49,
+    "upscale_h": 1.0,
+    "edge": "#1f1b19",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "fracture_life_culture_blom",
+  "title": "Fracture: Life and Culture in the West, 1918-1938",
+  "author": "Philipp Blom",
+  "h": 250,
+  "w": 170,
+  "t": 60,
+  "dims_src": "https://www.f-b-a.com/product/fracture-life-and-culture-in-the-west-1918-1938/",
+  "dims_note": "Actual-copy listing Dimensions; cm to mm x10. API matches HTML. Archived HTML: 후보/round4/fba/page2/91/page.html",
+  "edition": {
+   "publisher": "Atlantic Books",
+   "year": 2015,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/fracture-life-and-culture-in-the-west-1918-1938/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/fracture_life_culture_blom_spine.jpg",
+  "cover": "real_versions/20261018-131432/fracture_life_culture_blom_cover.jpg",
+  "back": null,
+  "edge": "#994b22",
+  "spineEdge": "#9c4c25",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/fracture_life_culture_blom_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2022/02/IMG_6647.jpg",
+    "px": [
+     906,
+     1332
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     850,
+     1332
+    ],
+    "upscale_w": 1.07,
+    "upscale_h": 1.0,
+    "edge": "#994b22",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/fracture_life_culture_blom_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2022/02/IMG_6647.jpg",
+    "px": [
+     319,
+     1331
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     201,
+     1331
+    ],
+    "upscale_w": 1.58,
+    "upscale_h": 1.0,
+    "edge": "#9c4c25",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "charles_dickens_life_tomalin",
+  "title": "Charles Dickens: A Life",
+  "author": "Claire Tomalin",
+  "h": 240,
+  "w": 170,
+  "t": 50,
+  "dims_src": "https://www.f-b-a.com/product/charles-dickens-a-life/",
+  "dims_note": "Actual-copy listing Dimensions; cm to mm x10. API matches HTML. Archived HTML: 후보/round4/fba/page2/94/page.html",
+  "edition": {
+   "publisher": "Viking",
+   "year": 2011,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/charles-dickens-a-life/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/charles_dickens_life_tomalin_spine.jpg",
+  "cover": "real_versions/20261018-131432/charles_dickens_life_tomalin_cover.jpg",
+  "back": null,
+  "edge": "#533a2e",
+  "spineEdge": "#b0a292",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/charles_dickens_life_tomalin_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2022/02/IMG_6406.jpg",
+    "px": [
+     905,
+     1277
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     760,
+     1277
+    ],
+    "upscale_w": 1.19,
+    "upscale_h": 1.0,
+    "edge": "#533a2e",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/charles_dickens_life_tomalin_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2022/02/IMG_6406.jpg",
+    "px": [
+     267,
+     1282
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     230,
+     1282
+    ],
+    "upscale_w": 1.16,
+    "upscale_h": 1.0,
+    "edge": "#b0a292",
+    "fit_edges_px": null,
+    "foil": "real_versions/20261018-131432/charles_dickens_life_tomalin_spine_foil.png"
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": true,
+  "foilFaces": [
+   "spine"
+  ],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "life_on_air_attenborough",
+  "title": "Life on Air: Memoirs of a Broadcaster",
+  "author": "David Attenborough",
+  "h": 240,
+  "w": 170,
+  "t": 40,
+  "dims_src": "https://www.f-b-a.com/product/life-on-air-memoirs-of-a-broadcaster/",
+  "dims_note": "Actual-copy listing Dimensions; cm to mm x10. API matches HTML. Archived HTML: 후보/round4/fba/page2/16/page.html",
+  "edition": {
+   "publisher": "BBC Books",
+   "year": 2002,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/life-on-air-memoirs-of-a-broadcaster/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/life_on_air_attenborough_spine.jpg",
+  "cover": "real_versions/20261018-131432/life_on_air_attenborough_cover.jpg",
+  "back": null,
+  "edge": "#a69487",
+  "spineEdge": "#b4a7a3",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/life_on_air_attenborough_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/09/IMG_8135-scaled.jpg",
+    "px": [
+     988,
+     1395
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     959,
+     1395
+    ],
+    "upscale_w": 1.03,
+    "upscale_h": 1.0,
+    "edge": "#a69487",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/life_on_air_attenborough_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2023/09/IMG_8135-scaled.jpg",
+    "px": [
+     233,
+     1400
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     138,
+     1400
+    ],
+    "upscale_w": 1.69,
+    "upscale_h": 1.0,
+    "edge": "#b4a7a3",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ },
+ {
+  "slug": "warrior_life_anglo_saxon",
+  "title": "Warrior: A Life of War in Anglo-Saxon Britain",
+  "author": "Edoardo Albert with Paul Gething",
+  "h": 250,
+  "w": 170,
+  "t": 30,
+  "dims_src": "https://www.f-b-a.com/product/warrior-a-life-of-war-in-anglo-saxon-britain/",
+  "dims_note": "Actual-copy listing Dimensions 17 x 25 x 3 cm; API agrees. Archived HTML: 후보/round4/fba/page2/79/page.html",
+  "edition": {
+   "publisher": "Granta",
+   "year": 2019,
+   "binding": "hardcover",
+   "isbn13": null,
+   "source_url": "https://www.f-b-a.com/product/warrior-a-life-of-war-in-anglo-saxon-britain/",
+   "note": "모든 면은 같은 판매 목록의 동일 실물 한 사진에서 선택. ISBN은 실제 판권·바코드로 확인하지 못해 null."
+  },
+  "spine": "real_versions/20261018-131432/warrior_life_anglo_saxon_spine.jpg",
+  "cover": "real_versions/20261018-131432/warrior_life_anglo_saxon_cover.jpg",
+  "back": null,
+  "edge": "#a19996",
+  "spineEdge": "#938d8a",
+  "faces": {
+   "cover": {
+    "file": "real_versions/20261018-131432/warrior_life_anglo_saxon_cover.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2022/02/IMG_8056-scaled.jpg",
+    "px": [
+     968,
+     1423
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     901,
+     1423
+    ],
+    "upscale_w": 1.07,
+    "upscale_h": 1.0,
+    "edge": "#a19996",
+    "fit_edges_px": null,
+    "foil": null
+   },
+   "spine": {
+    "file": "real_versions/20261018-131432/warrior_life_anglo_saxon_spine.jpg",
+    "url": "https://www.f-b-a.com/wp-content/uploads/2022/02/IMG_8056-scaled.jpg",
+    "px": [
+     171,
+     1421
+    ],
+    "edge_curve_px": 0.0,
+    "src_px": [
+     103,
+     1421
+    ],
+    "upscale_w": 1.67,
+    "upscale_h": 1.0,
+    "edge": "#938d8a",
+    "fit_edges_px": null,
+    "foil": null
+   }
+  },
+  "binding": "hard",
+  "surface": null,
+  "gloss": null,
+  "gilt": {},
+  "foil": false,
+  "foilFaces": [],
+  "spineSurface": null,
+  "coverSurface": null,
+  "backSurface": null
+ }
+]

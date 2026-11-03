@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life Shelf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..600;1,8..60,300..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Abril+Fatface&family=Cormorant+Garamond&family=Ultra&family=Libre+Baskerville&family=Rozha+One&family=Italiana&family=Spectral&family=Bodoni+Moda&family=IM+Fell+English&family=Crimson+Pro&family=Gloock&family=Cinzel&family=Old+Standard+TT&family=Young+Serif&family=Cardo&family=Bitter&family=Gilda+Display&family=Prata&family=Bellefair&family=Marcellus&family=Almendra+Display&text=Life&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=MedievalSharp&family=Uncial+Antiqua&family=Graduate&family=Cutive+Mono&family=Eagle+Lake&family=Ibarra+Real+Nova&family=Josefin+Slab&family=Grenze+Gotisch&family=New+Rocker&family=Kurale&family=Federant&family=Holtwood+One+SC&family=Della+Respira&family=Special+Elite&family=Courier+Prime&family=Limelight&family=Linden+Hill&family=Vast+Shadow&family=Diplomata&family=Pirata+One&family=Stint+Ultra+Expanded&text=Life&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalnia&family=Nanum+Myeongjo&family=Bentham&family=Kotta+One&family=Junge&family=Fondamento&family=Gowun+Batang&family=Goudy+Bookletter+1911&family=Oranienbaum&family=Bona+Nova&family=Trirong&family=Rye&family=Noto+Serif+Display&family=Metamorphous&family=Sedan&family=Coustard&family=Caudex&family=Elsie&family=Rufina&text=Life&display=block">
+<style>
+  :root {
+    --bg: #121210;
+    --paper: #e9e4da;
+    --dim: #8d877c;
+    --serif: "Source Serif 4", "New York", Georgia, serif;
+    --sans: Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+    --gutter: clamp(16px, 4vw, 56px);
+  }
+  html { scroll-snap-type: y proximity; }
+  ::selection { background: #fff; color: #000; text-shadow: none; }   /* 드래그로 고른 글은 흰 바탕에 검은 글자(10/18) */
+  html, body { margin: 0; background: var(--bg); color: var(--paper); }
+  body { font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  .snap { scroll-snap-align: start; }
+  #gl { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+  #intro { position: fixed; left: var(--gutter); top: var(--gutter); max-width: 30ch; pointer-events: none; }
+  #intro h1 { margin: 0; font-family: var(--serif); font-weight: 420; font-size: clamp(40px, 6vw, 84px); line-height: .95; letter-spacing: -.02em; font-variation-settings: "opsz" 60; }
+  #intro p { margin: 0; font-family: var(--serif); font-size: 14px; line-height: 1.45; color: var(--dim); }
+  #info { position: fixed; left: var(--gutter); bottom: var(--gutter); font-family: var(--serif); width: min(30vw, 42ch); pointer-events: none; display: flex; flex-direction: column; gap: 7px; }
+  #info .n { font-size: 12px; color: var(--dim); font-variant-numeric: tabular-nums; }   /* 오른쪽 캡션(#credit)과 같은 크기·색 */
+  #info .caption-mask { position: relative; overflow: hidden; }
+  #info .caption-mask > span { display: block; }
+  #info .caption-mask > .leaving { position: absolute; inset: 0; }
+  #info .book-title { font-size: 15px; line-height: 1.35; font-weight: 400; overflow-wrap: anywhere; }
+  #info .book-meta { font-size: 12px; line-height: 1.45; color: var(--dim); }
+  #mark { position: fixed; left: 50%; bottom: calc(var(--gutter) * 0.9); --mark: clamp(44px, 6.4vw, 92px);
+    font-family: var(--serif); font-weight: 400; font-size: var(--mark); line-height: 1; letter-spacing: -.01em; color: var(--paper);
+    transform: translateX(-50%); white-space: nowrap; pointer-events: none; }
+  #credit { position: fixed; right: var(--gutter); bottom: var(--gutter); font-family: var(--serif); font-size: 12px; color: var(--dim); text-align: right; pointer-events: none; }
+  #info, #intro, #credit { transition: opacity .4s ease; }
+  @media (max-width: 700px) { #credit { top: var(--gutter); bottom: auto; } #info { bottom: calc(var(--gutter) + clamp(44px, 6.4vw, 92px) + 18px); width: min(42ch, calc(100vw - var(--gutter) * 2)); gap: 5px; }
+    html.embed #credit { max-width: calc(100vw - var(--gutter) * 2 - 196px); line-height: 1.45; } }   /* 랜딩의 Back to the page 단추(왼쪽 위)와 겹치지 않게 오른쪽에서 두 줄로 */
+  @media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; } }
+  /* 랜딩 창 안(?embed): 자기 스크롤 없이 끌기·클릭·가로 스크롤로 넘김. 세로 스크롤은 바깥 페이지로 */
+  html.embed, html.embed body { overflow: hidden; height: 100%; scroll-snap-type: none; }
+  html.embed #intro, html.embed #runway { display: none; }
+  html.embed #gl { cursor: grab; touch-action: pan-y; }
+  html.embed #gl.drag { cursor: grabbing; }
+  html.embed #mark, html.embed #info, html.embed #credit { transition: opacity .5s ease; }
+  html.embed:not(.full) #mark, html.embed:not(.full) #info, html.embed:not(.full) #credit { opacity: 0 !important; }   /* 랜딩에서 창이 작을 땐 잘리지 않게 숨김 */
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div id="intro"><p>Real editions with the word in their title. Scroll to take each one off the shelf.</p></div>
+<div id="info" role="status" aria-live="polite" aria-atomic="true"><div class="n"></div><div class="caption-mask book-title"></div><div class="caption-mask book-meta"></div></div>
+<div id="mark">Life</div>
+<div id="credit">Photographs and sizes from each edition’s listings</div>
+<div id="runway"></div>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+const params = new URLSearchParams(location.search);
+const EMBED = params.has('embed');
+if (EMBED) document.documentElement.classList.add('embed');
+const B = await (await fetch('real/real.json', { cache: 'no-cache' })).json();   // 책 목록이 바뀌면 바로 보이게
+const N = B.length;
+const LEAD = 1.6, OPEN = THREE.MathUtils.degToRad(15), GAP = 0.012;   // m. 펼친 책도 책등이 15도쯤 남게(레퍼런스)
+const OPEN_GAP = params.has('og') ? +params.get('og') : 0.05;   // ?og= 는 시험용                                    // m. 앞면을 보여 주는 책 양옆에만 더 띄움(훈램님 10/18 "앞면 보여줄 때 답답"). 좁은 화면은 화면 폭의 6.5%까지만(옆 책이 밀려나지 않게)
+
+// ---------- 렌더러·장면 ----------
+const canvas = document.getElementById('gl');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: params.has('capture') });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.NeutralToneMapping;   // 표지 원래 색이 거의 그대로(제품용)
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFShadowMap;
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#121210');
+// 창 안(랜딩)에서는 준비 작업을 잘게 나눠 바깥 페이지 스크롤이 멈추지 않게(같은 주소 iframe 은 일꾼을 같이 씀)
+const breathe = () => EMBED ? new Promise((r) => setTimeout(r, 0)) : null;
+let needs = true;                                        // 준비를 나누는 사이 먼저 도착한 표지가 다시 그리기를 부를 수 있어 맨 앞에 둠
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+await breathe();
+scene.environmentIntensity = 0.42;
+// 직교 카메라: 책등만 보이는 책의 옆면(뒤표지)이 화면에 나오지 않음(뒤표지 사진이 없는 책을 임의 색으로 보여 주지 않게)
+const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.05, 30);
+const maxAniso = renderer.capabilities.getMaxAnisotropy();
+
+const key = new THREE.DirectionalLight('#fff6ea', 2.4);
+key.position.set(-0.9, 1.4, 1.6);
+key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048);
+key.shadow.camera.left = -0.9; key.shadow.camera.right = 0.9; key.shadow.camera.top = 0.6; key.shadow.camera.bottom = -0.3;
+key.shadow.camera.near = 0.1; key.shadow.camera.far = 5;
+key.shadow.normalBias = 0.0015; key.shadow.radius = 3;
+scene.add(key, key.target);
+const rim = new THREE.DirectionalLight('#dfe6ff', 0.55);
+rim.position.set(1.2, 0.8, -1.0);
+scene.add(rim);
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 4), new THREE.ShadowMaterial({ opacity: 0.42 }));
+floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true;
+scene.add(floor);
+
+// ---------- 공용 재질 텍스처(직접 생성). 색 맵만 sRGB, 범프는 선형 데이터 ----------
+function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+function canvasTex(size, draw, { repeat = 1, srgb = false } = {}) {
+  const c = document.createElement('canvas'); c.width = c.height = size;
+  draw(c.getContext('2d'), size);
+  const t = new THREE.CanvasTexture(c);
+  t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(repeat, repeat);
+  t.anisotropy = maxAniso; if (srgb) t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+function noiseFill(g, n, amp, r) {
+  const im = g.getImageData(0, 0, n, n), d = im.data;
+  for (let i = 0; i < d.length; i += 4) { const v = 128 + (r() - 0.5) * amp; d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255; }
+  g.putImageData(im, 0, 0);
+}
+const paperGrain = canvasTex(512, (g, n) => { noiseFill(g, n, 70, rng(7)); g.filter = 'blur(0.6px)'; g.drawImage(g.canvas, 0, 0); }, { repeat: 6 });
+const clothWeave = canvasTex(512, (g, n) => {
+  const r = rng(11); g.fillStyle = '#808080'; g.fillRect(0, 0, n, n);
+  for (let y = 0; y < n; y += 4) for (let x = 0; x < n; x += 4) {
+    const over = ((x + y) / 4) % 2 === 0, v = 110 + r() * 60 + (over ? 30 : -10);
+    g.fillStyle = `rgb(${v},${v},${v})`; g.fillRect(x, y, over ? 4 : 3, over ? 3 : 4);
+  }
+}, { repeat: 10 });
+const leatherGrain = canvasTex(512, (g, n) => {
+  const r = rng(23); g.fillStyle = '#8a8a8a'; g.fillRect(0, 0, n, n);
+  for (let i = 0; i < 2600; i++) {
+    const x = r() * n, y = r() * n, rad = 2 + r() * 7, v = 95 + r() * 70;
+    g.fillStyle = `rgba(${v},${v},${v},0.55)`; g.beginPath(); g.ellipse(x, y, rad, rad * (0.6 + r() * 0.5), r() * 3.14, 0, 6.283); g.fill();
+  }
+  g.filter = 'blur(1px)'; g.drawImage(g.canvas, 0, 0);
+}, { repeat: 4 });
+// 종이가 쌓인 결: 줄은 '두께 방향'으로 바뀐다. vertical=true 면 줄이 세로(앞마구리), false 면 가로(위·아래 면)
+function pageLines({ gilt = false, vertical = false, srgb = true }) {
+  return canvasTex(1024, (g, n) => {
+    const r = rng(gilt ? 41 : 31);
+    g.fillStyle = srgb ? (gilt ? '#b8913f' : '#e9e3d4') : '#808080'; g.fillRect(0, 0, n, n);
+    for (let k = 0; k < n; k++) {
+      const v = (r() - 0.5) * (gilt ? 34 : 26);
+      g.fillStyle = v > 0 ? `rgba(255,255,255,${v / 120})` : `rgba(0,0,0,${-v / 120})`;
+      if (vertical) g.fillRect(k, 0, 1, n); else g.fillRect(0, k, n, 1);
+    }
+  }, { srgb });
+}
+const PG = {
+  plainTop: new THREE.MeshStandardMaterial({ map: pageLines({}), bumpMap: pageLines({ srgb: false }), bumpScale: 0.6, roughness: 0.88 }),
+  plainFore: new THREE.MeshStandardMaterial({ map: pageLines({ vertical: true }), bumpMap: pageLines({ vertical: true, srgb: false }), bumpScale: 0.6, roughness: 0.88 }),
+  giltTop: new THREE.MeshStandardMaterial({ map: pageLines({ gilt: true }), bumpMap: pageLines({ gilt: true, srgb: false }), bumpScale: 0.4, metalness: 1, roughness: 0.32 }),
+  giltFore: new THREE.MeshStandardMaterial({ map: pageLines({ gilt: true, vertical: true }), bumpMap: pageLines({ gilt: true, vertical: true, srgb: false }), bumpScale: 0.4, metalness: 1, roughness: 0.32 }),
+};
+
+await breathe();
+// ---------- 텍스처 불러오기 ----------
+// 사진 풀기는 일꾼 쪽(createImageBitmap)에서, GPU 올리기는 한 프레임에 한 장씩(11/3, 책장을 넘길 때 2048px 표지를 풀고 올리느라 멈추던 것)
+// 사파리 16 이하·파이어폭스 97 이하는 ImageBitmap 옵션이 틀려서 예전처럼 <img>
+const UA = navigator.userAgent, oldSafari = /Safari\//.test(UA) && !/Chrome|Chromium|Edg/.test(UA) && +(UA.match(/Version\/(\d+)/) || [0, 0])[1] < 17;
+const oldFirefox = +(UA.match(/Firefox\/(\d+)/) || [0, 999])[1] < 98;
+const BITMAP = typeof createImageBitmap !== 'undefined' && !oldSafari && !oldFirefox;
+const bmLoader = BITMAP ? new THREE.ImageBitmapLoader().setOptions({ imageOrientation: 'flipY', premultiplyAlpha: 'none', colorSpaceConversion: 'none' }) : null;
+function fetchImage(url, ok, fail) {
+  if (BITMAP) bmLoader.load(url, (bmp) => ok(bmp, true), undefined, fail);
+  else { const im = new Image(); im.onload = () => im.decode().catch(() => {}).then(() => ok(im, false)); im.onerror = fail; im.src = url; }
+}
+const uploads = [];                                       // 다 풀린 사진: frame() 이 한 프레임에 한 장씩 GPU 에 올림
+let pending = 0;
+function loadTex(url, onFail, onReady) {
+  pending++;
+  const t = new THREE.Texture();
+  fetchImage(url, (im, flipped) => {
+    pending--;
+    if (t.userData.dropped) { im.close && im.close(); return; }
+    t.image = im; t.flipY = !flipped; t.needsUpdate = true; t.userData.onReady = onReady; uploads.push(t); requestRender();
+  }, () => { pending--; console.warn('텍스처 실패', url); onFail && onFail(); requestRender(); });
+  return t;
+}
+function dropTex(t) { if (!t) return; t.userData.dropped = true; t.dispose(); t.image && t.image.close && t.image.close(); const k = uploads.indexOf(t); if (k >= 0) uploads.splice(k, 1); }
+function uploadOne() {                                    // frame() 에서 한 장씩: 올린 뒤에 재질에 끼움(올리기 전에 끼우면 검게 보임)
+  const t = uploads.shift(); if (!t) return;
+  renderer.initTexture(t); t.userData.onReady && t.userData.onReady(t); needs = true;
+}
+// 표지를 아직 안 올린 책도 같은 그림 프로그램을 쓰게 1×1 자리 표시(맵이 없다가 생기면 셰이더를 새로 만들어 멈춤)
+const blank = (r, g, b, srgb) => { const t = new THREE.DataTexture(new Uint8Array([r, g, b, 255]), 1, 1); if (srgb) t.colorSpace = THREE.SRGBColorSpace; t.needsUpdate = true; return t; };
+const MAP0 = blank(255, 255, 255, true), ORM0 = blank(255, 255, 0, false);
+function prep(t) { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = maxAniso; return t; }
+function foilORM(url, baseRough) {        // 금박 마스크 → 거칠기(G)·금속도(B)
+  pending++;
+  const c = document.createElement('canvas'); const t = new THREE.CanvasTexture(c); t.anisotropy = maxAniso;
+  const img = new Image(); img.onerror = () => { pending--; console.warn('금박 실패', url); };
+  img.onload = () => {
+    c.width = img.width; c.height = img.height; const g = c.getContext('2d'); g.drawImage(img, 0, 0);
+    const im = g.getImageData(0, 0, c.width, c.height), d = im.data;
+    for (let i = 0; i < d.length; i += 4) { const fo = d[i] / 255; d[i] = 255; d[i + 1] = Math.round(255 * (baseRough * (1 - fo) + 0.28 * fo)); d[i + 2] = Math.round(255 * fo); d[i + 3] = 255; }
+    g.putImageData(im, 0, 0); t.needsUpdate = true; pending--; requestRender();
+  }; img.src = url;
+  return t;
+}
+// surface: jacket(종이 재킷) / boards(인쇄 판지) / paper / cloth / leather / marbled
+function surfaceMat(surface, gloss, mapUrl, foilUrl, lazy = false, placeholder = '#333') {
+  const m = new THREE.MeshPhysicalMaterial(lazy ? { color: placeholder, map: MAP0 } : { map: prep(loadTex(mapUrl)) });
+  m.userData.lazy = lazy ? { mapUrl, foilUrl, loaded: false } : null;
+  if (surface === 'cloth') { m.roughness = 0.92; m.bumpMap = clothWeave; m.bumpScale = 1.2; m.sheen = 0.4; m.sheenRoughness = 0.8; m.sheenColor = new THREE.Color('#ffffff'); }
+  else if (surface === 'leather') { m.roughness = 0.5; m.bumpMap = leatherGrain; m.bumpScale = 1.6; m.clearcoat = 0.25; m.clearcoatRoughness = 0.5; }
+  else { m.roughness = 0.62 - (gloss || 0) * 0.5; m.bumpMap = paperGrain; m.bumpScale = 0.35; m.clearcoat = gloss || 0; m.clearcoatRoughness = 0.38; }
+  m.userData.baseRough = m.roughness;
+  if (foilUrl && !lazy) attachFoil(m, foilUrl);
+  if (foilUrl && lazy) { m.roughnessMap = m.metalnessMap = ORM0; m.metalness = 0; }   // 금박이 올 자리: 거칠기 그대로·금속 0
+  return m;
+}
+function attachFoil(m, url) { const orm = foilORM(url, m.userData.baseRough); m.roughnessMap = orm; m.metalnessMap = orm; m.roughness = 1; m.metalness = 1; }
+// 표지·뒤표지는 펼쳐질 차례가 가까워질 때만 GPU 에 올리고(±3권), 멀어지면 내린다(±7권). 책등만 보이는 동안엔 표지가 화면에 안 나옴
+function ensureFaces(g, want) {
+  for (const m of g.userData.lazyMats) {
+    const z = m.userData.lazy;
+    // 맵은 자리 표시(MAP0·ORM0)와 실제 사진을 바꿔 끼우기만 해서 그림 프로그램이 그대로(needsUpdate 없음)
+    if (want && !z.loaded) {
+      z.loaded = true;
+      const t = prep(loadTex(z.mapUrl, () => { z.loaded = false; z.tex = null; },   // 실패하면 다음에 다시 시도
+        () => { if (z.tex !== t) return; m.map = t; m.color.set('#ffffff'); if (z.foilUrl) attachFoil(m, z.foilUrl); }));
+      z.tex = t;
+    } else if (!want && z.loaded) {
+      z.loaded = false; dropTex(z.tex); z.tex = null; m.map = MAP0;
+      if (m.roughnessMap && m.roughnessMap !== ORM0) { m.roughnessMap.dispose(); m.roughnessMap = m.metalnessMap = ORM0; m.roughness = m.userData.baseRough; m.metalness = 0; }
+      m.color.set(z.placeholder);
+    }
+  }
+}
+// 같은 재질을 쓰는 이웃 그룹을 합쳐 그리기 횟수를 줄인다(BoxGeometry 계열: 그룹 6개 = 면 6개)
+function setGroups(geo, matIndexPerFace) {
+  const gs = geo.groups.map((g, i) => ({ start: g.start, count: g.count, materialIndex: matIndexPerFace[i] }));
+  geo.clearGroups();
+  for (const g of gs) {
+    const last = geo.groups[geo.groups.length - 1];
+    if (last && last.materialIndex === g.materialIndex && last.start + last.count === g.start) last.count += g.count;
+    else geo.addGroup(g.start, g.count, g.materialIndex);
+  }
+  return geo;
+}
+
+// ---------- 책 한 권 = 실제 구조(앞·뒤 판, 책등, 속장) ----------
+// 책 좌표: 높이 Y(바닥 0), 너비 X(책등 바깥 0 → 앞마구리 w), 두께 Z(앞표지 +). rotation.y = 90° 이면 책등이 카메라(+Z)를 봄
+// 전체 외곽이 출판 치수 w×h×t 가 되게: 둥근 책등의 볼록함(bulge)만큼 판을 줄인다(코덱스 2차 지적)
+function makeBook(b) {
+  const h = b.h / 1000, w = b.w / 1000, t = b.t / 1000;
+  const hard = b.binding !== 'paper';
+  const bt = hard ? 0.0026 : 0.0005, sq = hard ? 0.0028 : 0, rad = hard ? 0.0009 : 0.0002;
+  const arc = THREE.MathUtils.degToRad(40), R = t / (2 * Math.sin(arc / 2)), bulge = hard ? R * (1 - Math.cos(arc / 2)) : 0;
+  const edgeMat = new THREE.MeshStandardMaterial({ color: b.edge, roughness: 0.7 });
+  const spineEdgeMat = new THREE.MeshStandardMaterial({ color: b.spineEdge, roughness: 0.7 });
+  const foil = (f) => (b.faces && b.faces[f] && b.faces[f].foil) || null;
+  const coverMat = surfaceMat(b.coverSurface || b.surface, b.gloss, b.cover, foil('cover'), true, b.edge);
+  coverMat.userData.lazy.placeholder = b.edge;
+  const spineMat = surfaceMat(b.spineSurface || b.surface, b.gloss, b.spine, foil('spine'));
+  const inner = new THREE.Group();
+  const wb = w - bulge;                                   // 판 너비
+  // 앞판: +Z 면(4번 그룹)에 표지
+  const front = new THREE.Mesh(setGroups(new RoundedBoxGeometry(wb, h, bt, 2, rad), [0, 0, 0, 0, 1, 0]), [edgeMat, coverMat]);
+  front.position.set(bulge + wb / 2, h / 2, t / 2 - bt / 2);
+  // 뒤판: 같은 판의 뒤표지가 있을 때만 -Z 면에 사진(직교 카메라라 책장에선 거의 안 보임)
+  const backMat = b.back ? surfaceMat(b.backSurface || b.surface, b.gloss, b.back, null, true, b.edge) : edgeMat;
+  if (b.back) backMat.userData.lazy.placeholder = b.edge;
+  const back = new THREE.Mesh(setGroups(new RoundedBoxGeometry(wb, h, bt, 2, rad), [0, 0, 0, 0, 0, 1]), [edgeMat, backMat]);
+  back.position.set(bulge + wb / 2, h / 2, -t / 2 + bt / 2);
+  // 책등
+  let spine;
+  if (hard) {
+    const geo = new THREE.CylinderGeometry(R, R, h, 32, 1, true, 1.5 * Math.PI - arc / 2, arc);   // 호 가운데가 -X, u 는 뒤(-Z)→앞(+Z)
+    spine = new THREE.Group();
+    const skin = new THREE.Mesh(geo, spineMat); skin.position.set(R, h / 2, 0);                 // 꼭대기 x=0, 양 끝 x=bulge
+    const shape = new THREE.Shape(); shape.moveTo(bulge + 0.0012, -t / 2);
+    for (let k = 0; k <= 24; k++) { const th = 1.5 * Math.PI - arc / 2 + arc * k / 24; shape.lineTo(R * Math.sin(th) + R, R * Math.cos(th)); }
+    shape.lineTo(bulge + 0.0012, t / 2); shape.lineTo(bulge + 0.0012, -t / 2);
+    const capGeo = new THREE.ShapeGeometry(shape); capGeo.rotateX(Math.PI / 2);
+    const capTop = new THREE.Mesh(capGeo, spineEdgeMat); capTop.position.y = h - 0.0002;
+    const capBot = new THREE.Mesh(capGeo, spineEdgeMat); capBot.position.y = 0.0002;
+    spine.add(skin, capTop, capBot);
+    spine.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+    spineMat.side = THREE.DoubleSide; spineEdgeMat.side = THREE.DoubleSide;
+  } else {
+    spine = new THREE.Mesh(setGroups(new RoundedBoxGeometry(bt, h, t, 2, rad), [0, 1, 0, 0, 0, 0]), [spineEdgeMat, spineMat]);
+    spine.position.set(bt / 2, h / 2, 0);
+  }
+  // 속장: 판보다 위·아래·앞마구리가 sq 만큼 안쪽. 금장은 위(top)·앞(fore)·아래(bottom)를 따로
+  const pw = wb - sq - (hard ? 0.0006 : bt), ph = h - 2 * sq, pt = t - 2 * bt - 0.0004;
+  const gilt = b.gilt || {};
+  const pageMats = [gilt.fore ? PG.giltFore : PG.plainFore, edgeMat, gilt.top ? PG.giltTop : PG.plainTop, gilt.bottom ? PG.giltTop : PG.plainTop, edgeMat, edgeMat];
+  const pages = new THREE.Mesh(new THREE.BoxGeometry(pw, ph, pt), pageMats);
+  pages.position.set(bulge + (hard ? 0.0006 : bt) + pw / 2, h / 2, 0);
+  for (const m of [front, back, spine, pages]) { m.castShadow = true; m.receiveShadow = true; inner.add(m); }
+  inner.position.set(-w / 2, 0, 0);                       // 회전축 = 책 한가운데 세로선
+  const g = new THREE.Group(); g.add(inner);
+  g.userData = { b, w, t, h, lazyMats: [coverMat, ...(b.back ? [backMat] : [])] };
+  return g;
+}
+
+const books = [];
+for (let i = 0; i < B.length; i++) { const g = makeBook(B[i]); g.userData.index = i; scene.add(g); books.push(g); if (i % 4 === 3) await breathe(); }
+const TALLEST = Math.max(...B.map((b) => b.h)) / 1000;
+
+// ---------- 카메라 맞춤(직교) ----------
+let viewH = 1, viewW = 1;
+function fitCamera() {
+  const W = innerWidth, H = innerHeight;
+  renderer.setSize(W, H, false);
+  viewH = TALLEST / (W < 700 ? 0.42 : 0.56);              // 가장 큰 책이 화면 높이의 56%
+  viewW = viewH * W / H;
+  camera.left = -viewW / 2; camera.right = viewW / 2; camera.top = viewH / 2; camera.bottom = -viewH / 2;
+  const lookY = TALLEST * 0.5 - viewH * 0.07;              // 책 가운데가 화면 가운데보다 조금 위: 아래 글과 안 겹침
+  const el = 0, d = 3;                                       // 눈높이: 위에서 보면 판과 속장 머리가 ㄷ자 띠로 보여서(10/16 지적) 수평으로
+  camera.position.set(0, lookY + d * Math.sin(el), d * Math.cos(el));
+  camera.lookAt(0, lookY, 0);
+  camera.updateProjectionMatrix();
+}
+
+// ---------- 스크롤 → 가로 흐름 ----------
+const runway = document.getElementById('runway');
+let STEP = 160;
+function buildRunway() {
+  STEP = Math.round(Math.max(110, innerHeight * 0.22));
+  runway.innerHTML = '';
+  for (let k = 0; k <= N; k++) { const s = document.createElement('div'); s.className = 'snap'; s.style.height = (k === 0 ? LEAD * STEP : STEP) + 'px'; runway.appendChild(s); }
+  const tail = document.createElement('div'); tail.style.height = innerHeight + 'px'; runway.appendChild(tail);
+}
+const ss = (x) => x * x * (3 - 2 * x);
+let f = -LEAD, last = -1; needs = true;
+function requestRender() { needs = true; }
+const info = document.getElementById('info'), intro = document.getElementById('intro'), credit = document.getElementById('credit');
+
+// Selected edition caption: existing book data, with a directional mask slide.
+const captionMotion = matchMedia('(prefers-reduced-motion: reduce)');
+function swapCaption(mask, text, direction, instant) {
+  if (instant || captionMotion.matches) { mask.getAnimations({ subtree: true }).forEach(a => a.cancel()); mask.textContent = ''; }
+  const older = [...mask.children];
+  for (const span of older) {
+    if (span.classList.contains('leaving')) continue;
+    const current = getComputedStyle(span).transform;
+    span.getAnimations().forEach(a => a.cancel());
+    span.classList.add('leaving'); span.setAttribute('aria-hidden', 'true');
+    const exit = span.animate([{ transform: current }, { transform: `translateY(${-direction * 105}%)` }],
+      { duration: 280, easing: 'cubic-bezier(.23,1,.32,1)', fill: 'both' });
+    exit.onfinish = () => span.remove();
+  }
+  const span = document.createElement('span'); span.textContent = text; mask.append(span);
+  if (!instant && !captionMotion.matches) span.animate(
+    [{ transform: `translateY(${direction * 105}%)` }, { transform: 'translateY(0)' }],
+    { duration: 280, easing: 'cubic-bezier(.23,1,.32,1)', fill: 'both' });
+}
+function updateCaption(index, previous) {
+  const book = B[index], year = book.edition?.year;
+  const direction = index >= previous ? 1 : -1;
+  info.querySelector('.n').textContent = `${String(index + 1).padStart(2, '0')} / ${N}`;
+  swapCaption(info.querySelector('.book-title'), book.title, direction, previous < 0);
+  swapCaption(info.querySelector('.book-meta'), [book.author, year ? `${year} edition` : ''].filter(Boolean).join(' · '), direction, previous < 0);
+}
+
+
+// ---------- 아래 가운데 'Life': 책마다 다른 세리프, 스톱모션처럼 끊어서 바뀜 ----------
+const FONTS = ["Cormorant Garamond", "Italiana", "Almendra Display", "Cutive Mono", "Cinzel", "Grenze Gotisch", "Ibarra Real Nova", "Marcellus", "Federant", "IM Fell English", "MedievalSharp", "Kurale", "Cardo", "Graduate", "UnifrakturMaguntia", "Junge", "Josefin Slab", "Uncial Antiqua", "Diplomata", "Eagle Lake", "Special Elite", "Bellefair", "New Rocker", "Linden Hill", "Della Respira", "Stint Ultra Expanded", "Holtwood One SC", "Nanum Myeongjo", "Kalnia", "Courier Prime", "Bentham", "Pirata One", "Goudy Bookletter 1911", "Vast Shadow", "Old Standard TT", "Oranienbaum", "Kotta One", "Coustard", "Fondamento", "Prata", "Rye", "Bona Nova", "Caudex", "Spectral", "Gloock", "Bodoni Moda", "Sedan", "Metamorphous", "Rufina", "Elsie"];   // 50권 모두 다른 서체(랜딩 64개에서 서로 가장 닮은 13개를 빼고, 옆 책끼리 덜 닮게 순서, 10/18)
+const mark = document.getElementById('mark');
+const capScale = {};                                     // 글꼴마다 대문자 높이가 달라 같은 크기로 보이게 맞추는 배율
+function measureCaps() {
+  const c = document.createElement('canvas').getContext('2d');
+  const cap = (fam) => { c.font = `100px "${fam}"`; return c.measureText('L').actualBoundingBoxAscent || 70; };
+  const ref = cap('Source Serif 4');
+  for (const fam of ['Source Serif 4', ...FONTS]) capScale[fam] = ref / cap(fam);
+}
+let markWant = 'Source Serif 4', markShown = null, markLast = 0;
+const MARK_STEP = 1000 / 12;                             // 초당 12장: 빠르게 넘기면 사이 글꼴이 한 장씩 스쳐 감
+function markTick(now) {
+  if (markWant !== markShown && now - markLast >= MARK_STEP) {
+    markShown = markWant; markLast = now;
+    const k = capScale[markShown] || 1;
+    mark.style.fontFamily = `"${markShown}", "Source Serif 4", Georgia, serif`;
+    mark.style.fontSize = `calc(var(--mark) * ${k.toFixed(3)})`;
+    // 손으로 놓은 듯 조금씩 어긋나게(각도 ±1.6°, 위치 ±3px)
+    const r = (Math.random() - 0.5) * 3.2, dx = (Math.random() - 0.5) * 6, dy = (Math.random() - 0.5) * 6;
+    mark.style.transform = `translate(calc(-50% + ${dx.toFixed(1)}px), ${dy.toFixed(1)}px) rotate(${r.toFixed(2)}deg)`;
+  }
+}
+const esc = (s) => s.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+
+// 두 권이 45° 근처를 지날 때는 바닥 폭이 더 커져서 줄 전체가 늘었다 줄며 가장자리 책이 앞뒤로 출렁였다(10/18 측정).
+// 펼친 책 양옆 틈(E)이 그 부풂을 받아 줄 길이를 넘기는 동안 고르게 바꾸면 가장자리 책은 한 방향으로만 미끄러진다.
+const footOf = (k, o) => { const { w, t } = books[k].userData, a = OPEN + (1 - o) * (Math.PI / 2 - OPEN); return w * Math.cos(a) + t * Math.sin(a); };
+const pairFoot = (i, u) => footOf(i, 1 - ss(u)) + footOf(i + 1, ss(u));
+const BULGE = [];                                         // 이웃 두 권이 넘어가는 동안 바닥 폭 합이 직선보다 커지는 최대치(m)
+for (let i = 0; i < N - 1; i++) { let m = 0; for (let q = 0; q <= 32; q++) { const u = q / 32; m = Math.max(m, pairFoot(i, u) - ((1 - u) * pairFoot(i, 0) + u * pairFoot(i, 1))); } BULGE.push(m); }
+function layout() {
+  // 회전 각에 따른 바닥 폭: w|cos| + t|sin| (직교 투영이라 화면 폭과 같음)
+  let x = 0; const cx = [];
+  const og = Math.min(OPEN_GAP, viewW * 0.065);           // 쉬고 있을 때 펼친 책 한쪽 틈(좁은 화면은 화면 폭의 6.5%까지)
+  const kf = Math.max(0, Math.min(N - 1, f)), ip = Math.min(N - 2, Math.floor(kf)), u = kf - ip, s = ss(u);
+  let E = (1 - u) * pairFoot(ip, 0) + u * pairFoot(ip, 1) + Math.max(BULGE[ip], 2 * og) - pairFoot(ip, u);
+  if (f < 0) E *= ss(Math.max(0, 1 + f));                    // 처음 책이 펼쳐지기 전에는 틈도 없음
+  for (let i = 0; i < N; i++) {
+    const g = books[i], { w, t } = g.userData;
+    const o = ss(Math.max(0, 1 - Math.abs(i - f)));
+    const a = OPEN + (1 - o) * (Math.PI / 2 - OPEN);
+    const foot = w * Math.cos(a) + t * Math.sin(a);
+    g.rotation.y = a;
+    g.position.z = o * 0.03;
+    const dist = Math.abs(i - f);
+    if (dist < 3) ensureFaces(g, true); else if (dist > 7) ensureFaces(g, false);
+    const extra = i === ip - 1 ? E * 0.5 * (1 - s) : i === ip ? E * 0.5 : i === ip + 1 ? E * 0.5 * s : 0;   // 펼친 책 양옆에 반씩
+    cx.push(x + foot / 2); x += foot + GAP + extra;
+    g.userData.cx = cx[i];
+  }
+  const k = Math.max(0, Math.min(N - 1, f)), i0 = Math.floor(k), fr = k - i0;
+  let c = cx[i0] + ((cx[i0 + 1] ?? cx[i0]) - cx[i0]) * fr;
+  if (f < 0) c = cx[0] + f / LEAD * viewW * 0.14;
+  for (let i = 0; i < N; i++) books[i].position.x = books[i].userData.cx - c;
+}
+
+// 창 안에서는 페이지 스크롤 대신 이 값으로 위치를 잡음(책 i 의 자리 = (i + LEAD) * STEP)
+let vy = 0, lastInput = 0, lastAuto = 0, driven = false;   // driven: 바깥 페이지 스크롤이 위치를 정함(저절로 넘기기 끔)
+const vyMin = () => LEAD * STEP, vyMax = () => (N - 1 + LEAD) * STEP;
+const setVy = (v) => { vy = Math.min(vyMax(), Math.max(vyMin(), v)); };
+const pos = () => EMBED ? vy : scrollY;
+// 바깥 페이지 스크롤이 위치를 정할 때(driven)는 끌기·클릭·화살표도 페이지 스크롤을 옮겨서, 스크롤과 책이 늘 같은 자리에 있게
+const at = () => vy / STEP - LEAD;
+const seek = (v, now) => { try { return driven && parent !== window && !!parent.__shelfSeek && parent.__shelfSeek(v, now); } catch (e) { return false; } };
+function frame() {
+  if (EMBED && !driven && performance.now() - lastInput > 4500 && performance.now() - lastAuto > 2800) {   // 가만히 있으면 한 권씩 천천히 넘어가고, 끝나면 처음으로
+    lastAuto = performance.now();
+    setVy(Math.round(vy / STEP) * STEP + STEP >= vyMax() + STEP ? vyMin() : Math.round(vy / STEP) * STEP + STEP);
+  }
+  const target = pos() / STEP - LEAD;
+  const prev = f;
+  f += (target - f) * 0.14;
+  if (Math.abs(target - f) < 1e-4) f = target;
+  if (f !== prev) needs = true;
+  uploadOne();
+  if (needs) {
+    layout();
+    renderer.render(scene, camera);
+    needs = false;
+    intro.style.opacity = f < -0.6 ? 1 : 0;
+    credit.style.opacity = (f < -0.6 && innerWidth <= 700) ? 0 : 1;   // 좁은 화면: 위 소개와 겹치지 않게
+    info.style.opacity = f > -0.5 ? 1 : 0;
+    const cur = Math.round(f);
+    markWant = cur < 0 ? 'Source Serif 4' : FONTS[Math.min(cur, N - 1) % FONTS.length];
+    if (cur !== last && cur >= 0 && cur < N) {
+      updateCaption(cur, last);
+      last = cur;
+    }
+  }
+  markTick(performance.now());
+  requestAnimationFrame(frame);
+}
+
+// ---------- 입력 ----------
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+canvas.addEventListener('click', (e) => {
+  ptr.set((e.clientX / innerWidth) * 2 - 1, -(e.clientY / innerHeight) * 2 + 1);
+  ray.setFromCamera(ptr, camera);
+  const hit = ray.intersectObjects(books, true)[0];
+  if (!hit) return;
+  let o = hit.object; while (o && o.userData.index === undefined) o = o.parent;
+  if (!o) return;
+  if (EMBED) { if (dragged) return; lastInput = performance.now(); if (!seek(o.userData.index)) setVy((o.userData.index + LEAD) * STEP); }
+  else scrollTo({ top: (o.userData.index + LEAD) * STEP, behavior: 'smooth' });
+});
+// 창 안: 옆으로 끌면 책장이 따라 움직이고, 놓으면 가까운 책에 멈춤
+let drag = null, dragged = false;
+if (EMBED) {
+  canvas.addEventListener('pointerdown', (e) => { drag = { x: e.clientX, vy, v: at() }; dragged = false; canvas.setPointerCapture(e.pointerId); canvas.classList.add('drag'); lastInput = performance.now(); });
+  canvas.addEventListener('pointermove', (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x; if (Math.abs(dx) > 6) dragged = true;
+    if (!seek(drag.v - dx * 1.4 / STEP, true)) setVy(drag.vy - dx * 1.4);
+    lastInput = performance.now();
+  });
+  const up = () => { if (!drag) return; drag = null; canvas.classList.remove('drag'); if (dragged && !seek(Math.round(at()))) setVy(Math.round(vy / STEP) * STEP); lastInput = performance.now(); };
+  canvas.addEventListener('pointerup', up); canvas.addEventListener('pointercancel', up);
+}
+addEventListener('wheel', (e) => {
+  if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;                 // 세로는 그대로(창 안이면 바깥 페이지가 내려감)
+  e.preventDefault();
+  if (EMBED) {
+    if (!seek(at() + e.deltaX / STEP, true)) setVy(vy + e.deltaX);
+    lastInput = performance.now(); clearTimeout(window.__snap);
+    window.__snap = setTimeout(() => { if (!seek(Math.round(at()))) setVy(Math.round(vy / STEP) * STEP); }, 180);
+  }
+  else scrollBy(0, e.deltaX);
+}, { passive: false });
+let keyGoal = 0, keyAt = 0;                                              // 빠르게 연달아 누르면 움직이는 중인 자리 말고 앞서 고른 책에서 이어서
+addEventListener('keydown', (e) => {
+  const dd = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+  if (!dd) return;
+  lastInput = performance.now();
+  if (EMBED && driven) {                                                   // 책장이 다 열렸을 때만 책을 넘기고, 아니면 바깥 페이지가 키를 받음
+    const base = performance.now() - keyAt < 900 ? keyGoal : Math.round(at()), goal = Math.min(N - 1, Math.max(0, base + dd));
+    if (seek(goal)) { e.preventDefault(); keyGoal = goal; keyAt = performance.now(); }
+    return;
+  }
+  e.preventDefault();
+  if (EMBED) setVy((Math.round(vy / STEP) + dd) * STEP); else scrollTo({ top: (Math.round(scrollY / STEP) + dd) * STEP, behavior: 'smooth' });
+});
+addEventListener('resize', () => { const k = pos() / STEP; fitCamera(); buildRunway(); if (EMBED) setVy(k * STEP); else scrollTo(0, k * STEP); needs = true; });
+
+await Promise.all(['Source Serif 4', ...FONTS].map((fam) => document.fonts.load(`40px "${fam}"`, 'Life').catch(() => null)));
+measureCaps();
+fitCamera(); buildRunway(); if (EMBED) { setVy(vyMin()); f = 0; }
+// 화면 밖 책의 재질도 미리 셰이더를 만들어 둠(처음 화면에 들어오는 책마다 새로 만드느라 넘길 때 멈추던 것, 11/3 측정 4번)
+try { await renderer.compileAsync(scene, camera); } catch (e) { renderer.compile(scene, camera); }
+requestAnimationFrame(frame);
+
+window.__app = {
+  get ready() { return pending === 0; },
+  get markFont() { return markShown; },
+  xs: () => books.map((g) => g.position.x),                // 시험용: 책마다 화면 가로 위치(m)
+  state: () => ({ f, N, viewW, pending, calls: renderer.info.render.calls, tris: renderer.info.render.triangles, textures: renderer.info.memory.textures }),
+  setF: (v) => { f = v; if (EMBED) setVy((v + LEAD) * STEP); else window.scrollTo(0, (v + LEAD) * STEP); needs = true; },
+  go: (i) => EMBED ? setVy((i + LEAD) * STEP) : scrollTo(0, (i + LEAD) * STEP),
+  drive: (v) => { driven = true; setVy((v + LEAD) * STEP); },
+  chrome: (on) => { if (!on) { document.documentElement.classList.remove('full'); return; } document.documentElement.classList.add('full'); },   // 화면 가득일 때만 아래 Life·번호·출처          // 랜딩: 스크롤 비율 → 책 위치(소수 허용, 그사이는 부드럽게 따라감)
+  renderer, scene, camera,
+};
+</script>
+</body>
+</html>

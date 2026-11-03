@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Life on the surface</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root {
+    --ink: #1a1917;
+    --paper: #f2ede3;
+    --ground: #0f0f0e;
+    --serif: "Source Serif 4", "New York", Georgia, serif;
+    --sans: Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+    --gutter: clamp(16px, 4vw, 56px);
+  }
+  * { box-sizing: border-box; }
+  ::selection { background: #fff; color: #000; text-shadow: none; }   /* 드래그로 고른 글은 흰 바탕에 검은 글자(10/18) */
+  html, body {
+    margin: 0; height: 100%; overflow: hidden;
+    background: var(--ground); color: var(--paper);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  #stage {
+    position: fixed; inset: 0;
+    touch-action: none; user-select: none; -webkit-user-select: none;
+  }
+  #photo, #debug { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  #debug { display: none; }
+  #word { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+  #word text {
+    font-family: var(--serif);
+    font-weight: 460;
+    font-variation-settings: "opsz" 60;
+    font-kerning: normal;
+  }
+  #body {
+    position: absolute; inset: 0; pointer-events: none;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-variation-settings: "opsz" 18;
+    font-kerning: normal;
+  }
+  #body .ln { position: absolute; white-space: nowrap; text-align: left; }
+  #body .j { text-align: justify; text-align-last: justify; }
+  #body .r { text-align: right; }
+  #body .probe { visibility: hidden; position: absolute; left: 0; top: 0; white-space: pre; }
+  #src {
+    position: absolute; left: var(--gutter); bottom: calc(var(--gutter) * 0.9); z-index: 4;
+    font-family: var(--serif); font-style: italic; font-size: 12.5px; line-height: 1.3; letter-spacing: 0.01em;
+    font-variation-settings: "opsz" 12; pointer-events: none; opacity: 0.92;
+  }
+  body.print #hint { display: none; }
+  body.print #count { top: auto; bottom: calc(var(--gutter) * 0.9); font-family: var(--serif); font-size: 12.5px; }
+  #hint, #count {
+    position: absolute;
+    top: calc(var(--gutter) * 0.55 + env(safe-area-inset-top));
+    font-size: 13px; line-height: 20px;
+    pointer-events: none;
+  }
+  #hint { left: var(--gutter); letter-spacing: -0.01em; }
+  #count {
+    right: var(--gutter);
+    font-family: var(--serif); font-variation-settings: "opsz" 12;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="photo"></canvas>
+  <canvas id="debug"></canvas>
+  <div id="body"></div>
+  <svg id="word" xmlns="http://www.w3.org/2000/svg" aria-label="Life"><defs><pattern id="tintPat" patternUnits="userSpaceOnUse"><image id="tintImg" preserveAspectRatio="none"/></pattern></defs><g id="letters"></g></svg>
+  <div id="hint"></div>
+  <div id="count"></div>
+  <div id="src"></div>
+  <svg id="cursor" width="26" height="32" viewBox="0 0 26 32" style="position:absolute;left:0;top:0;z-index:9;display:none;pointer-events:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))"><path d="M2 2 L2 25 L8 19.5 L12.2 29 L16.4 27.2 L12.3 17.9 L20 17.9 Z" fill="#f7f4ee" stroke="#121210" stroke-width="1.6" stroke-linejoin="round"/></svg>
+</div>
+<script>
+(() => {
+  'use strict';
+
+  // 소재/README.md 표: shot_01~33 의 호 정점 y 와 반지름 R (1600x900 기준, 정점 x 는 모두 800)
+  const SHOTS = [
+    [413, 8823], [417, 6399], [417, 536], [417, 351], [417, 376], [417, 551], [417, 909], [417, 442],
+    [417, 326], [417, 540], [417, 490], [417, 500], [417, 482], [417, 731], [417, 334], [417, 493],
+    [417, 540], [417, 360], [417, 468], [417, 277], [417, 609], [417, 309], [417, 708], [417, 381],
+    [417, 222], [417, 314], [417, 1337], [417, 607], [417, 432], [417, 322], [417, 476], [417, 848], [417, 761]
+  ];
+  const N = SHOTS.length, IW = 1600, IH = 900, AX = 800;
+  const STEP = 2, GW = IW / STEP, GH = IH / STEP;
+  const FPS = 7, TICK = Math.round(1000 / FPS);
+  const INK = '#1a1917', PAPER = '#f2ede3';
+  const WORD = 'Life';
+  // 컷마다 다른 본문: 저작권이 끝난 고전에서 원문 그대로(책/final_quotes.py 로 구텐베르크 원문과 대조)
+  const QUOTES = [["The eye is the first circle; the horizon which it forms is the second; and throughout nature this primary figure is repeated without end. It is the highest emblem in the cipher of the world. St. Augustine described the nature of God as a circle whose centre was everywhere and its circumference nowhere.", "Ralph Waldo Emerson, Circles (1841)"], ["A child said What is the grass? fetching it to me with full hands; How could I answer the child? I do not know what it is any more than he. I guess it must be the flag of my disposition, out of hopeful green stuff woven.", "Walt Whitman, Song of Myself (1855)"], ["These roses under my window make no reference to former roses or to better ones; they are for what they are; they exist with God to-day. There is no time to them. There is simply the rose; it is perfect in every moment of its existence.", "Ralph Waldo Emerson, Self-Reliance (1841)"], ["The same stream of life that runs through my veins night and day runs through the world and dances in rhythmic measures. It is the same life that shoots in joy through the dust of the earth in numberless blades of grass and breaks into tumultuous waves of leaves and flowers.", "Rabindranath Tagore, Gitanjali (1912)"], ["Every morning was a cheerful invitation to make my life of equal simplicity, and I may say innocence, with Nature herself. I have been as sincere a worshipper of Aurora as the Greeks. I got up early and bathed in the pond; that was a religious exercise, and one of the best things which I did.", "Henry David Thoreau, Walden (1854)"], ["It is interesting to contemplate an entangled bank, clothed with many plants of many kinds, with birds singing on the bushes, with various insects flitting about, and with worms crawling through the damp earth, and to reflect that these elaborately constructed forms, so different from each other, and dependent on each other in so complex a manner, have all been produced by laws acting around us.", "Charles Darwin, On the Origin of Species (1859)"], ["Use thyself therefore often to meditate upon this, that the nature of the universe delights in nothing more, than in altering those things that are, and in making others like unto them. So that we may say, that whatsoever is, is but as it were the seed of that which shall be.", "Marcus Aurelius, Meditations, tr. Meric Casaubon (1634)"], ["One generation passeth away, and another generation cometh: but the earth abideth for ever. The sun also ariseth, and the sun goeth down, and hasteth to his place where he arose. The wind goeth toward the south, and turneth about unto the north; it whirleth about continually, and the wind returneth again according to his circuits.", "Ecclesiastes 1:4-7, King James Version (1611)"], ["I went to the woods because I wished to live deliberately, to front only the essential facts of life, and see if I could not learn what it had to teach, and not, when I came to die, discover that I had not lived.", "Henry David Thoreau, Walden (1854)"], ["When we try to pick out anything by itself, we find it hitched to everything else in the universe. One fancies a heart like our own must be beating in every crystal and cell, and we feel like stopping to speak to the plants and animals as friendly fellow mountaineers.", "John Muir, My First Summer in the Sierra (1911)"], ["If the doors of perception were cleansed everything would appear to man as it is, infinite. For man has closed himself up, till he sees all things through narrow chinks of his cavern.", "William Blake, The Marriage of Heaven and Hell (1790)"], ["Light, my light, the world-filling light, the eye-kissing light, heart-sweetening light! Ah, the light dances, my darling, at the centre of my life; the light strikes, my darling, the chords of my love; the sky opens, the wind runs wild, laughter passes over the earth. The butterflies spread their sails on the sea of light.", "Rabindranath Tagore, Gitanjali (1912)"], ["Man at his birth is supple and weak; at his death, firm and strong. (So it is with) all things. Trees and plants, in their early growth, are soft and brittle; at their death, dry and withered.", "Laozi, Tao Te Ching, tr. James Legge (1891)"], ["To every thing there is a season, and a time to every purpose under the heaven: A time to be born, and a time to die; a time to plant, and a time to pluck up that which is planted; A time to kill, and a time to heal; a time to break down, and a time to build up; A time to weep, and a time to laugh; a time to mourn, and a time to dance;", "Ecclesiastes 3:1-4, King James Version (1611)"], ["The utility of living consists not in the length of days, but in the use of time; a man may have lived long, and yet lived but a little. Make use of time while it is present with you. It depends upon your will, and not upon the number of days, to have a sufficient length of life.", "Michel de Montaigne, Essays, tr. Charles Cotton (1685)"], ["The lover of nature is he whose inward and outward senses are still truly adjusted to each other; who has retained the spirit of infancy even into the era of manhood. His intercourse with heaven and earth, becomes part of his daily food. In the presence of nature, a wild delight runs through the man, in spite of real sorrows.", "Ralph Waldo Emerson, Nature (1836)"], ["Man is but a reed, the most feeble thing in nature; but he is a thinking reed. The entire universe need not arm itself to crush him. A vapour, a drop of water suffices to kill him. But, if the universe were to crush him, man would still be more noble than that which killed him, because he knows that he dies and the advantage which the universe has over him; the universe knows nothing of this.", "Blaise Pascal, Pensées, tr. W. F. Trotter (1910)"], ["To suffer change can be no hurt; as no benefit it is, by change to attain to being. The age and time of the world is as it were a flood and swift current, consisting of the things that are brought to pass in the world. For as soon as anything hath appeared, and is passed away, another succeeds, and that also will presently out of sight.", "Marcus Aurelius, Meditations, tr. Meric Casaubon (1634)"], ["I bequeath myself to the dirt to grow from the grass I love, If you want me again look for me under your boot-soles. You will hardly know who I am or what I mean, But I shall be good health to you nevertheless, And filter and fibre your blood. Failing to fetch me at first keep encouraged, Missing me one place search another, I stop somewhere waiting for you.", "Walt Whitman, Song of Myself (1855)"], ["The West of which I speak is but another name for the Wild; and what I have been preparing to say is, that in Wildness is the preservation of the World. Every tree sends its fibers forth in search of the Wild. The cities import it at any price. Men plow and sail for it.", "Henry David Thoreau, Walking (1862)"], ["Look within; within is the fountain of all good. Such a fountain, where springing waters can never fail, so thou dig still deeper and deeper.", "Marcus Aurelius, Meditations, tr. Meric Casaubon (1634)"], ["I believe a leaf of grass is no less than the journey work of the stars, And the pismire is equally perfect, and a grain of sand, and the egg of the wren, And the tree-toad is a chef-d’œuvre for the highest, And the running blackberry would adorn the parlors of heaven…", "Walt Whitman, Song of Myself (1855)"], ["There is grandeur in this view of life, with its several powers, having been originally breathed into a few forms or into one; and that, whilst this planet has gone cycling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being, evolved.", "Charles Darwin, On the Origin of Species (1859)"], ["Standing on the bare ground,--my head bathed by the blithe air, and uplifted into infinite space,--all mean egotism vanishes. I become a transparent eye-ball; I am nothing; I see all; the currents of the Universal Being circulate through me; I am part or particle of God.", "Ralph Waldo Emerson, Nature (1836)"], ["Hope is the thing with feathers That perches in the soul, And sings the tune without the words, And never stops at all, And sweetest in the gale is heard; And sore must be the storm That could abash the little bird That kept so many warm.", "Emily Dickinson, Poems (1891)"], ["Thou hast made me endless, such is thy pleasure. This frail vessel thou emptiest again and again, and fillest it ever with fresh life. This little flute of a reed thou hast carried over hills and dales, and hast breathed through it melodies eternally new.", "Rabindranath Tagore, Gitanjali (1912)"], ["I would always have a man to be doing, and, as much as in him lies, to extend and spin out the offices of life; and then let death take me planting my cabbages, indifferent to him, and still less of my gardens not being finished.", "Michel de Montaigne, Essays, tr. Charles Cotton (1685)"], ["There is nothing in the world more soft and weak than water, and yet for attacking things that are firm and strong there is nothing that can take precedence of it;--for there is nothing (so effectual) for which it can be changed.", "Laozi, Tao Te Ching, tr. James Legge (1891)"], ["Heaven is under our feet as well as over our heads. Early in the morning, while all things are crisp with frost, men come with fishing reels and slender lunch, and let down their fine lines through the snowy field to take pickerel and perch…", "Henry David Thoreau, Walden (1854)"], ["As generation is, so also death, a secret of nature's wisdom: a mixture of elements, resolved into the same elements again, a thing surely which no man ought to be ashamed of…", "Marcus Aurelius, Meditations, tr. Meric Casaubon (1634)"], ["And, like the baseless fabric of this vision, The cloud-capp’d towers, the gorgeous palaces, The solemn temples, the great globe itself, Yea, all which it inherit, shall dissolve, And, like this insubstantial pageant faded, Leave not a rack behind. We are such stuff As dreams are made on, and our little life Is rounded with a sleep.", "William Shakespeare, The Tempest (1611)"], ["Why, who makes much of a miracle? As to me I know of nothing else but miracles, Whether I walk the streets of Manhattan, Or dart my sight over the roofs of houses toward the sky, Or wade with naked feet along the beach just in the edge of the water, Or stand under trees in the woods…", "Walt Whitman, Miracles (1856)"], ["The light which puts out our eyes is darkness to us. Only that day dawns to which we are awake. There is more day to dawn. The sun is but a morning star.", "Henry David Thoreau, Walden (1854)"]];
+  const TEXT = new URLSearchParams(location.search).get('text') || 'Life keeps to the surface. A bud swells until its outline meets the air, a seed head lets go of a thousand parachutes, a cell settles on glass and becomes a small round world. Look closely and no edge is smooth. The word rests only where the dark ends and the living thing begins.';
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse = matchMedia('(pointer: coarse)').matches;
+  const params = new URLSearchParams(location.search);
+  const PRINT = params.has('print');               // 책 쪽 찍기: 안내 숨김, 흔들림 없음, 본문은 그 쪽 캡션
+  if (PRINT) document.body.classList.add('print');
+  const REC = params.has('rec');                   // 영상 녹화: 내부 타이머 없이 밖에서 한 박씩 진행
+
+  const $ = (s) => document.querySelector(s);
+  const stage = $('#stage'), photo = $('#photo'), dbg = $('#debug'), svg = $('#word'), gLetters = $('#letters');
+  const bodyEl = $('#body'), hint = $('#hint'), countEl = $('#count'), srcEl = $('#src');
+  if (params.has('embed')) stage.style.touchAction = 'pan-y';   // 랜딩 창 안: 세로로 쓸면 바깥 페이지가 내려가게
+  const pctx = photo.getContext('2d');
+  const dctx = dbg.getContext('2d');
+  const NS = 'http://www.w3.org/2000/svg';
+
+  const HINT = coarse
+    ? '탭하면 넘어가고, 끌면 글자가 따라와 앉아요.'
+    : '클릭하면 다음 장면으로 넘어가고, 커서를 움직이면 글자가 따라와 앉아요.';
+  const HINT_FILE = '파일로 열면 사진 픽셀을 못 읽어요. 같은 폴더의 열기.command 로 열어 주세요.';
+
+  const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
+  const deg = (r) => r * 180 / Math.PI;
+
+  // ---------- 화면과 사진 좌표 ----------
+  let W = 0, H = 0, s = 1, ox = 0, oy = 0, dpr = 1, portrait = false, gutter = 24;
+  function fit() {
+    W = innerWidth; H = innerHeight; dpr = Math.min(devicePixelRatio || 1, 2);
+    s = Math.max(W / IW, H / IH); ox = (W - IW * s) / 2; oy = (H - IH * s) / 2;
+    portrait = W / H < 1;
+    gutter = clamp(W * 0.04, 16, 56);
+    for (const c of [photo, dbg]) { c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); }
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  }
+  const SX = (x) => ox + x * s, SY = (y) => oy + y * s;
+  const IX = (X) => (X - ox) / s, IY = (Y) => (Y - oy) / s;
+
+  // ---------- 사진 불러오기와 분석 ----------
+  const src = (i) => `../소재/shot_${String(i + 1).padStart(2, '0')}.jpg`;
+  const imgs = new Array(N), ana = new Array(N);
+  let tainted = false;
+  function load(i) {
+    if (!imgs[i]) {
+      const im = new Image();
+      im.src = src(i);
+      imgs[i] = im.decode().then(() => im);
+    }
+    return imgs[i];
+  }
+
+  const acv = document.createElement('canvas');
+  acv.width = IW; acv.height = IH;
+  const actx = acv.getContext('2d', { willReadFrequently: true });
+
+  const LIN = new Float32Array(256);
+  for (let i = 0; i < 256; i++) { const c = i / 255; LIN[i] = c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+  const fLab = (t) => (t > 0.008856 ? Math.cbrt(t) : 7.787 * t + 16 / 116);
+
+  function median(arr) { const a = Float32Array.from(arr).sort(); return a.length ? a[a.length >> 1] : 0; }
+  function pct(arr, p) { if (!arr.length) return 0; const a = Float32Array.from(arr).sort(); return a[clamp(Math.floor(a.length * p), 0, a.length - 1)]; }
+
+  // 이진 마스크 침식·팽창(정사각 창, 누적합). 가는 털·줄기·가시는 지우고 덩어리만 남긴다.
+  function morph(src, r, erode) {
+    const tmp = new Uint8Array(src.length), out = new Uint8Array(src.length);
+    const pre = new Int32Array(Math.max(GW, GH) + 1);
+    for (let y = 0; y < GH; y++) {
+      pre[0] = 0;
+      for (let x = 0; x < GW; x++) pre[x + 1] = pre[x] + src[y * GW + x];
+      for (let x = 0; x < GW; x++) {
+        const a = Math.max(0, x - r), b = Math.min(GW - 1, x + r), sum = pre[b + 1] - pre[a];
+        tmp[y * GW + x] = erode ? (sum === b - a + 1 ? 1 : 0) : (sum > 0 ? 1 : 0);
+      }
+    }
+    for (let x = 0; x < GW; x++) {
+      pre[0] = 0;
+      for (let y = 0; y < GH; y++) pre[y + 1] = pre[y] + tmp[y * GW + x];
+      for (let y = 0; y < GH; y++) {
+        const a = Math.max(0, y - r), b = Math.min(GH - 1, y + r), sum = pre[b + 1] - pre[a];
+        out[y * GW + x] = erode ? (sum === b - a + 1 ? 1 : 0) : (sum > 0 ? 1 : 0);
+      }
+    }
+    return out;
+  }
+
+  async function analyze(i) {
+    if (ana[i]) return ana[i];
+    const im = await load(i);
+    if (ana[i]) return ana[i];
+    actx.drawImage(im, 0, 0, IW, IH);
+    let data;
+    try { data = actx.getImageData(0, 0, IW, IH).data; }
+    catch (e) { tainted = true; return (ana[i] = { ok: false }); }
+
+    const n = GW * GH;
+    const Lc = new Float32Array(n), Ac = new Float32Array(n), Bc = new Float32Array(n);
+    const lum = new Uint8Array(n);
+    for (let gy = 0; gy < GH; gy++) {
+      for (let gx = 0; gx < GW; gx++) {
+        let r = 0, g = 0, b = 0;
+        for (let dy = 0; dy < STEP; dy++) {
+          let p = ((gy * STEP + dy) * IW + gx * STEP) * 4;
+          for (let dx = 0; dx < STEP; dx++, p += 4) { r += LIN[data[p]]; g += LIN[data[p + 1]]; b += LIN[data[p + 2]]; }
+        }
+        const k = 1 / (STEP * STEP); r *= k; g *= k; b *= k;
+        const X = (0.4124 * r + 0.3576 * g + 0.1805 * b) / 0.95047;
+        const Y = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+        const Z = (0.0193 * r + 0.1192 * g + 0.9505 * b) / 1.08883;
+        const fx = fLab(X), fy = fLab(Y), fz = fLab(Z);
+        const j = gy * GW + gx;
+        Lc[j] = 116 * fy - 16; Ac[j] = 500 * (fx - fy); Bc[j] = 200 * (fy - fz);
+        lum[j] = clamp(Math.round(Lc[j] * 2.55), 0, 255);
+      }
+    }
+
+    // 바탕색: 호 정점 위쪽 띠의 중앙값 (매치컷 자리라 모든 컷에서 바탕이에요)
+    const [apy, R] = SHOTS[i];
+    const bl = [], ba = [], bb = [];
+    const y0 = Math.max(0, Math.round((apy - 270) / STEP)), y1 = Math.max(y0 + 4, Math.round((apy - 130) / STEP));
+    for (let gy = y0; gy < y1; gy += 1) for (let gx = 260; gx < 540; gx += 2) { const j = gy * GW + gx; bl.push(Lc[j]); ba.push(Ac[j]); bb.push(Bc[j]); }
+    const bg = [median(bl), median(ba), median(bb)];
+
+    // 필름 알고리즘과 같은 거리(OpenCV 8비트 Lab 기준, 밝기 가중 0.5)
+    const d = new Float32Array(n);
+    for (let j = 0; j < n; j++) {
+      const dl = (Lc[j] - bg[0]) * 2.55, da = Ac[j] - bg[1], db = Bc[j] - bg[2];
+      d[j] = Math.sqrt(0.5 * dl * dl + da * da + db * db);
+    }
+    // 문턱: 호 안쪽(확실한 피사체) 거리의 60% 분위 x 0.45, 최소 14
+    const inside = [];
+    const yA = Math.round((apy + 30) / STEP), yB = Math.min(GH - 1, Math.round((apy + Math.min(R, 380)) / STEP));
+    for (let gy = yA; gy <= yB; gy += 2) {
+      const yy = gy * STEP - (apy + R);
+      const hw = Math.sqrt(Math.max(R * R - yy * yy, 0)) * 0.7;
+      const xa = Math.max(0, Math.round((AX - hw) / STEP)), xb = Math.min(GW - 1, Math.round((AX + hw) / STEP));
+      for (let gx = xa; gx <= xb; gx += 3) inside.push(d[gy * GW + gx]);
+    }
+    const T = Math.max(14, 0.45 * pct(inside, 0.6));
+    const raw = new Uint8Array(n);
+    for (let j = 0; j < n; j++) raw[j] = d[j] > T ? 1 : 0;
+    // 글자가 앉을 면: 털·줄기·가시를 지운 덩어리
+    let mask = morph(morph(raw, 5, true), 5, false);
+    mask = morph(morph(mask, 5, false), 5, true);
+    // 본문이 비켜 갈 면: 지평선·줄기처럼 가늘어도 보이는 것은 다 피해요
+    let tmask = morph(morph(raw, 2, true), 2, false);
+    tmask = morph(morph(tmask, 4, false), 4, true);
+
+    // 아래쪽이 거의 다 피사체로 잡히면(꽃이 화면을 채운 컷) 본문은 둥근 호만 비켜 가요
+    let free = 0, tot = 0;
+    for (let gy = Math.round((apy + 60) / STEP); gy < GH; gy += 3) for (let gx = 0; gx < GW; gx += 3) { tot++; if (!tmask[gy * GW + gx]) free++; }
+    const maskText = tot > 0 && free / tot > 0.22;
+
+    return (ana[i] = { ok: true, mask, tmask, lum, T, bg, maskText, dbgCanvas: null, Lc, Ac, Bc, tint: {} });
+  }
+
+  // ---------- 글자 재기 ----------
+  let sizePx = 120, M = null;       // M: 글자별 시작 위치와 폭(화면 px)
+  const letterEls = [];
+  function buildLetters() {
+    gLetters.textContent = '';
+    letterEls.length = 0;
+    for (const ch of WORD) {
+      const t = document.createElementNS(NS, 'text');
+      t.textContent = ch;
+      gLetters.appendChild(t);
+      letterEls.push(t);
+    }
+  }
+  function measureWord() {
+    sizePx = (portrait ? clamp(W * 0.17, 56, 120) : clamp(W * 0.1, 72, 220)) * 0.6 * (parseFloat(new URLSearchParams(location.search).get('wsize')) || 1);   // 단어 크기: 처음의 60%(10/15 25%, 10/16 20% 더 줄임)
+    gLetters.style.fontSize = sizePx + 'px';
+    const t = document.createElementNS(NS, 'text');
+    t.textContent = WORD;
+    t.setAttribute('x', 0); t.setAttribute('y', -9999);
+    gLetters.appendChild(t);
+    const L = [];
+    const x0 = t.getStartPositionOfChar(0).x;
+    for (let i = 0; i < WORD.length; i++) {
+      const a = t.getStartPositionOfChar(i).x - x0, b = t.getEndPositionOfChar(i).x - x0;
+      L.push({ off: a, adv: b - a });
+    }
+    const total = L[L.length - 1].off + L[L.length - 1].adv;
+    gLetters.removeChild(t);
+    for (const l of L) l.off -= total / 2;
+    M = { L, total };
+  }
+  // 사진 좌표로 바꾼 글자 치수
+  function mImg() {
+    return { L: M.L.map((l) => ({ off: l.off / s, adv: l.adv / s })), total: M.total / s, sz: sizePx / s };
+  }
+
+  // ---------- 윗면 찾기 ----------
+  // x0~x1 구간에서 위에서 내려오며 처음 만나는 피사체 덩어리의 윗선 y(x).
+  // 띠 맨 위가 이미 피사체 안이면 위로 거슬러 올라가 가장자리를 찾아요(커서가 꽃 안에 있을 때).
+  function surface(an, x0, x1, yTop, yBot, upWalk) {
+    const gx0 = clamp(Math.floor(x0 / STEP), 0, GW - 1), gx1 = clamp(Math.ceil(x1 / STEP), 0, GW - 1);
+    const gt = clamp(Math.round(yTop / STEP), 0, GH - 1), gb = clamp(Math.round(yBot / STEP), 0, GH - 1);
+    const lim = Math.max(0, gt - Math.round(upWalk / STEP));
+    const xs = [], ys = [];
+    let found = 0;
+    const mask = an.mask;
+    for (let gx = gx0; gx <= gx1; gx++) {
+      let y = NaN;
+      if (mask[gt * GW + gx]) {
+        let g = gt;
+        while (g > lim && mask[(g - 1) * GW + gx]) g--;
+        if (g > lim) y = g * STEP;
+      } else {
+        for (let g = gt + 1; g <= gb; g++) if (mask[g * GW + gx]) { y = g * STEP; break; }
+      }
+      xs.push(gx * STEP + STEP / 2); ys.push(y);
+      if (!Number.isNaN(y)) found++;
+    }
+    return { xs, ys, conf: xs.length ? found / xs.length : 0 };
+  }
+  function fillNaN(ys) {
+    const out = ys.slice(); const n = out.length;
+    let last = -1;
+    for (let i = 0; i < n; i++) {
+      if (!Number.isNaN(out[i])) {
+        if (last < 0) for (let k = 0; k < i; k++) out[k] = out[i];
+        else for (let k = last + 1; k < i; k++) out[k] = out[last] + (out[i] - out[last]) * (k - last) / (i - last);
+        last = i;
+      }
+    }
+    if (last >= 0) for (let k = last + 1; k < n; k++) out[k] = out[last];
+    return out;
+  }
+  function medFilt(a, w) {
+    const h = w >> 1, out = new Array(a.length);
+    for (let i = 0; i < a.length; i++) {
+      const win = [];
+      for (let k = i - h; k <= i + h; k++) win.push(a[clamp(k, 0, a.length - 1)]);
+      win.sort((p, q) => p - q); out[i] = win[h];
+    }
+    return out;
+  }
+  function gauss(a, sigma) {
+    const r = Math.ceil(sigma * 2.5), ker = [];
+    let sum = 0;
+    for (let k = -r; k <= r; k++) { const v = Math.exp(-(k * k) / (2 * sigma * sigma)); ker.push(v); sum += v; }
+    return a.map((_, i) => { let v = 0; for (let k = -r; k <= r; k++) v += a[clamp(i + k, 0, a.length - 1)] * ker[k + r]; return v / sum; });
+  }
+  function smoothProfile(p, sz) {
+    let ys = fillNaN(p.ys);
+    ys = medFilt(ys, Math.max(5, Math.round(sz * 0.5 / STEP)) | 1);
+    ys = gauss(ys, Math.max(2, sz * 0.12 / STEP));
+    return ys;
+  }
+
+  // ---------- 배치 ----------
+  const GAP = 0.05;
+  // 컷이 바뀔 때: 그 컷의 호 하나에 단어 전체를 얹어요(필름과 같은 방식)
+  function poseArc(apx, apy, R, offset) {
+    const m = mImg(), Re = Math.max(R, m.total * 2.4), gap = m.sz * GAP;
+    return m.L.map((l) => {
+      const xc = apx + l.off + l.adv / 2, dx = xc - apx;
+      const q = Math.sqrt(Math.max(Re * Re - dx * dx, 1));
+      return { x0: apx + l.off, xc, base: apy + Re - q + offset - gap, ang: clamp(deg(Math.atan(dx / q)), -9, 9), sx: 1, sy: 1 };
+    });
+  }
+  // 호와 실제 윗선의 높이 차 하나만 재요(단어 가운데 50% 구간)
+  function arcOffset(an, apy, R) {
+    if (!an.ok) return 0;
+    const m = mImg(), x0 = AX - m.total * 0.25, x1 = AX + m.total * 0.25;
+    const yE = (x) => apy + R - Math.sqrt(Math.max(R * R - (x - AX) * (x - AX), 0));
+    const p = surface(an, x0, x1, yE(x0) - 150 - (apy - yE(AX)), Math.max(yE(x0), yE(x1)) + 120, 0);
+    if (p.conf < 0.5) return 0;
+    const ys = smoothProfile(p, m.sz);
+    const diffs = ys.map((y, i) => y - yE(p.xs[i]));
+    return clamp(pct(diffs, 0.3), -110, 40);
+  }
+  // 커서를 따라갈 때: 찾은 윗면에 완만한 곡선 하나를 맞추고 단어를 한 덩어리로 얹어요
+  function poseSurface(an, ax, ay) {
+    const m = mImg(), sz = m.sz, half = m.total / 2, gap = sz * GAP;
+    const R = SHOTS[cur][1];
+    if (an.ok) {
+      const up = Math.max(110, sz * 0.9), down = Math.max(110, sz * 0.85);
+      const p = surface(an, ax - half - sz * 0.1, ax + half + sz * 0.1, ay - up, ay + down, sz * 2.2);
+      lastProfile = p;
+      if (p.conf >= 0.35) {
+        const ys = smoothProfile(p, sz);
+        // 최소제곱 2차 곡선
+        let S = [0, 0, 0, 0, 0], T = [0, 0, 0];
+        for (let i = 0; i < ys.length; i++) {
+          const u = (p.xs[i] - ax) / half, y = ys[i];
+          const u2 = u * u;
+          S[0] += 1; S[1] += u; S[2] += u2; S[3] += u2 * u; S[4] += u2 * u2;
+          T[0] += y; T[1] += u * y; T[2] += u2 * y;
+        }
+        const A = [[S[4], S[3], S[2]], [S[3], S[2], S[1]], [S[2], S[1], S[0]]];
+        let [a2, a1, a0] = solve3(A, [T[2], T[1], T[0]]);
+        a2 = clamp(a2, -sz * 0.25, sz * 0.25);
+        a1 = clamp(a1, -sz * 0.3, sz * 0.3);
+        const res = ys.map((y, i) => { const u = (p.xs[i] - ax) / half; return y - (a2 * u * u + a1 * u + a0); });
+        a0 += pct(res, 0.1);
+        return m.L.map((l) => {
+          const la = ax + l.off, lb = la + l.adv, xc = (la + lb) / 2, uc = (xc - ax) / half;
+          const cy = a2 * uc * uc + a1 * uc + a0;
+          const slope = (2 * a2 * uc + a1) / half;
+          let local = Infinity;
+          for (let i = 0; i < ys.length; i++) if (p.xs[i] >= la && p.xs[i] <= lb) local = Math.min(local, ys[i]);
+          local = Number.isFinite(local) ? local - cy : 0;
+          return { x0: la, xc, base: cy + clamp(local * 0.5, -sz * 0.08, sz * 0.08) - gap, ang: clamp(deg(Math.atan(slope)) * 0.85, -14, 14), sx: 1, sy: 1 };
+        });
+      }
+    }
+    lastProfile = null;
+    return poseArc(ax, ay - sz * 0.12, R, 0);   // 앉을 데가 없으면 커서 바로 위에 떠 있어요
+  }
+  function solve3(A, b) {
+    const m = A.map((r, i) => [...r, b[i]]);
+    for (let c = 0; c < 3; c++) {
+      let p = c; for (let r = c + 1; r < 3; r++) if (Math.abs(m[r][c]) > Math.abs(m[p][c])) p = r;
+      [m[c], m[p]] = [m[p], m[c]];
+      if (Math.abs(m[c][c]) < 1e-9) return [0, 0, b[2] / Math.max(A[2][2], 1)];
+      for (let r = 0; r < 3; r++) if (r !== c) { const f = m[r][c] / m[c][c]; for (let k = c; k < 4; k++) m[r][k] -= f * m[c][k]; }
+    }
+    return [m[0][3] / m[0][0], m[1][3] / m[1][1], m[2][3] / m[2][2]];
+  }
+
+  // ---------- 그리기 ----------
+  let cur = 0, pose = null, restPose = null, lastProfile = null;
+  let wordInk = PAPER;
+  function lumAt(an, x0, x1, y0, y1) {
+    if (!an || !an.ok) return 0;
+    const gx0 = clamp(Math.floor(x0 / STEP), 0, GW - 1), gx1 = clamp(Math.ceil(x1 / STEP), 0, GW - 1);
+    const gy0 = clamp(Math.floor(y0 / STEP), 0, GH - 1), gy1 = clamp(Math.ceil(y1 / STEP), 0, GH - 1);
+    let sum = 0, cnt = 0;
+    for (let gy = gy0; gy <= gy1; gy += 2) for (let gx = gx0; gx <= gx1; gx += 2) { sum += an.lum[gy * GW + gx]; cnt++; }
+    return cnt ? sum / cnt / 255 : 0;
+  }
+  function wordBox(p) {
+    const m = mImg();
+    const last = p[p.length - 1], first = p[0];
+    const top = Math.min(...p.map((q) => q.base)) - m.sz * 0.74, bot = Math.max(...p.map((q) => q.base)) + m.sz * 0.06;
+    return { x0: first.x0, x1: last.x0 + m.L[m.L.length - 1].adv, y0: top, y1: bot };
+  }
+  function updateWordInk(p, fresh) {
+    const b = wordBox(p), L = lumAt(ana[cur], b.x0, b.x1, b.y0, b.y1);
+    if (fresh) wordInk = L > 0.49 ? INK : PAPER;
+    else if (wordInk === PAPER && L > 0.53) wordInk = INK;
+    else if (wordInk === INK && L < 0.45) wordInk = PAPER;
+    gLetters.setAttribute('fill', wordInk);
+    applyColor(p);
+  }
+
+  // ---------- 글자 색: 앉은 면의 색을 받아요 ----------
+  // 1 단색 / 2 글자마다 앉은 면의 색 / 3 스며듦(사진 색이 흐리게 번져 글자 안에서도 바뀜)
+  let colorMode = clamp(parseInt(params.get('color') || '3', 10) || 3, 1, 3);
+  const tintImg = document.getElementById('tintImg'), tintPat = document.getElementById('tintPat');
+  const fInv = (t) => (t > 0.206893 ? t * t * t : (t - 16 / 116) / 7.787);
+  const gam = (c) => (c <= 0.0031308 ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - 0.055);
+  function labToRgb(L, a, b) {
+    const fy = (L + 16) / 116, fx = fy + a / 500, fz = fy - b / 200;
+    const X = 0.95047 * fInv(fx), Y = fInv(fy), Z = 1.08883 * fInv(fz);
+    const r = 3.2406 * X - 1.5372 * Y - 0.4986 * Z, g = -0.9689 * X + 1.8758 * Y + 0.0415 * Z, bl = 0.0557 * X - 0.2040 * Y + 1.0570 * Z;
+    return [r, g, bl].map((c) => clamp(Math.round(gam(clamp(c, 0, 1)) * 255), 0, 255));
+  }
+  // 밝은 글자면 L 80~95, 어두운 글자면 L 14~36. 색은 아래 면의 색을 2배 안팎 진하게
+  function remap(L, a, b, light) {
+    const L2 = light ? 80 + 0.15 * L : 14 + 0.22 * L;
+    const k = light ? 2.2 : 1.9, cmax = light ? 46 : 58;
+    let a2 = a * k, b2 = b * k;
+    const c = Math.hypot(a2, b2);
+    if (c > cmax) { a2 *= cmax / c; b2 *= cmax / c; }
+    return labToRgb(L2, a2, b2);
+  }
+  function sampleLab(an, x0, x1, y0, y1) {
+    const gx0 = clamp(Math.floor(x0 / STEP), 0, GW - 1), gx1 = clamp(Math.ceil(x1 / STEP), 0, GW - 1);
+    const gy0 = clamp(Math.floor(y0 / STEP), 0, GH - 1), gy1 = clamp(Math.ceil(y1 / STEP), 0, GH - 1);
+    let L = 0, A = 0, B = 0, w = 0;
+    for (let gy = gy0; gy <= gy1; gy += 2) for (let gx = gx0; gx <= gx1; gx += 2) {
+      const j = gy * GW + gx, wt = 1 + an.mask[j] * 3;      // 피사체 쪽 색을 더 무겁게
+      L += an.Lc[j] * wt; A += an.Ac[j] * wt; B += an.Bc[j] * wt; w += wt;
+    }
+    return w ? [L / w, A / w, B / w] : [50, 0, 0];
+  }
+  function tintURL(an, light) {
+    const key = light ? 'l' : 'd';
+    if (an.tint[key]) return an.tint[key];
+    const c1 = document.createElement('canvas'); c1.width = GW; c1.height = GH;
+    const x1 = c1.getContext('2d'), id = x1.createImageData(GW, GH);
+    // 글자가 앉은 면의 색이 위로 번져 오르도록, 아래쪽 색을 위로 끌어올려 그려요
+    const lift = Math.round(sizePx / s * 0.55 / STEP);
+    for (let gy = 0; gy < GH; gy++) {
+      const sy = Math.min(GH - 1, gy + lift);
+      for (let gx = 0; gx < GW; gx++) {
+        const j = sy * GW + gx, o = (gy * GW + gx) * 4;
+        const [r, g, b] = remap(an.Lc[j], an.Ac[j], an.Bc[j], light);
+        id.data[o] = r; id.data[o + 1] = g; id.data[o + 2] = b; id.data[o + 3] = 255;
+      }
+    }
+    x1.putImageData(id, 0, 0);
+    const c2 = document.createElement('canvas'); c2.width = GW; c2.height = GH;
+    const x2 = c2.getContext('2d');
+    x2.filter = 'blur(10px)';
+    x2.drawImage(c1, 0, 0);
+    return (an.tint[key] = c2.toDataURL('image/png'));
+  }
+  function applyColor(p) {
+    const an = ana[cur];
+    const light = wordInk === PAPER;
+    if (colorMode === 1 || !an || !an.ok) { letterEls.forEach((el) => el.removeAttribute('fill')); return; }
+    if (colorMode === 3) {
+      const url = tintURL(an, light);
+      if (tintImg.getAttribute('href') !== url) tintImg.setAttribute('href', url);
+      for (const [k, v] of [['x', ox], ['y', oy], ['width', IW * s], ['height', IH * s]]) tintPat.setAttribute(k, v);
+      tintImg.setAttribute('width', IW * s); tintImg.setAttribute('height', IH * s);
+      letterEls.forEach((el) => el.setAttribute('fill', 'url(#tintPat)'));
+      return;
+    }
+    const m = mImg();
+    for (let i = 0; i < p.length; i++) {
+      const q = p[i], w = m.L[i].adv;
+      const [L, a, b] = sampleLab(an, q.x0, q.x0 + w, q.base - m.sz * 0.1, q.base + m.sz * 0.5);
+      const [r, g, bl] = remap(L, a, b, light);
+      letterEls[i].setAttribute('fill', `rgb(${r},${g},${bl})`);
+    }
+  }
+  function render(p, boil) {
+    if (!p || !p.every((q) => isFinite(q.x0) && isFinite(q.base))) return;
+    for (let i = 0; i < p.length; i++) {
+      const q = p[i], el = letterEls[i];
+      const bx = boil ? (Math.random() - 0.5) * 1.1 : 0, by = boil ? (Math.random() - 0.5) * 1.1 : 0, br = boil ? (Math.random() - 0.5) * 0.6 : 0;
+      const X = SX(q.x0) + bx, Y = SY(q.base) + by, CX = SX(q.xc) + bx;
+      el.setAttribute('x', X.toFixed(2));
+      el.setAttribute('y', Y.toFixed(2));
+      el.setAttribute('transform', `translate(${CX.toFixed(2)} ${Y.toFixed(2)}) rotate(${(q.ang + br).toFixed(2)}) scale(${q.sx} ${q.sy}) translate(${(-CX).toFixed(2)} ${(-Y).toFixed(2)})`);
+    }
+  }
+  function drawPhoto() {
+    const im = imgsReady[cur];
+    if (!im) return;
+    window.__photoVer = (window.__photoVer || 0) + 1;     // 랜딩의 번진 빛이 사진이 바뀔 때만 다시 그리게
+    pctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    pctx.imageSmoothingQuality = 'high';
+    pctx.drawImage(im, ox, oy, IW * s, IH * s);
+  }
+  const imgsReady = new Array(N);
+
+  // ---------- 본문(둥근 피사체를 비켜 흐르는 글줄) ----------
+  const P = { fs: 17, lh: 24, words: TEXT.split(' '), wd: [], space: 4, lines: [], region: null, ink: PAPER, key: '' };
+  const pool = [];
+  let probe = null;
+  function measurePara() {
+    P.fs = portrait ? 15 : clamp(W * 0.0115, 15, 19);
+    P.lh = Math.round(P.fs * 1.45);
+    bodyEl.style.fontSize = P.fs + 'px';
+    bodyEl.style.lineHeight = P.lh + 'px';
+    if (!probe) { probe = document.createElement('span'); probe.className = 'probe'; bodyEl.appendChild(probe); }
+    const w = (t) => { probe.textContent = t; return probe.getBoundingClientRect().width; };
+    P.wd = P.words.map(w);
+    P.space = w('a b') - w('ab');
+  }
+  function merge(iv) {
+    iv.sort((a, b) => a[0] - b[0]);
+    const out = [];
+    for (const v of iv) { if (out.length && v[0] <= out[out.length - 1][1]) out[out.length - 1][1] = Math.max(out[out.length - 1][1], v[1]); else out.push(v.slice()); }
+    return out;
+  }
+  // 한 줄 띠(y0~y1, 화면 px)에서 사진 속 피사체가 차지한 구간
+  function staticBlocks(an, y0, y1, extra, useMask) {
+    const pad = P.fs * 0.9, iv = [];
+    const [apy, R] = SHOTS[cur];
+    if (R < 2500) {
+      const cyS = SY(apy + R), Rs = R * s, yy = clamp(cyS, y0, y1), dy = yy - cyS;
+      if (Math.abs(dy) < Rs) { const hw = Math.sqrt(Rs * Rs - dy * dy); iv.push([SX(AX) - hw - pad, SX(AX) + hw + pad]); }
+    }
+    if (useMask && an && an.ok) {
+      const vp = P.lh * 0.5;
+      const gy0 = clamp(Math.floor(IY(y0 - vp) / STEP), 0, GH - 1), gy1 = clamp(Math.ceil(IY(y1 + vp) / STEP), 0, GH - 1);
+      const gxa = clamp(Math.floor(IX(0) / STEP), 0, GW - 1), gxb = clamp(Math.ceil(IX(W) / STEP), 0, GW - 1);
+      let start = -1;
+      for (let gx = gxa; gx <= gxb + 1; gx++) {
+        let hit = false;
+        if (gx <= gxb) for (let gy = gy0; gy <= gy1; gy++) if (an.tmask[gy * GW + gx]) { hit = true; break; }
+        if (hit && start < 0) start = gx;
+        if (!hit && start >= 0) {
+          const a = SX(start * STEP), b = SX(gx * STEP);
+          if (b - a > 8) iv.push([a - pad, b + pad]);
+          start = -1;
+        }
+      }
+    }
+    if (extra) iv.push(...extra);
+    return merge(iv);
+  }
+  function buildRegion() {
+    const an = ana[cur];
+    const apexYS = SY(SHOTS[cur][0]);
+    const lh = P.lh, L = gutter, Rr = W - gutter;
+    const topUI = gutter * 0.55 + 20 + lh * 1.2;
+    const cands = [];
+    // 가운데 세로 띠는 글자와 피사체 몫이에요. 본문은 양쪽 날개로 갈라 흘러요(대칭)
+    const corridor = M.total * 0.62;
+    const mid = portrait ? null : [[SX(AX) - corridor, SX(AX) + corridor]];
+    // 지평선처럼 아주 큰 호는 빛 번짐이 넓어서 조금 더 아래부터 흘러요
+    const bottomTop = SHOTS[cur][1] >= 2500 ? SY(SHOTS[cur][0] + 170) : apexYS + Math.max(lh * 1.2, H * 0.05);
+    if (!portrait) cands.push({ name: 'bottom', top: bottomTop, bottom: H - gutter * 0.8, extra: mid });
+    cands.push({ name: 'top', top: topUI, bottom: apexYS - sizePx * 1.05, extra: mid });
+    // 후보마다: 다 들어가는지, 글줄 밑이 얼마나 깨끗한지(피사체와 겹친 비율), 얼마나 잘게 쪼개지는지
+    let best = null;
+    P.cands = [];
+    const variants = [];
+    for (const c of cands) {
+      if (an && an.ok && an.maskText) variants.push({ ...c, useMask: true });
+      variants.push({ ...c, useMask: false });   // 다 안 들어가면 둥근 호만 비켜 가는 판
+    }
+    for (const c of variants) {
+      const lines = [];
+      for (let y = c.top; y + lh <= c.bottom; y += lh) lines.push({ y, blocks: staticBlocks(an, y, y + lh, c.extra, c.useMask) });
+      const res = flow(lines, null, L, Rr);
+      // 한쪽 날개에 한두 줄만 걸리면 그쪽을 비우고 다시 흘려 봐요
+      let orphan = 0;
+      if (!portrait && !c.dropped) {
+        const nl = res.segs.filter((sg) => sg.x + sg.w / 2 < SX(AX)).length, nr = res.segs.length - nl;
+        if (Math.min(nl, nr) > 0 && Math.min(nl, nr) <= 2 && Math.max(nl, nr) >= 4) {
+          orphan = 1;
+          const side = nl < nr ? [0, SX(AX)] : [SX(AX), W];
+          variants.push({ ...c, dropped: true, extra: [...(c.extra || []), side] });
+        }
+      }
+      let over = 0, area = 0, small = 0;
+      for (const sg of res.segs) {
+        if (sg.w < P.fs * 9) small++;
+        if (!an || !an.ok) continue;
+        const gy0 = clamp(Math.floor(IY(sg.y) / STEP), 0, GH - 1), gy1 = clamp(Math.ceil(IY(sg.y + lh) / STEP), 0, GH - 1);
+        const gx0 = clamp(Math.floor(IX(sg.x) / STEP), 0, GW - 1), gx1 = clamp(Math.ceil(IX(sg.x + sg.w) / STEP), 0, GW - 1);
+        for (let gy = gy0; gy <= gy1; gy += 2) for (let gx = gx0; gx <= gx1; gx += 2) { area++; over += an.tmask[gy * GW + gx]; }
+      }
+      const fits = res.placed === P.words.length;
+      const score = (area ? over / area : 0) + 0.8 * (res.segs.length ? small / res.segs.length : 0) + (c.name === 'bottom' ? 0 : 0.12) + (c.useMask ? 0 : 0.05) + orphan * 0.3;
+      const cand = { ...c, lines, fits, placed: res.placed, score, segs: res.segs.length, over: area ? over / area : 0 };
+      (P.cands = P.cands || []).push({ name: c.name, useMask: c.useMask, fits, placed: res.placed, score: +score.toFixed(3), over: +(area ? over / area : 0).toFixed(3), segs: res.segs.length, small, maskText: an && an.maskText });
+      if (!best || (cand.fits && !best.fits) || (cand.fits === best.fits && (cand.fits ? cand.score < best.score : cand.placed > best.placed))) best = cand;
+    }
+    P.region = best; P.L = L; P.Rr = Rr;
+    // 폰 속 랜딩 창처럼 작은 창에 본문이 다 안 들어가면 본문·출처를 숨기고 단어와 사진만(10/30, 잘린 글이 출처와 겹쳤음)
+    const tiny = W < 560 && !best.fits;
+    bodyEl.style.visibility = srcEl.style.visibility = tiny ? 'hidden' : '';
+    // 본문 잉크: 왼쪽 날개와 오른쪽 날개 각각, 글줄이 놓일 자리의 평균 밝기로 정해요
+    // 먹색과 미색 중 대비가 큰 쪽(L* 50 근처가 갈림길)
+    const res = flow(best.lines, null, L, Rr);
+    const acc = { l: [0, 0], r: [0, 0] };
+    for (const sg of res.segs) {
+      const side = sg.x + sg.w / 2 < SX(AX) ? 'l' : 'r';
+      acc[side][0] += lumAt(an, IX(sg.x), IX(sg.x + sg.w), IY(sg.y), IY(sg.y + P.lh)); acc[side][1]++;
+    }
+    const pick = (a, other) => { const v = a[1] ? a[0] / a[1] : (other[1] ? other[0] / other[1] : 0); return v > 0.5 ? INK : PAPER; };
+    P.inkL = pick(acc.l, acc.r); P.inkR = pick(acc.r, acc.l);
+    P.key = '';
+  }
+  function flow(lines, wb, L, Rr) {
+    const n = P.words.length, minSeg = P.fs * 6.5, segs = [];
+    let wi = 0;
+    for (const ln of lines) {
+      if (wi >= n) break;
+      let blocks = ln.blocks;
+      if (wb && wb.y1 > ln.y - P.lh * 0.15 && wb.y0 < ln.y + P.lh * 1.15) blocks = merge([...blocks, [wb.x0 - P.fs * 0.7, wb.x1 + P.fs * 0.7]]);
+      // 빈 구간 = 여백 안에서 막힌 구간을 뺀 나머지
+      let x = L;
+      const free = [];
+      for (const b of blocks) { if (b[0] > x) free.push([x, Math.min(b[0], Rr)]); x = Math.max(x, b[1]); if (x >= Rr) break; }
+      if (x < Rr) free.push([x, Rr]);
+      for (const f of free) {
+        const fw = f[1] - f[0];
+        if (fw < minSeg || wi >= n) continue;
+        let k = wi, used = 0;
+        while (k < n) { const add = (k > wi ? P.space : 0) + P.wd[k]; if (used + add > fw) break; used += add; k++; }
+        if (k === wi) continue;
+        segs.push({ x: f[0], y: ln.y, w: fw, from: wi, to: k, used, leftOpen: f[0] <= L + 0.5, rightOpen: f[1] >= Rr - 0.5 });
+        wi = k;
+      }
+    }
+    // 다 못 들어가면 마지막으로 다 들어간 문장에서 끊어요
+    if (wi < n) {
+      let cut = -1;
+      for (let k = wi; k > 0; k--) if (/[.]$/.test(P.words[k - 1])) { cut = k; break; }
+      if (cut > 0) {
+        while (segs.length && segs[segs.length - 1].from >= cut) segs.pop();
+        const ls = segs[segs.length - 1];
+        if (ls && ls.to > cut) { ls.to = cut; ls.used = P.wd.slice(ls.from, cut).reduce((a, b) => a + b, 0) + (cut - ls.from - 1) * P.space; }
+        wi = cut;
+      }
+    }
+    return { segs, placed: wi };
+  }
+  function renderPara(wb) {
+    if (!P.region) return;
+    const wbS = wb ? { x0: SX(wb.x0), x1: SX(wb.x1), y0: SY(wb.y0), y1: SY(wb.y1) } : null;
+    const { segs } = flow(P.region.lines, wbS, P.L, P.Rr);
+    const key = segs.map((g) => `${g.x | 0},${g.y | 0},${g.from},${g.to}`).join('|');
+    if (key === P.key) return;
+    P.key = key;
+    segs.forEach((g, i) => {
+      let el = pool[i];
+      if (!el) { el = document.createElement('div'); el.className = 'ln'; bodyEl.appendChild(el); pool.push(el); }
+      const last = i === segs.length - 1;
+      const gaps = g.to - g.from - 1;
+      const extra = gaps > 0 ? (g.w - g.used) / gaps : Infinity;
+      let cls = 'ln';
+      if (g.leftOpen && g.rightOpen) { /* 막힌 데 없는 넓은 줄은 왼쪽 정렬 그대로 */ }
+      else if (!last && gaps > 0 && extra <= P.fs * 0.38) cls += ' j';
+      else if (g.leftOpen && !g.rightOpen) cls += ' r';   // 피사체 쪽으로 붙여요
+      el.className = cls;
+      el.style.display = '';
+      el.style.left = g.x.toFixed(1) + 'px';
+      el.style.top = g.y.toFixed(1) + 'px';
+      el.style.width = g.w.toFixed(1) + 'px';
+      el.style.color = g.x + g.w / 2 < SX(AX) ? P.inkL : P.inkR;
+      el.textContent = P.words.slice(g.from, g.to).join(' ');
+    });
+    for (let i = segs.length; i < pool.length; i++) pool[i].style.display = 'none';
+  }
+
+  function updateChrome() {
+    const an = ana[cur];
+    const lt = lumAt(an, IX(0), IX(W * 0.5), IY(0), IY(64));
+    const rt = lumAt(an, IX(W * 0.75), IX(W), IY(0), IY(64));
+    hint.style.color = lt > 0.5 ? INK : PAPER;
+    countEl.style.color = rt > 0.5 ? INK : PAPER;
+    hint.textContent = PRINT ? (params.get('folio') || '') : (tainted ? HINT_FILE : '');   // 안내 문구 없앰(10/16)
+    const bl = lumAt(an, IX(0), IX(W * 0.5), IY(H - 70), IY(H));
+    srcEl.style.color = bl > 0.5 ? INK : PAPER;
+    {
+      // 출처: 단어마다 밑 밝기를 재서 흰/먹을 따로 정해요(배경 경계에 걸려도 읽히게)
+      const txt = params.get('text') ? (params.get('source') || '') : QUOTES[cur][1];
+      srcEl.textContent = '';
+      txt.split(' ').forEach((w, k) => {
+        const sp = document.createElement('span');
+        sp.textContent = (k ? ' ' : '') + w;
+        srcEl.appendChild(sp);
+      });
+      for (const sp of srcEl.children) {
+        const r = sp.getBoundingClientRect();
+        const L0 = lumAt(an, IX(r.left), IX(r.right), IY(r.top), IY(r.bottom));
+        const light = L0 <= 0.5;
+        sp.style.color = light ? PAPER : INK;
+        const halo = light ? 'rgba(18,18,16,0.35)' : 'rgba(242,237,227,0.35)';
+        sp.style.textShadow = `0 0 4px ${halo}`;
+      }
+    }
+    if (PRINT) { countEl.textContent = params.get('page') || ''; return; }
+    countEl.textContent = '';
+  }
+
+  // ---------- 디버그(D 키): 피사체로 본 영역, 찾은 윗면 ----------
+  let debugOn = params.has('debug');
+  function drawDebug() {
+    dbg.style.display = debugOn ? 'block' : 'none';
+    if (!debugOn) return;
+    const an = ana[cur];
+    dctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    dctx.clearRect(0, 0, W, H);
+    if (an && an.ok) {
+      if (!an.dbgCanvas) {
+        const c = document.createElement('canvas'); c.width = GW; c.height = GH;
+        const cx = c.getContext('2d'), id = cx.createImageData(GW, GH);
+        for (let j = 0; j < GW * GH; j++) if (an.mask[j]) { id.data[j * 4] = 242; id.data[j * 4 + 1] = 237; id.data[j * 4 + 2] = 227; id.data[j * 4 + 3] = 70; }
+        cx.putImageData(id, 0, 0); an.dbgCanvas = c;
+      }
+      dctx.drawImage(an.dbgCanvas, ox, oy, IW * s, IH * s);
+    }
+    const [apy, R] = SHOTS[cur];
+    dctx.strokeStyle = PAPER; dctx.lineWidth = 1;
+    dctx.beginPath(); dctx.arc(SX(AX), SY(apy + R), R * s, 0, Math.PI * 2); dctx.stroke();
+    if (lastProfile) {
+      dctx.strokeStyle = INK; dctx.lineWidth = 2; dctx.beginPath();
+      lastProfile.ys.forEach((y, i) => { if (!Number.isNaN(y)) dctx.lineTo(SX(lastProfile.xs[i]), SY(y)); });
+      dctx.stroke();
+    }
+  }
+
+  // ---------- 상태와 움직임 ----------
+  // mode: land(착지 중) / rest(호 위에 앉아 있음) / follow(커서를 따라감) / home(정점으로 돌아감) / hold(손을 뗀 자리에 머묾)
+  let mode = 'rest', frames = [], frameIdx = 0, timer = 0;
+  let ptr = null, restPtr = null, down = null;
+  let ax = AX, ay = 417;
+
+  function shiftPose(p, dy, angMul, sx, sy) { return p.map((q) => ({ ...q, base: q.base + dy, ang: q.ang * angMul, sx, sy })); }
+  function landingFrames() {
+    const sz = mImg().sz;
+    if (reduce) return [restPose];
+    // 스톱모션 착지: 위에서 툭, 조금 더 내려와, 눌렸다가, 제자리
+    return [
+      shiftPose(restPose, -sz * 0.62, 0.25, 1, 1),
+      shiftPose(restPose, -sz * 0.16, 0.85, 1, 1),
+      shiftPose(restPose, 0, 1, 1.04, 0.92),
+      restPose
+    ];
+  }
+  function computeRest() {
+    const [apy, R] = SHOTS[cur];
+    restPose = poseArc(AX, apy, R, arcOffset(ana[cur], apy, R));
+    ax = AX; ay = apy;
+  }
+  function restartTimer() { clearInterval(timer); if (!REC) timer = setInterval(tick, TICK); }
+
+  function tick() {
+    if (!pose) return;
+    let boil = !reduce && !PRINT;
+    if (mode === 'land') {
+      frameIdx++;
+      if (frameIdx >= frames.length - 1) { frameIdx = frames.length - 1; mode = 'rest'; }
+      pose = frames[frameIdx];
+      boil = false;
+    } else if (mode === 'follow' || mode === 'home') {
+      const m = mImg();
+      const tx = mode === 'home' ? AX : IX(ptr.x), ty = mode === 'home' ? SHOTS[cur][0] : IY(ptr.y);
+      const hopX = m.total * 0.7, hopY = m.sz * 0.9;
+      const dx = clamp(tx - ax, -hopX, hopX), dy = clamp(ty - ay, -hopY, hopY);
+      ax += dx; ay += dy;
+      const half = m.total / 2, lo = IX(0) + half + 4, hi = IX(W) - half - 4;
+      ax = lo < hi ? clamp(ax, lo, hi) : AX;
+      if (mode === 'home' && Math.abs(tx - ax) < 1 && Math.abs(ty - ay) < 1) { mode = 'rest'; pose = restPose; }
+      else pose = poseSurface(ana[cur], ax, ay);
+    }
+    updateWordInk(pose);
+    render(pose, boil);
+    renderPara(wordBox(pose));
+    drawDebug();
+  }
+
+  let cutToken = 0;
+  async function show(i, landing) {
+    const token = ++cutToken;
+    const [im, an] = await Promise.all([load(i), analyze(i)]);
+    if (token !== cutToken) return;
+    imgsReady[i] = im;
+    cur = i;
+    if (!params.get('text')) { P.words = QUOTES[i][0].split(' '); measurePara(); P.key = ''; }
+    drawPhoto();
+    computeRest();
+    buildRegion();
+    updateChrome();
+    frames = landing ? landingFrames() : [restPose];
+    frameIdx = 0; pose = frames[0];
+    mode = frames.length > 1 ? 'land' : 'rest';
+    restPtr = ptr ? { ...ptr } : null;
+    updateWordInk(restPose, true);
+    render(pose, false);
+    renderPara(wordBox(pose));
+    drawDebug();
+    restartTimer();
+    // 다음 컷 둘은 미리 읽어 두어 클릭 즉시 넘어가요
+    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 60));
+    idle(() => {
+      const n1 = (i + 1) % N;
+      // 다음 컷의 분석과 색 번짐 그림(36만 칸 계산·흐림·PNG)까지 한가할 때 미리 만들어, 넘기는 순간 멈추지 않게(10/17)
+      Promise.resolve(analyze(n1)).then(() => idle(() => {
+        const a = ana[n1]; if (!a || !a.ok || colorMode !== 3) return;
+        tintURL(a, true); idle(() => tintURL(a, false));
+      }));
+      load((i + 2) % N);
+    });
+  }
+  const next = (dir) => show((cur + dir + N) % N, true);
+
+  stage.addEventListener('pointermove', (e) => {
+    ptr = { x: e.clientX, y: e.clientY };
+    if (mode === 'land') return;
+    if (mode === 'rest' || mode === 'home' || mode === 'hold') {
+      if (!restPtr || Math.hypot(ptr.x - restPtr.x, ptr.y - restPtr.y) > 28) { mode = 'follow'; restPtr = null; }
+    }
+  });
+  stage.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY }; ptr = { x: e.clientX, y: e.clientY }; });
+  stage.addEventListener('pointerup', (e) => {
+    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) < 10) next(1);
+    else if (e.pointerType !== 'mouse' && mode === 'follow') { mode = 'hold'; restPtr = { x: e.clientX, y: e.clientY }; }
+    down = null;
+  });
+  stage.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse' && mode === 'follow') mode = 'home'; });
+  addEventListener('keydown', (e) => {
+    const embed = params.has('embed');                // 랜딩 창 안: 스페이스는 페이지를 내리고, 진단 화면(d)은 열지 않음
+    if ((e.code === 'Space' && !embed) || e.code === 'ArrowRight') { e.preventDefault(); next(1); }
+    else if (e.code === 'ArrowLeft') { e.preventDefault(); next(-1); }
+    else if (e.code === 'KeyD' && !embed) { debugOn = !debugOn; drawDebug(); }
+    else if (['Digit1', 'Digit2', 'Digit3'].includes(e.code)) { colorMode = +e.code.slice(5); if (pose) { applyColor(pose); updateChrome(); } }
+  });
+  let rz = 0;
+  addEventListener('resize', () => {
+    clearTimeout(rz);
+    rz = setTimeout(() => { fit(); measureWord(); measurePara(); if (ana[cur]) { drawPhoto(); computeRest(); buildRegion(); updateChrome(); mode = 'rest'; pose = restPose; render(pose, false); P.key = ''; renderPara(wordBox(pose)); drawDebug(); } }, 120);
+  });
+
+  // 시험용 손잡이: 커서 위치를 코드로 옮겨 봐요
+  window.__life = {
+    move(x, y) { ptr = { x, y }; restPtr = null; mode = 'follow'; },
+    go(i) { return show(clamp(i, 1, N) - 1, true); },
+    state() {
+      const an = ana[cur] || {};
+      const rows = [];
+      if (an.tmask) for (let y = 380; y < 620; y += 20) { let c = 0; for (let gx = 0; gx < GW; gx++) c += an.tmask[(y / STEP) * GW + gx]; rows.push([y, c]); }
+      return { color: colorMode, W, H, s, oy, rtop: P.region && P.region.top, rlines: P.region && P.region.lines.length, cur: cur + 1, mode, tainted, ink: wordInk, region: P.region && (P.region.name + (P.region.useMask ? '+mask' : '')), ax, ay, cands: P.cands, T: an.T, bg: an.bg, maskText: an.maskText, rows };
+    },
+    tick,
+    cursor(x, y, show, press) {
+      const c = document.getElementById('cursor');
+      c.style.display = show ? 'block' : 'none';
+      c.style.transform = `translate(${x - 2}px, ${y - 2}px) scale(${press ? 0.86 : 1})`;
+      if (show) { ptr = { x, y }; if (mode !== 'land') { restPtr = null; mode = 'follow'; } }
+    },
+    leave() { document.getElementById('cursor').style.display = 'none'; if (mode === 'follow') mode = 'home'; },
+    color(n) { colorMode = n; if (pose) applyColor(pose); },
+    next: () => show((cur + 1) % N, true),
+    pause() { clearInterval(timer); },
+    resume() { restartTimer(); }
+  };
+
+  async function start() {
+    fit();
+    buildLetters();
+    try { await document.fonts.load(`460 ${Math.round(W * 0.06)}px "Source Serif 4"`); await document.fonts.load('400 17px "Source Serif 4"'); } catch (e) { /* 글꼴이 없어도 대체 서체로 이어가요 */ }
+    await document.fonts.ready;
+    measureWord();
+    measurePara();
+    const first = clamp(parseInt(params.get('shot') || '1', 10) || 1, 1, N) - 1;
+    await show(first, params.get('land') !== '0');
+    if (params.has('dump')) { const pre = document.createElement('pre'); pre.id = 'dump'; pre.hidden = true; pre.textContent = JSON.stringify(window.__life.state()); document.body.appendChild(pre); }
+    const at = params.get('at');
+    if (at) {
+      const [fx, fy] = at.split(',').map(Number);
+      window.__life.move(fx * W, fy * H);
+      for (let k = 0; k < 14; k++) tick();
+    }
+  }
+  start();
+})();
+</script>
+</body>
+</html>

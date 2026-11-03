@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Life">
+<meta property="og:description" content="A twenty-second film about one word, the page that grew out of it, and fifty books on being alive.">
+<meta property="og:url" content="https://hoonlamb.github.io/life/">
+<meta property="og:image" content="https://hoonlamb.github.io/life/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.20/hls.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life</title>
+<meta name="description" content="A twenty-second film about one word, the page that grew out of it, and thirty-three readings on being alive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..600;1,8..60,300..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Abril+Fatface&family=Cormorant+Garamond&family=Ultra&family=Libre+Baskerville&family=Rozha+One&family=Italiana&family=Spectral&family=Bodoni+Moda&family=IM+Fell+English&family=Crimson+Pro&family=Gloock&family=Cinzel&family=Old+Standard+TT&family=Young+Serif&family=Cardo&family=Bitter&family=Gilda+Display&family=Prata&family=Bellefair&family=Marcellus&family=Almendra+Display&text=Life&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=MedievalSharp&family=Uncial+Antiqua&family=Graduate&family=Cutive+Mono&family=Eagle+Lake&family=Ibarra+Real+Nova&family=Josefin+Slab&family=Grenze+Gotisch&family=New+Rocker&family=Kurale&family=Federant&family=Holtwood+One+SC&family=Della+Respira&family=Special+Elite&family=Courier+Prime&family=Limelight&family=Linden+Hill&family=Vast+Shadow&family=Diplomata&family=Pirata+One&family=Stint+Ultra+Expanded&text=Life&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalnia&family=Nanum+Myeongjo&family=Bentham&family=Kotta+One&family=Junge&family=Fondamento&family=Gowun+Batang&family=Goudy+Bookletter+1911&family=Oranienbaum&family=Bona+Nova&family=Trirong&family=Rye&family=Noto+Serif+Display&family=Metamorphous&family=Sedan&family=Coustard&family=Caudex&family=Elsie&family=Rufina&text=Life&display=block">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<style>
+  :root {
+    --bg: #121210;
+    --paper: #e9e4da;
+    --dim: #a39d91;
+    --line: rgba(233, 228, 218, .16);
+    --serif: "Source Serif 4", "New York", Georgia, serif;
+    --max: 1120px;                                   /* 본문 폭(잡지 판면) */
+    --m: clamp(24px, 9vw, 160px);                    /* 양옆 여백 */
+    --gap: clamp(14px, 1.8vw, 26px);
+    --ease: cubic-bezier(.16, 1, .3, 1);
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); overflow-x: clip; }
+  @media (min-width: 761px) { html { scrollbar-width: none; } html::-webkit-scrollbar { display: none; } }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  ::selection { background: #fff; color: #000; text-shadow: none; }   /* 드래그로 고른 글은 흰 바탕에 검은 글자(10/18) */
+  body { margin: 0; color: var(--paper); font-family: var(--serif); -webkit-font-smoothing: antialiased; overflow-x: clip;
+    font-variation-settings: "opsz" 14; background: transparent; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  .small { font-size: 13px; line-height: 1.5; letter-spacing: .01em; color: var(--dim); }
+  .num { font-variant-numeric: tabular-nums; }
+  .wrap { width: 100%; max-width: calc(var(--max) + var(--m) * 2); margin: 0 auto; padding: 0 var(--m); }
+  .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); }
+
+  /* ---------- 배경(사진 띠 + 물)과 그 위 물빛 ---------- */
+  #water, #gloss { position: fixed; left: 0; top: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+  #water { z-index: 0; background: var(--bg); }
+  #gloss { z-index: 13; }
+  main, footer { position: relative; z-index: 1; }
+
+  /* ---------- 오른쪽 세로 목차: 지금 칸만 밝고 선이 길어짐 ---------- */
+  #side { position: fixed; z-index: 20; right: 32px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: flex-end; gap: 16px; font-size: 13px; }
+  #side a { display: flex; align-items: center; gap: 10px; text-decoration: none; opacity: .36; transition: opacity .3s ease; }
+  #side a .n { font-size: 11px; }
+  #side a::after { content: ""; width: 10px; height: 1px; background: currentColor; transition: width .6s var(--ease); }
+  #side a:hover { opacity: .75; }
+  #side a.on { opacity: 1; }
+  #side a.on::after { width: 28px; }
+  #side { transition: opacity .6s ease; }
+  #side.away { opacity: 0; pointer-events: none; }   /* 넓은 책장이 화면 가운데 있을 땐 비켜 줌 */
+  @media (max-width: 1240px) { #side { right: 20px; } #side .t { display: none; } }
+  @media (max-width: 1100px) {   /* 중간 폭: 소개 단이 너무 좁아지지 않게 제목 아래로 */
+    .wrap .opener h2 { grid-column: 1 / -1; } .wrap .opener p { grid-column: 6 / -1; grid-row: 3; margin: 28px 0 0; }
+  }
+
+  /* ---------- 필름 → 표지 ---------- */
+  #film { position: relative; height: 230vh; }
+  #film .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; }
+  #film .stage.armed { cursor: none; }
+  #film .frame { position: absolute; inset: 0; transform-origin: 50% 47%; will-change: transform; background: #000; }
+  #film video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #film .cover { position: absolute; inset: 0; pointer-events: none; opacity: 0; }
+  #film .over { position: absolute; left: 50%; top: 5.2vh; transform: translateX(-50%); width: min(84vw, 720px); margin: 0; text-align: center;
+    font-size: clamp(16px, 1.45vw, 21px); line-height: 1.35; font-style: italic; font-variation-settings: "opsz" 30; }
+  #film .under { position: absolute; left: 0; right: 0; bottom: 6vh; text-align: center; }
+  #film .hud { position: absolute; right: 32px; bottom: calc(24px + env(safe-area-inset-bottom)); pointer-events: none; }
+  @media (max-width: 1240px) { #film .hud { right: 20px; } }
+  #sound { pointer-events: auto; font-size: 12px; padding: 6px 0; opacity: .55; cursor: pointer; transition: opacity .3s ease; }
+  #sound:hover { opacity: 1; }
+
+  /* Life on: 커서를 따라다니는 원. 필름 어디를 눌러도 소리와 함께 처음부터 */
+  #lifeon { position: absolute; left: 0; top: 0; width: 110px; height: 40px; margin: -20px 0 0 -55px;
+    display: flex; align-items: center; justify-content: center; pointer-events: none; will-change: transform; transition: opacity .7s var(--ease); }
+  /* Life 는 장면마다 다른 세리프로 바뀜(필름·책장과 같은 문법). 크기는 on 보다 15%만 크게, 서체가 바뀌어도 대문자 높이는 같게 */
+  #lifeon b { position: relative; display: flex; align-items: baseline; gap: 7px; font-weight: 400; line-height: 1;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, .62), 0 0 2px rgba(0, 0, 0, .45); white-space: nowrap; }
+  #lifeon .w { font-size: 17.25px; line-height: 1; }
+  #lifeon .o { font-size: 15px; font-style: italic; opacity: .85; font-variation-settings: "opsz" 30; }
+  #lifeon.gone { opacity: 0 !important; }
+  #lifeon:focus-visible { outline: 1px solid var(--paper); outline-offset: 5px; }
+
+  /* ---------- 공통 ---------- */
+  .part { padding: clamp(96px, 16vh, 170px) 0 clamp(56px, 9vh, 110px); }
+  /* 장 머리: 위아래 선 사이에 큰 제목, 오른쪽 단에 짧은 소개. 본문 꼭지와 확실히 다르게 */
+  .opener { padding: 18px 0 clamp(36px, 6vh, 60px); margin-bottom: clamp(48px, 9vh, 96px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: end; }
+  .opener .k { grid-column: 1 / span 6; grid-row: 1; font-size: 13px; color: var(--dim); }
+  .opener .meta { grid-column: 9 / -1; grid-row: 1; font-size: 13px; color: var(--dim); text-align: right; }
+  .opener h2 { grid-column: 1 / span 8; grid-row: 2; margin: clamp(48px, 10vh, 120px) 0 0; font-weight: 300; font-size: clamp(56px, 7.6vw, 124px); line-height: .88; letter-spacing: -.035em; font-variation-settings: "opsz" 60; }
+  .opener p { grid-column: 9 / -1; grid-row: 2; margin: 0 0 .5em; font-size: 14px; line-height: 1.6; color: var(--dim); }
+
+  /* 나타나기 */
+  .rv { opacity: 0; }
+  .rv.in { opacity: 1; }
+  .rv .ln { display: block; overflow: hidden; padding-bottom: .16em; margin-bottom: -.16em; }
+  .rv .li { display: inline-block; white-space: nowrap; }
+  .rv .ch { display: inline-block; }
+
+  /* ---------- 의도 ---------- */
+  #intent { padding: clamp(120px, 22vh, 220px) 0 clamp(90px, 16vh, 170px); text-align: center; }
+  #intent h2 { --s: clamp(96px, 15vw, 230px); height: calc(var(--s) * .92); margin: 0; display: flex; align-items: flex-end; justify-content: center;
+    font-weight: 300; font-size: calc(var(--s) * var(--k, 1)); line-height: .82; letter-spacing: -.02em; font-variation-settings: "opsz" 60; white-space: nowrap; }
+  #intent .tomb { margin: clamp(22px, 3vh, 34px) 0 0; font-size: 13px; letter-spacing: .02em; color: var(--dim); }
+  #intent .text { margin: clamp(44px, 7vh, 72px) auto 0; font-size: clamp(17px, 1.35vw, 20px); line-height: 1.75; font-variation-settings: "opsz" 28; text-wrap: balance; }
+  #intent .src { margin: clamp(18px, 2.6vh, 26px) 0 0; font-size: 13px; letter-spacing: .02em; color: var(--dim); }
+  @media (max-width: 760px) { #intent .text br.soft { display: none; } }
+
+  /* ---------- Surface: 가운데 작은 창 + 창 빛이 번진 둘레 ---------- */
+  #surface .room { position: relative; width: min(100%, 1000px); margin: 0 auto; }
+  #surface .amb { position: absolute; left: -12%; top: -16%; width: 124%; height: 132%; z-index: 0; pointer-events: none;
+    filter: blur(60px) saturate(1.3); opacity: .42; transition: opacity 1s var(--ease); animation: drift 16s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: translate(-1.2%, -1%) scale(1); } to { transform: translate(1.2%, 1%) scale(1.05); } }
+  .bezel { position: relative; z-index: 1; padding: 12px 12px 0; border-radius: 22px; overflow: hidden;
+    background: rgba(233, 228, 218, .055); border: 1px solid rgba(233, 228, 218, .16);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), inset 0 -1px 0 rgba(0, 0, 0, .3), 0 40px 100px rgba(0, 0, 0, .55);
+    transition: transform .9s var(--ease), border-color .5s ease, background .5s ease, box-shadow .9s var(--ease); }
+  .bezel::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .5s ease;
+    background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .13), transparent 62%); }
+  .win { position: relative; z-index: 1; aspect-ratio: 16 / 9; background: #000; overflow: hidden; border-radius: 12px; box-shadow: 0 0 0 1px rgba(0, 0, 0, .45); }
+  .win iframe:not([src]) { pointer-events: none; }
+  .win iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  #surface .ghost { position: absolute; left: 0; top: 0; z-index: 2; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%; pointer-events: none; opacity: 0;
+    border: 1px solid rgba(255, 255, 255, .85); background: rgba(255, 255, 255, .14);
+    -webkit-backdrop-filter: blur(2px) brightness(1.3); backdrop-filter: blur(2px) brightness(1.3);
+    box-shadow: 0 0 0 7px rgba(255, 255, 255, .07), 0 4px 14px rgba(0, 0, 0, .35); transition: opacity .6s ease, scale .3s var(--ease); will-change: transform; }
+  #surface .ghost.on { opacity: 1; }
+  #surface .ghost.press { scale: .6; }
+  #surface .ring { position: absolute; z-index: 2; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, .8); opacity: 0; transform: scale(.06); animation: ring 1.15s cubic-bezier(.2, .7, .2, 1) forwards; }
+  @keyframes ring { 0% { opacity: .9; transform: scale(.06); } 100% { opacity: 0; transform: scale(1); } }
+  .chin { position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 24px; padding: 11px 6px 12px; }
+  .chin span:first-child { color: var(--paper); }
+  /* ---------- 책장: 본문보다 넓게, 크게 ---------- */
+  /* 처음엔 넓은 창, 내리면 화면 가득 → 쭉 내리면 책이 옆으로 → 끝나면 다시 창으로 줄어 아래로 이어짐 */
+  #shelf { position: relative; width: 100vw; margin: clamp(56px, 10vh, 120px) 0 0 calc(50% - 50vw); height: calc(var(--span, 10.2) * 100vh); }
+  #shelf .sstage { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+  #shelf .sframe { position: absolute; inset: 0; background: #121210; transform-origin: 50% 50%; will-change: transform, clip-path; }
+  #shelf iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; pointer-events: none; opacity: 0; transition: opacity .9s ease; }
+  #shelf iframe.ready { opacity: 1; }
+  #shelf .sframe { background-size: cover; background-position: center; }   /* 썸네일(media/shelf.jpg, 폰은 shelf_m.jpg)은 가까워지면 JS 가 넣음 */
+  #shelf .sedge { position: absolute; pointer-events: none; border: 1px solid rgba(233, 228, 218, .18); box-shadow: 0 40px 100px rgba(0, 0, 0, .55); }
+  #shelf .scap { position: absolute; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px; pointer-events: none; }
+  #shelf .scap span:first-child { color: var(--paper); }
+  #shelf .scap .sre { display: none; pointer-events: auto; padding: 0; border: 0; background: none; color: var(--paper); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  #shelf.skip .scap .sre { display: inline; } #shelf.skip .scap .hint { display: none; }
+  #shelf .sback { position: absolute; left: 32px; top: 28px; z-index: 2; display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px 9px 13px;
+    font-size: 13px; border: 1px solid rgba(233, 228, 218, .35); border-radius: 999px; background: rgba(18, 18, 16, .4);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); opacity: 0; pointer-events: none; transition: opacity .5s ease, border-color .25s ease; }
+  #shelf .sback.on { opacity: 1; pointer-events: auto; }
+  #shelf .sback:hover { border-color: var(--paper); }
+  #shelf .sback svg { width: 16px; height: 12px; }
+  #surface .opener { transition: opacity .8s var(--ease); }
+  #surface.focus .amb { opacity: .78; }
+  #surface.focus .bezel { transform: scale(1.012); border-color: rgba(233, 228, 218, .34); background: rgba(233, 228, 218, .085);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .26), inset 0 -1px 0 rgba(0, 0, 0, .3), 0 48px 120px rgba(0, 0, 0, .62); }
+  #surface.focus .bezel::before { opacity: 1; }
+  #surface.focus .opener { opacity: .35; }
+
+  /* ---------- Readings ---------- */
+  .feat { padding: clamp(48px, 9vh, 110px) 0; align-items: start; }
+  .feat .txt, .feat figure { grid-row: 1; margin: 0; }
+  .feat .no { display: block; margin-bottom: 18px; font-size: 13px; color: var(--dim); }
+  .feat blockquote p { margin: 0; }
+  .feat blockquote { margin: 0; font-size: clamp(16px, 1.22vw, 19px); line-height: 1.6; font-variation-settings: "opsz" 24; }
+  .feat cite { display: block; margin-top: 16px; font-style: normal; font-size: 13px; color: var(--dim); }
+  .feat figure .ph { overflow: hidden; aspect-ratio: 4 / 3; }
+  @keyframes slowpan { from { scale: 1.04; translate: -3% 1.6%; } to { scale: 1.18; translate: 3% -2.2%; } }
+  .feat .ph img, #index .more .ph img { animation: slowpan var(--pan, 26s) ease-in-out infinite alternate; }
+  /* 1: 글 왼쪽, 세로 사진 오른쪽에 조금 내려서 */
+  .feat.v0 .txt { grid-column: 1 / span 6; padding-top: 24px; } .feat.v0 figure { grid-column: 9 / -1; margin-top: 80px; } .feat.v0 .ph { aspect-ratio: 4 / 5; }
+  /* 2: 가로 사진 왼쪽, 글은 오른쪽 아래로 */
+  .feat.v1 figure { grid-column: 1 / span 6; } .feat.v1 .ph { aspect-ratio: 3 / 2; } .feat.v1 .txt { grid-column: 8 / -1; align-self: end; padding-bottom: 36px; }
+  /* 3: 큰 인용, 작은 정사각 사진은 위로 */
+  .feat.v2 .txt { grid-column: 2 / span 7; } .feat.v2 blockquote { font-size: clamp(19px, 1.65vw, 25px); line-height: 1.5; font-variation-settings: "opsz" 36; }
+  .feat.v2 figure { grid-column: 10 / -1; margin-top: -40px; } .feat.v2 .ph { aspect-ratio: 1 / 1; }
+  /* 4: 넓은 사진, 좁은 단의 글 */
+  .feat.v3 figure { grid-column: 1 / span 8; } .feat.v3 .ph { aspect-ratio: 16 / 9; } .feat.v3 .txt { grid-column: 9 / -1; padding-top: 12px; }
+  .feat.v3 blockquote { font-size: clamp(15px, 1.1vw, 17px); }
+  .feat figure img { width: 100%; height: 118%; object-fit: cover; display: block; will-change: transform; }
+  .feat figcaption, #index figcaption { margin-top: 8px; font-size: 12px; }
+  .index-head { margin: clamp(48px, 8vh, 80px) 0 12px; }
+  .index-head span { grid-column: 3 / span 6; }
+  #index { list-style: none; margin: 0; padding: 0; }
+  #index > li { border-top: 1px solid var(--line); }
+  #index > li:last-child { border-bottom: 1px solid var(--line); }
+  #index .row { width: 100%; text-align: left; padding: 12px 0; align-items: baseline; transition: opacity .25s ease; }
+  #index .row .n { grid-column: 1 / span 2; color: var(--dim); font-size: 13px; }
+  #index .row .first { grid-column: 3 / span 6; font-size: clamp(15px, 1.1vw, 17px); line-height: 1.4; }
+  #index .row .who { grid-column: 10 / span 3; color: var(--dim); font-size: 13px; line-height: 1.4; }
+  #index:hover .row { opacity: .45; }
+  #index .row:hover, #index li.open .row { opacity: 1; }
+  #index .more { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .7s var(--ease), opacity .45s ease; }
+  #index li.open .more { grid-template-rows: 1fr; opacity: 1; }
+  #index .more > .in { min-height: 0; overflow: hidden; align-items: start; }
+  #index .more blockquote { grid-column: 3 / span 6; margin: 4px 0 34px; font-size: clamp(15px, 1.12vw, 17px); line-height: 1.6; }
+  #index .more figure { grid-column: 10 / span 3; margin: 4px 0 34px; }
+  #index .more .ph { overflow: hidden; aspect-ratio: 4 / 3; }
+  #index .more .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ---------- 판권 ---------- */
+  footer { padding: clamp(72px, 12vh, 130px) 0 36px; }
+  footer .k { grid-column: 1 / span 2; }
+  footer .ph { grid-column: 3 / span 6; }
+  footer .tx { grid-column: 10 / span 3; }
+  footer .bk, footer .fm { grid-column: 3 / -1; margin-top: clamp(44px, 8vh, 80px); }
+  footer .bk ol, footer .fm ol { columns: 3; }
+  footer .fm a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(163, 157, 145, .4); transition: color .3s ease, border-color .3s ease; }
+  footer .fm a:hover { color: var(--paper); border-color: currentColor; }
+  @media (max-width: 1100px) { footer .bk ol, footer .fm ol { columns: 2; } }
+  footer h4 { margin: 0 0 10px; font-weight: 400; font-size: 13px; color: var(--dim); }
+  footer ol { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: var(--gap); font-size: 12px; line-height: 1.5; color: var(--dim); }
+  footer li { break-inside: avoid; margin-bottom: 4px; }
+  footer p { margin: 0 0 10px; font-size: 12px; line-height: 1.5; color: var(--dim); }
+
+
+  /* ---------- 스크롤 막대: 머리카락 한 올 ---------- */
+  #bar { position: fixed; z-index: 30; right: 0; top: 0; bottom: 0; width: 16px; touch-action: none; }
+  #bar::before { content: ""; position: absolute; right: 6px; top: 12px; bottom: 12px; width: 1px; background: rgba(233, 228, 218, .07); transition: background .4s ease; }
+  #bar i { position: absolute; right: 5px; top: 12px; width: 3px; border-radius: 3px; background: var(--paper); opacity: .22;
+    transition: opacity .5s ease, width .25s var(--ease), right .25s var(--ease); }
+  #bar.act i { opacity: .5; }
+  #bar:hover i, #bar.drag i { opacity: .8; width: 5px; right: 4px; }
+  #bar:hover::before, #bar.drag::before { background: rgba(233, 228, 218, .14); }
+
+  @media (max-width: 760px) {
+    :root { --m: 22px; }
+    .opener .k, .opener .meta, .opener h2, .opener p, .feat .txt, .feat figure, .index-head span, #index .row .n, #index .row .first, #index .row .who,
+    #index .more blockquote, #index .more figure, footer .k, footer .ph, footer .tx, footer .bk, footer .fm { grid-column: 1 / -1; }
+    .opener .meta { grid-row: auto; text-align: left; margin-top: 4px; } .opener h2 { grid-row: auto; margin-top: 40px; } .opener p { grid-row: auto; margin-top: 18px; }
+    #feats .txt, #feats figure { grid-column: 1 / -1; grid-row: auto; padding: 0; margin-top: 0; align-self: start; }   /* 꼭지별 두 단 배치보다 세게 */
+    #feats figure { width: 72%; margin-top: 26px; } #feats .v1 figure, #feats .v3 figure { justify-self: end; }
+    #side { display: none; }
+    #index .row .who { margin-top: 4px; }
+    #index .more figure { width: 62%; margin-top: 16px; }
+    footer ol, footer .bk ol, footer .fm ol { columns: 1; } footer .ph, footer .tx, footer .bk, footer .fm { margin-top: 22px; }
+    .bezel { padding: 8px 8px 0; border-radius: 16px; } .win { border-radius: 9px; }
+    #shelf .sback { left: 16px; top: 16px; }
+    #bar { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .feat .ph img, #index .more .ph img { animation: none; } #index .more { transition: none; } #film { height: 100vh; } .rv { opacity: 1; transform: none; transition: none; } #surface .amb { animation: none; }
+    .bezel { transition: none; } #surface.focus .bezel { transform: none !important; } #surface .ghost { display: none; } }
+</style>
+</head>
+<body>
+<canvas id="water" aria-hidden="true"></canvas>
+<canvas id="gloss" aria-hidden="true"></canvas>
+
+<nav id="side" aria-label="Sections">
+  <a href="#film"><span class="n num">01</span><span class="t">Film</span></a>
+  <a href="#surface"><span class="n num">02</span><span class="t">Surface</span></a>
+  <a href="#readings"><span class="n num">03</span><span class="t">Readings</span></a>
+</nav>
+
+<main>
+<section id="film" aria-label="Film">
+  <div class="stage armed">
+    <div class="frame"><video id="hero" poster="media/film.jpg" autoplay muted loop playsinline preload="auto"></video></div>
+    <div class="cover">
+      <p class="over">Let life be beautiful like summer flowers and death like autumn leaves.</p>
+      <div class="under small">Rabindranath Tagore, Stray Birds (1916)</div>
+    </div>
+    <button id="lifeon" type="button" aria-label="Life on: play the film from the start, with sound"><b><span class="w">Life</span> <span class="o">on</span></b></button>
+    <div class="hud"><button id="sound" type="button" aria-pressed="false">Sound off</button></div>
+  </div>
+</section>
+
+<section id="intent" data-mark>
+  <div class="wrap">
+    <h2 class="rv">Life</h2>
+    <p class="tomb rv">Directed by hoonlamb, 2026</p>
+    <p class="text rv" style="--d:.16s">Even the same word<br class="soft">
+      can head in opposite directions, depending on what it is worth to you.<br>
+      We were born different, and still we can understand each other.</p>
+    <p class="src rv" style="--d:.24s">From Be Articulate, 2021</p>
+  </div>
+</section>
+
+<section id="surface" class="part" data-mark>
+  <div class="wrap">
+    <header class="grid opener"><span class="k num rv">02</span><span class="meta rv">33 photographs</span><h2 class="rv">Surface</h2>
+      <p class="rv" style="--d:.08s">Thirty-three photographs from the film. On each one the word finds the surface of the subject and sits there, and a passage of writing flows around it.</p></header>
+    <div class="room rv">
+      <canvas class="amb" width="64" height="36" aria-hidden="true"></canvas>
+      <div class="bezel">
+        <div class="win"><iframe data-src="../B_surface/?color=3&amp;embed" title="Surface"></iframe>
+          <i class="ghost" aria-hidden="true"></i></div>
+        <div class="chin small"><span>Move to steer the word</span><span>Click for the next · 1, 2, 3 for colour</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="readings" class="part" data-mark>
+  <div class="wrap">
+    <header class="grid opener"><span class="k num rv">03</span><span class="meta rv">33 passages · 14 writers · editions 1611 to 1912</span><h2 class="rv">Readings</h2>
+      <p class="rv" style="--d:.08s">Passages on being alive, from Ecclesiastes to Tagore, each paired with the photograph it sits on in Surface. Every text is in the public domain and checked word for word against its Project Gutenberg edition.</p></header>
+    <div id="feats"></div>
+    <section id="shelf" aria-label="Shelf">
+      <div class="sstage">
+        <div class="sframe"><iframe data-src="../D_shelf/?embed" title="Fifty books with Life in the title" tabindex="-1"></iframe></div>
+        <div class="sedge" aria-hidden="true"></div>
+        <div class="scap small"><span>Fifty books with Life in the title</span><span class="hint">Scroll to open the shelf</span><button class="sre" type="button">Open the shelf again</button></div>
+        <button class="sback" type="button"><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M6 1 1 6l5 5M1 6h14" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Back to the page</button>
+      </div>
+    </section>
+    <div class="grid index-head"><span class="small rv">All thirty-three</span></div>
+    <ol id="index"></ol>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap grid">
+    <span class="k small rv">Credits</span>
+    <div class="ph"><h4 class="rv">Photographs</h4><ol id="plates" class="rv"></ol></div>
+    <div class="tx"><h4 class="rv">Texts and sound</h4>
+      <p class="rv">All passages, including the line on the cover, are in the public domain, quoted from Project Gutenberg editions. Translations are the historical ones named with each source.</p>
+      <p class="rv">Music composed for the film. Film footage is listed below with its licences.</p></div>
+    <div class="fm"><h4 class="rv">Film footage</h4>
+      <p class="rv">In the order they appear. Clips and images are cropped, cut short and set with type for the film.</p>
+      <ol id="filmcred" class="rv"></ol></div>
+    <div class="bk"><h4 class="rv">Books on the shelf</h4>
+      <p class="rv">Fifty real editions, in shelf order. Photographs and sizes come from the listings named with each book.</p>
+      <ol id="books" class="rv"></ol></div>
+  </div>
+</footer>
+
+<div id="bar" aria-hidden="true"><i></i></div>
+
+<script>
+// 배포: 필름은 화질 그대로 HLS 조각으로(한 파일 25MB 한도). 애플 기기(아이폰·스레드 앱 안 브라우저·맥 사파리)는 기본 재생이 가장 안정적이라 먼저,
+// 나머지는 hls.js(11/3: 아이폰에서 hls.js 의 ManagedMediaSource 경로를 쓰지 않게)
+(() => { const v = document.getElementById('hero'), u = 'media/film-v14b/film.m3u8';
+  const apple = /iP(hone|ad|od)/.test(navigator.userAgent) || navigator.vendor === 'Apple Computer, Inc.';
+  if (apple && v.canPlayType('application/vnd.apple.mpegurl')) v.src = u;
+  else if (window.Hls && Hls.isSupported()) { const h = new Hls({ maxBufferLength: 30, capLevelToPlayerSize: false }); h.loadSource(u); h.attachMedia(v); window.__hls = h; }
+  else v.src = u; })();
+</script>
+<script>
+(async () => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const OFF = new Set((new URLSearchParams(location.search).get('off') || '').split(','));   // 진단용: ?off=bg,gloss,rise,ghost,surface,shelf,big
+  const rmq = matchMedia('(prefers-reduced-motion: reduce)');
+  let reduce = rmq.matches;
+  const coarse = matchMedia('(pointer: coarse)').matches;
+  const D = await (await fetch('data.json', { cache: 'no-cache' })).json();   // 크레딧·읽을거리가 바뀌면 새로고침 한 번에 보이게(브라우저가 옛 파일을 묻지도 않고 쓰던 일, 10/18)
+  const R = D.readings;
+
+  // ---------- 부드러운 스크롤 ----------
+  const makeLenis = () => new Lenis({ lerp: 0.085, smoothWheel: true, wheelMultiplier: 0.9 });
+  let lenis = (!reduce && window.Lenis) ? makeLenis() : null;
+  const scrollY_ = () => (lenis ? lenis.scroll : scrollY);
+  document.querySelectorAll('a[href^="#"]').forEach((a) => a.addEventListener('click', (e) => {
+    const t = document.querySelector(a.getAttribute('href')); if (!t) return;
+    e.preventDefault(); lenis ? lenis.scrollTo(t, { offset: a.getAttribute('href') === '#film' ? 0 : -40, duration: 1.6 }) : t.scrollIntoView();
+  }));
+
+  // ---------- 필름 → 표지 ----------
+  const film = $('#film'), stage = $('#film .stage'), frame = $('#film .frame'), cover = $('#film .cover'), hero = $('#hero');
+  const lifeon = $('#lifeon'), sound = $('#sound');
+  const wEl = lifeon.querySelector('.w');
+  const ease = (x) => 1 - Math.pow(1 - x, 3);
+  const setSoundLabel = () => { sound.textContent = hero.muted ? 'Sound off' : 'Sound on'; sound.setAttribute('aria-pressed', String(!hero.muted)); };
+  let started = false;
+  function start() {
+    if (started) return; started = true;
+    hero.currentTime = 0; hero.muted = false; hero.play().catch(() => {});
+    lifeon.classList.add('gone'); lifeon.disabled = true; ring.s = 1.5; stage.classList.remove('armed'); setSoundLabel();
+  }
+  // Life on: 움직일 땐 초당 11번, 멈추면 초당 3번 서체가 바뀜
+  let wAt = 0;
+  function wordTick(now, moving) {
+    if (now - wAt < (moving ? 90 : 320)) return;
+    const ready = FONTS.filter((f) => capScale[f]); if (!ready.length) return;
+    let f = ready[Math.floor(Math.random() * ready.length)];
+    if (ready.length > 1 && f === wEl.dataset.f) f = ready[(ready.indexOf(f) + 1) % ready.length];
+    wEl.dataset.f = f; wEl.style.fontFamily = `"${f}", "Source Serif 4", Georgia, serif`; wEl.style.fontSize = `${(17.25 * capScale[f]).toFixed(2)}px`; wAt = now;
+  }
+  lifeon.addEventListener('click', (e) => { e.stopPropagation(); start(); });
+  stage.addEventListener('click', (e) => { if (e.target.closest('#sound')) return; if (!started && filmP < 0.2) start(); });
+  sound.addEventListener('click', () => { if (!started) return start(); hero.muted = !hero.muted; setSoundLabel(); });   // 키보드로도 처음 소리 켜기는 Life on 과 같게
+  // Life on 은 커서를 천천히 따라오고, 커서가 없으면 화면 가운데에 있음
+  const ring = { x: innerWidth / 2, y: innerHeight * .5, tx: innerWidth / 2, ty: innerHeight * .5, s: 1, ts: 1, live: false };
+  stage.addEventListener('pointermove', (e) => { if (coarse || e.pointerType === 'touch') return; ring.tx = e.clientX; ring.ty = e.clientY; ring.live = true; ring.ts = e.target.closest('#sound') ? 0.001 : 1; });
+  stage.addEventListener('pointerleave', () => { ring.live = false; ring.ts = 1; });
+  stage.addEventListener('pointerdown', () => { if (!started) ring.ts = .92; });
+  function ringTick() {
+    if (started && ring.s > 1.49) { lifeon.style.transform = `translate3d(${ring.x}px, ${ring.y}px, 0) scale(1.5)`; return; }
+    if (!ring.live) { ring.tx = innerWidth / 2; ring.ty = innerHeight * .5; }   // 커서가 없으면 지금 화면의 가운데(창 크기가 늦게 정해져도)
+    const rr = lifeon.offsetWidth / 2 + 6;                                         // 가장자리에서도 글자가 잘리지 않게
+    ring.tx = Math.min(Math.max(ring.tx, rr), Math.max(rr, innerWidth - rr)); ring.ty = Math.min(Math.max(ring.ty, rr), Math.max(rr, innerHeight - rr));
+    if (ring.w !== innerWidth || ring.h !== innerHeight) { ring.w = innerWidth; ring.h = innerHeight; ring.x = ring.tx; ring.y = ring.ty; }
+    const k = reduce ? 1 : 0.16;
+    ring.x += (ring.tx - ring.x) * k; ring.y += (ring.ty - ring.y) * k; ring.s += (ring.ts - ring.s) * 0.2;
+    ring.x = Math.min(Math.max(ring.x, rr), Math.max(rr, innerWidth - rr)); ring.y = Math.min(Math.max(ring.y, rr), Math.max(rr, innerHeight - rr));
+    lifeon.style.transform = `translate3d(${ring.x.toFixed(1)}px, ${ring.y.toFixed(1)}px, 0) scale(${ring.s.toFixed(3)})`;
+    const now = performance.now(), dx = ring.tx - ring.x;
+    if (!started) wordTick(now, Math.abs(dx) + Math.abs(ring.ty - ring.y) > 2);
+  }
+  let filmP = 0;
+  // 스크롤마다 요소 위치를 다시 재면 레이아웃이 강제로 돌아 끊김 → 크기가 바뀔 때만 재 두고 scrollY 로 계산
+  const geo = { H: innerHeight, W: innerWidth };
+  const docTop = (el) => { let t = 0; for (let e = el; e; e = e.offsetParent) t += e.offsetTop; return t; };
+  let lastScrollAt = 0, frameRect = { left: 0, top: 0, right: innerWidth, bottom: innerHeight };
+  function measure() {
+    geo.H = innerHeight; geo.W = innerWidth;
+    geo.filmTop = docTop(film); geo.filmH = film.offsetHeight;
+    geo.surface = docTop($('#surface')); geo.readings = docTop($('#readings'));
+    geo.shelfTop = docTop(shelfSec); geo.shelfH = shelfSec.offsetHeight;
+    geo.pars = pars.map((im) => ({ im, top: docTop(im.parentElement), h: im.parentElement.offsetHeight }));
+    geo.docH = document.documentElement.scrollHeight; geo.trackH = bar.clientHeight - 24;
+  }
+  function updateFilm() {
+    const y = scrollY_(), secTop = geo.filmTop - y, span = geo.filmH - geo.H;
+    filmP = reduce ? 0 : Math.min(1, Math.max(0, -secTop / Math.max(1, span)));
+    const k = ease(Math.min(1, filmP / 0.75)), sc = 1 - 0.36 * k;
+    frame.style.transform = `scale(${sc})`;
+    const stTop = secTop > 0 ? secTop : Math.min(0, secTop + span), W = geo.W, H = geo.H;   // 붙어 있는 무대의 화면 위치 → 영상 틀의 화면 사각형
+    frameRect = { left: W / 2 - sc * W / 2, right: W / 2 + sc * W / 2, top: stTop + .47 * H - sc * .47 * H, bottom: stTop + .47 * H + sc * .53 * H };
+    cover.style.opacity = Math.max(0, (k - 0.55) / 0.45).toFixed(3);
+    if (!started) { lifeon.style.opacity = String(Math.max(0, 1 - filmP * 6)); stage.classList.toggle('armed', filmP < 0.15); lifeon.tabIndex = filmP < 0.15 ? 0 : -1; }
+    if (secTop + geo.filmH < 0) { if (!hero.paused) hero.pause(); } else if (hero.paused) hero.play().catch(() => {});
+  }
+
+  // ---------- Readings: 글이 주인, 사진은 작게 ----------
+  const pad = (n) => String(n).padStart(2, '0');
+  const cap = (r) => `<figcaption class="small rv">Plate ${pad(r.n)}. ${esc(r.plate)}. ${esc(r.by)}, ${esc(r.lic)}.</figcaption>`;
+  $('#feats').innerHTML = [4, 31, 23, 9].map((n, i) => {
+    const r = R[n - 1];
+    return `<article class="feat grid v${i}" data-mark><div class="txt"><span class="no num rv">${pad(n)}</span>
+      <blockquote><p class="q rv">${esc(r.text)}</p><cite class="rv">${esc(r.source)}</cite></blockquote></div>
+      <figure><div class="ph rv"><img src="${r.photo}" alt="" loading="lazy" data-par style="--pan:${8 + i * 1.3}s"></div>${cap(r)}</figure></article>`;
+  }).join('');
+  const firstWords = (t) => { const w = t.split(' '); return w.slice(0, 9).join(' ').replace(/[,;:.]$/, '') + (w.length > 9 ? '…' : ''); };
+  $('#index').innerHTML = R.map((r) => `<li><button class="row grid rv" type="button" aria-expanded="false"><span class="n num">${pad(r.n)}</span><span class="first">${esc(firstWords(r.text))}</span><span class="who">${esc(r.source)}</span></button>
+    <div class="more"><div class="in grid"><blockquote class="rv">${esc(r.text)}</blockquote><figure><div class="ph rv"><img data-src="${r.photo}" alt="" style="--pan:${8 + (r.n % 4) * 1.2}s"></div>${cap(r)}</figure></div></div></li>`).join('');
+  let wheelAt = 0;
+  addEventListener('wheel', () => { wheelAt = performance.now(); }, { passive: true });
+  addEventListener('touchstart', () => { wheelAt = performance.now(); }, { passive: true });
+  $('#index').addEventListener('click', (e) => {
+    const b = e.target.closest('.row'); if (!b) return;
+    const li = b.parentElement, open = !li.classList.contains('open'); let y0 = b.getBoundingClientRect().top;
+    const closing = [];                                        // 화면 안에서 접히는 위쪽 꼭지: 높이를 매 프레임 직접 정하고 같은 프레임에 스크롤을 맞춤(한 프레임 늦는 꺾임 없음)
+    $('#index').querySelectorAll('li.open').forEach((o) => {                                  // 하나만 열림
+      if (o === li) return;
+      const m = o.querySelector('.more'), rb = m.getBoundingClientRect();
+      if (rb.bottom < 0) {                                       // 이미 화면 위로 지나간 꼭지는 애니메이션 없이 접고 같은 프레임에 스크롤을 보정(눈에 보이는 밀림 0)
+        m.style.transition = 'none'; o.classList.remove('open'); const shrink = rb.height - m.getBoundingClientRect().height;
+        const y = scrollY_() - shrink; lenis ? lenis.scrollTo(y, { immediate: true, force: true }) : scrollTo(0, y);
+        requestAnimationFrame(() => { m.style.transition = ''; });
+      } else { m.style.transition = 'none'; m.style.gridTemplateRows = '1fr'; m.style.opacity = '1'; o.classList.remove('open'); if (rb.top < b.getBoundingClientRect().top) closing.push(m); else { m.style.gridTemplateRows = m.style.opacity = ''; requestAnimationFrame(() => { m.style.transition = ''; }); } }
+      o.querySelector('.row').setAttribute('aria-expanded', 'false');
+    });
+    li.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
+    const img = li.querySelector('img[data-src]'); if (open && img) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
+    if (open) { li.querySelectorAll('.more .rv:not(.in)').forEach((el, i) => rise(el, 220 + i * 140)); }
+    // 열 때: 펼쳐질 내용까지 합친 높이로 화면 가운데 자리를 정하고(길면 위에서 10%), 펼쳐지는 동안 그 자리로 부드럽게 올라옴(10/18 훈램님 "누르면 그 내용이 가운데에").
+    // 닫을 때: 누른 줄이 제자리. 위에서 다른 꼭지가 접히며 생기는 밀림은 매 프레임 같이 보정
+    const H = innerHeight, rowH = b.getBoundingClientRect().height; y0 = b.getBoundingClientRect().top;
+    const total = rowH + (open ? li.querySelector('.more > .in').scrollHeight : 0);
+    const wantTop = !open ? y0 : total < H * .86 ? (H - total) / 2 : H * .1;
+    const S = reduce ? 0 : y0 - wantTop, DUR = open ? 950 : 820;
+    const glide = (p) => (p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);   // 천천히 출발해 천천히 멈춤
+    const t0 = performance.now(), token = (window.__holdToken = (window.__holdToken || 0) + 1);
+    const hold = () => {
+      if (token !== window.__holdToken || wheelAt > t0) { for (const m of closing) { m.style.gridTemplateRows = m.style.opacity = m.style.transition = ''; } lenis && lenis.resize(); return; }
+      const el = performance.now() - t0, p = Math.min(1, el / DUR);
+      for (const m of closing) {                               // 접기: 0.7초, 처음 빠르고 끝이 느리게(펼치기와 같은 결)
+        const q = Math.min(1, el / 700), e = 1 - Math.pow(1 - q, 4);
+        if (q < 1) { m.style.gridTemplateRows = `${(1 - e).toFixed(4)}fr`; m.style.opacity = String(Math.max(0, 1 - el / 450)); }
+        else if (m.style.gridTemplateRows) { m.style.gridTemplateRows = m.style.opacity = ''; requestAnimationFrame(() => { m.style.transition = ''; }); }
+      }
+      const dy = b.getBoundingClientRect().top - (y0 - S * glide(p));   // 위 접기를 반영한 지금 위치(같은 프레임)
+      if (Math.abs(dy) > .5) { const y = scrollY_() + dy; lenis ? lenis.scrollTo(y, { immediate: true, force: true }) : scrollTo(0, y); }
+      if (p < 1) requestAnimationFrame(hold); else { lenis && lenis.resize(); gloss && gloss.refresh(); }
+    };
+    requestAnimationFrame(hold);
+    gloss && gloss.refresh();
+  });
+  $('#books').innerHTML = (D.books || []).map((b, i) => `<li><span class="num">${pad(i + 1)}</span> ${esc(b.title)}, ${esc(b.author)}.${b.publisher ? ` ${esc(b.publisher)}${b.year ? `, ${b.year}` : ''}.` : ''} Photographs: ${esc(b.photos.join(', '))}.</li>`).join('');
+  $('#plates').innerHTML = R.map((r) => `<li><span class="num">${pad(r.n)}</span> ${esc(r.plate)}. ${esc(r.medium)}, ${esc(r.by)}, ${esc(r.lic)}.</li>`).join('');
+  $('#filmcred').innerHTML = (D.film || []).map((f) => `<li><span class="num">${f.n || '00'}</span> <a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.by)}</a>, ${esc(f.lic)}.${f.n ? '' : ' Opening and closing frames.'}</li>`).join('');
+
+  // ---------- 나타나기·시차 ----------
+  // ---------- 나타나기: 물속에서 떠오르듯 ----------
+  // 글은 줄로 나눠 가림막 아래에서 한 줄씩 올라오고(흐림이 걷힘), 큰 제목은 글자마다 살짝 기울어진 채 떠오름.
+  // 사진은 아래 가운데에서 원이 번지듯 열리며 흐림이 걷히고, 창은 아래에서 올라와 자리를 잡음. 끝나면 원래 글로 되돌려 창 크기가 바뀌어도 깨지지 않게.
+  const RISE_EASE = 'cubic-bezier(.16, 1, .3, 1)';
+  const riseType = (el) => el.matches('#intent h2, .opener h2') ? 'chars' : el.matches('.ph') ? 'image' : el.matches('.room') ? 'window'
+    : el.matches('#index .row, #plates, #books, #filmcred') ? 'soft' : 'lines';
+  function splitLines(el) {
+    el.__orig = el.innerHTML;
+    const words = [];
+    for (const node of [...el.childNodes]) {
+      if (node.nodeName === 'BR') { if (getComputedStyle(node).display !== 'none') words.push(null); continue; }
+      for (const t of (node.textContent || '').split(/\s+/)) if (t) words.push(t);
+    }
+    el.textContent = '';
+    const spans = words.map((t) => { if (t === null) { el.append(document.createElement('br')); return null; } const w = document.createElement('span'); w.textContent = t + ' '; el.append(w); return w; });
+    const lines = []; let cur = [], top = null;
+    for (const w of spans) {
+      if (w === null) { if (cur.length) lines.push(cur); cur = []; top = null; continue; }
+      if (top !== null && Math.abs(w.offsetTop - top) > 2) { lines.push(cur); cur = []; }
+      top = w.offsetTop; cur.push(w.textContent.trim());
+    }
+    if (cur.length) lines.push(cur);
+    el.textContent = '';
+    return lines.map((ws) => { const ln = document.createElement('span'); ln.className = 'ln'; const li = document.createElement('span'); li.className = 'li'; li.textContent = ws.join(' '); ln.append(li); el.append(ln); return li; });
+  }
+  function splitChars(el) {
+    el.__orig = el.innerHTML;
+    const t = el.textContent; el.textContent = '';
+    const ln = document.createElement('span'); ln.className = 'ln'; el.append(ln);
+    return [...t].map((c) => { const ch = document.createElement('span'); ch.className = 'ch'; ch.textContent = c; ln.append(ch); return ch; });
+  }
+  function rise(el, delay) {
+    el.classList.add('in');
+    if (reduce || OFF.has('rise')) return;
+    const type = riseType(el), anims = [];
+    el.dataset.busy = '1';
+    if (type === 'lines') {
+      splitLines(el).forEach((li, i) => anims.push(li.animate(
+        [{ transform: 'translateY(108%)', filter: 'blur(6px)', opacity: 0 }, { transform: 'translateY(0)', filter: 'blur(0px)', opacity: 1 }],
+        { duration: 1700, delay: delay + i * 130, easing: RISE_EASE, fill: 'backwards' })));
+    } else if (type === 'chars') {
+      splitChars(el).forEach((ch, i) => anims.push(ch.animate(
+        [{ transform: 'translateY(105%) rotate(7deg)', filter: 'blur(10px)', opacity: 0 }, { transform: 'translateY(0) rotate(0deg)', filter: 'blur(0px)', opacity: 1 }],
+        { duration: 1900, delay: delay + i * 110, easing: RISE_EASE, fill: 'backwards' })));
+    } else if (type === 'image') {
+      anims.push(el.animate(
+        [{ clipPath: 'circle(0% at 50% 100%)', scale: '1.08', filter: 'blur(12px)' }, { clipPath: 'circle(150% at 50% 100%)', scale: '1', filter: 'blur(0px)' }],
+        { duration: 2400, delay, easing: RISE_EASE, fill: 'backwards' }));
+    } else if (type === 'window') {
+      anims.push(el.animate([{ opacity: 0, translate: '0 70px', scale: '.96' }, { opacity: 1, translate: '0 0', scale: '1' }],
+        { duration: 2000, delay, easing: RISE_EASE, fill: 'backwards' }));
+    } else {
+      anims.push(el.animate([{ opacity: 0, translate: '0 22px', filter: 'blur(4px)' }, { opacity: 1, translate: '0 0', filter: 'blur(0px)' }],
+        { duration: 1300, delay, easing: RISE_EASE, fill: 'backwards' }));
+    }
+    Promise.all(anims.map((a) => a.finished)).catch(() => {}).then(() => {
+      if (el.__orig !== undefined) { el.innerHTML = el.__orig; delete el.__orig; }
+      delete el.dataset.busy;
+    });
+  }
+  const riseIO = new IntersectionObserver((es) => {
+    const show = es.filter((e) => e.isIntersecting && e.intersectionRatio >= (e.target.matches('.ph, .room') ? .02 : .12)).map((e) => e.target);
+    show.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top || a.getBoundingClientRect().left - b.getBoundingClientRect().left)
+      .forEach((el, i) => { riseIO.unobserve(el); rise(el, 120 + Math.min(i, 10) * 140); });
+  }, { threshold: [0, .02, .12], rootMargin: '0px 0px -18% 0px' });   // 화면 아래 18%를 지나 눈높이에 왔을 때 시작
+  const watchRise = (root = document) => root.querySelectorAll('.rv:not(.in)').forEach((el) => { if (!el.closest('#index .more')) riseIO.observe(el); });
+  Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 3000))]).then(() => watchRise());   // 서체가 늦게 와도 글이 숨은 채 남지 않게
+  const pars = [...document.querySelectorAll('[data-par]')];
+  function updatePar() {
+    if (reduce) return;
+    const y = scrollY_();
+    for (const { im, top: t0, h } of geo.pars || []) {
+      const top = t0 - y;
+      if (top + h < -100 || top > geo.H + 100) continue;
+      const p = (top + h / 2 - geo.H / 2) / geo.H;      // -0.5 ~ 0.5
+      im.style.transform = `translate3d(0, ${(-8 - p * 14).toFixed(2)}%, 0)`;
+    }
+  }
+
+  // ---------- 책장: 가까워지면 창 안에 불러옴(창 안에서는 끌기·클릭·가로 스크롤로 넘김, 세로 스크롤은 페이지로) ----------
+  const shelfSec = $('#shelf'), shelfFrame = $('#shelf iframe'), sframe = $('#shelf .sframe'), sedge = $('#shelf .sedge'), scap = $('#shelf .scap'), sback = $('#shelf .sback');
+  const SH = { grow: 1, books: 10, shrink: 1 };                         // 구간마다 화면 몇 개만큼 스크롤하는지
+  const FULL_SPAN = SH.grow + SH.books + SH.shrink + 1;
+  shelfSec.style.setProperty('--span', FULL_SPAN);
+  // 'Back to the page' 를 누르면 이번 방문 동안 책장은 작은 창으로만 남음(다시 지나가도 확대되지 않게, 10/18). 다시 보려면 'Open the shelf again'
+  let shelfSkip = false, shrinkV = null;
+  const idle = (fn, t) => (window.requestIdleCallback ? requestIdleCallback(fn, { timeout: t }) : setTimeout(fn, t));
+  function loadCalm(fr, key, done) {                                     // 스크롤이 0.7초 이상 멈춘 한가한 때 불러옴
+    if (fr.src || OFF.has(key)) return;
+    if (performance.now() - lastScrollAt < 700) { setTimeout(() => loadCalm(fr, key, done), 400); return; }
+    idle(() => { if (!fr.src) { fr.src = fr.dataset.src; if (done) fr.addEventListener('load', done, { once: true }); } }, 1500);
+  }
+  // 가까워졌는데 아직이면(아주 빨리 내린 경우) 바로 불러옴
+  new IntersectionObserver((es, o) => es.forEach((e) => { if (e.isIntersecting && !OFF.has('shelf') && !shelfFrame.src) { shelfFrame.src = shelfFrame.dataset.src; o.disconnect(); } }), { rootMargin: '60% 0px' }).observe(shelfFrame);
+  // 책장 창이 준비되기 전엔 같은 첫 화면의 썸네일을 깔아 두고, 책이 다 그려지면 창이 그 위로 서서히 나타남(빈 검은 상자로 보이지 않게)
+  new IntersectionObserver((es, o) => es.forEach((e) => { if (e.isIntersecting) { sframe.style.backgroundImage = `url(media/${innerWidth <= 760 ? 'shelf_m' : 'shelf'}.jpg)`; o.disconnect(); } }), { rootMargin: '120% 0px' }).observe(shelfFrame);
+  shelfFrame.addEventListener('load', () => {
+    const t0 = performance.now();
+    const check = () => { let ok = false; try { const a = shelfFrame.contentWindow.__app; ok = !!(a && a.ready); } catch (e) { ok = true; }
+      if (ok || performance.now() - t0 > 15000) shelfFrame.classList.add('ready'); else setTimeout(check, 200); };
+    check();
+  });
+  new IntersectionObserver((es) => es.forEach((e) => $('#side').classList.toggle('away', e.isIntersecting)), { rootMargin: '-30% 0px -30% 0px' }).observe($('#shelf .sstage'));
+  const clamp01 = (v) => Math.min(1, Math.max(0, v)), smooth = (v) => v * v * (3 - 2 * v);
+  let shelfOpen = 0, shelfLive = false;
+  // 책장 안에서 끌기·클릭·화살표로 고른 책 v 에 맞춰 페이지 스크롤을 옮김(스크롤이 책 위치를 정하니, 둘이 늘 같은 자리에 있게)
+  window.__shelfSeek = (v, now) => {
+    const app = shelfFrame.contentWindow && shelfFrame.contentWindow.__app; if (!app || shelfOpen < .6) return false;
+    const y = geo.shelfTop + SH.grow * geo.H + clamp01(v / Math.max(1, app.state().N - 1)) * SH.books * geo.H;
+    lenis ? lenis.scrollTo(y, now ? { immediate: true, force: true } : { duration: .9 }) : scrollTo(0, y);
+    return true;
+  };
+  function updateShelf() {
+    const W = geo.W, H = geo.H, span = Math.max(1, geo.shelfH - H);
+    const y = Math.min(span, Math.max(0, scrollY_() - geo.shelfTop)), g = SH.grow * H, b = SH.books * H;
+    let open = y < g ? y / g : y < g + b ? 1 : 1 - (y - g - b) / Math.max(1, span - g - b);
+    open = reduce ? 0 : smooth(clamp01(open));
+    if (shelfSkip) open = shrinkV ?? 0;                                       // 건너뛴 뒤: 줄어드는 중이면 그 값, 아니면 늘 작은 창
+    shelfOpen = open;
+    const narrow = W <= 760, w0 = narrow ? W - 32 : Math.min(W - 96, 1480), h0 = Math.min(H * (narrow ? .58 : .64), 620), s0 = w0 / W;
+    const s = s0 + (1 - s0) * open, hl = h0 / s0 + (H - h0 / s0) * open, inset = Math.max(0, (H - hl) / 2), rad = 14 * (1 - open);
+    sframe.style.transform = `scale(${s.toFixed(4)})`;
+    sframe.style.clipPath = `inset(${inset.toFixed(1)}px 0px round ${(rad / s).toFixed(1)}px)`;
+    const vw = W * s, vh = hl * s, left = (W - vw) / 2, top = (H - vh) / 2;
+    sedge.style.cssText = `left:${left.toFixed(1)}px;top:${top.toFixed(1)}px;width:${vw.toFixed(1)}px;height:${vh.toFixed(1)}px;border-radius:${rad.toFixed(1)}px;opacity:${(1 - open).toFixed(3)}`;
+    scap.style.cssText = `left:${(left + 6).toFixed(1)}px;top:${(top + vh + 14).toFixed(1)}px;width:${(vw - 12).toFixed(1)}px;opacity:${clamp01(1 - open * 3).toFixed(3)}`;
+    sback.classList.toggle('on', open > .6 && y < span - 4);
+    const live = reduce || open > .92;                                     // 화면을 다 채웠을 때만 창 안에서 끌기·누르기(작을 땐 스크롤이 그대로 페이지로)
+    if (live !== shelfLive) { shelfLive = live; shelfFrame.style.pointerEvents = live ? 'auto' : 'none'; }
+    const app = shelfFrame.contentWindow && shelfFrame.contentWindow.__app;
+    if (app && app.drive && !reduce && !shelfSkip) app.drive(clamp01((y - g) / b) * (app.state().N - 1));   // 가운데 구간: 스크롤만큼 책이 옆으로
+    if (app && app.chrome) app.chrome(open > .92 || reduce);
+  }
+  function leaveShelf() {                                                // 책장을 건너뛰기: 그 자리에서 작은 창으로 줄어든 뒤, 구간을 한 화면으로 접고 아래로 이어감
+    if (shelfSkip) return;
+    shelfSkip = true; shelfSec.classList.add('skip');
+    if (document.activeElement === shelfFrame) shelfFrame.blur();          // 나간 뒤 키보드가 페이지로 돌아오게
+    const from = shelfOpen, t0 = performance.now(), DUR = 650;
+    shrinkV = from; lenis && lenis.stop();                                  // 줄어드는 0.65초 동안은 스크롤을 잠깐 멈춤(무대가 화면에 붙어 있게)
+    const step = () => {
+      const p = Math.min(1, (performance.now() - t0) / DUR);
+      shrinkV = from * (1 - (1 - Math.pow(1 - p, 3))); updateShelf();
+      if (p < 1) { requestAnimationFrame(step); return; }
+      shrinkV = null;
+      const top = geo.shelfTop;                                             // 구간을 한 화면으로 접고 같은 프레임에 스크롤을 구간 처음으로(무대가 같은 자리라 화면이 그대로)
+      shelfSec.style.setProperty('--span', 1);
+      if (lenis) { lenis.start(); lenis.resize(); lenis.scrollTo(top, { immediate: true, force: true }); } else scrollTo(0, top);
+      measure(); tick(false);
+      lenis ? lenis.scrollTo(top + geo.H * .8, { duration: 1.1 }) : scrollTo(0, top + geo.H * .8);   // 그다음 아래 글로 부드럽게
+    };
+    requestAnimationFrame(step);
+  }
+  function reopenShelf() {                                               // 다시 보기: 작은 창이 화면 맨 위에 오게 옮긴 뒤 구간을 되살리고 펼침
+    if (!shelfSkip) return;
+    const top = geo.shelfTop;
+    const go = () => {
+      shelfSkip = false; shelfSec.classList.remove('skip');
+      shelfSec.style.setProperty('--span', FULL_SPAN);
+      if (lenis) { lenis.resize(); lenis.scrollTo(top, { immediate: true, force: true }); } else scrollTo(0, top);
+      measure(); tick(false);
+      lenis ? lenis.scrollTo(top + SH.grow * geo.H, { duration: 1.2 }) : scrollTo(0, top + SH.grow * geo.H);
+    };
+    let done = false; const once = () => { if (!done) { done = true; go(); } };
+    if (lenis && Math.abs(scrollY_() - top) > 2) { lenis.scrollTo(top, { duration: .7, onComplete: once }); setTimeout(once, 800); } else once();   // 끝 신호가 안 와도 0.8초 뒤엔 펼침
+  }
+  $('#shelf .sre').addEventListener('click', reopenShelf);
+  sback.addEventListener('click', leaveShelf);
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && shelfOpen > .6) leaveShelf(); });
+  // 같은 주소 창(Surface·책장) 안에 초점이 있어도 페이지 키(스페이스·Page Down 등)는 페이지를 내리고, 세로 휠은 부드러운 스크롤로
+  const PAGE_KEYS = { ArrowDown: 80, ArrowUp: -80, PageDown: .875, PageUp: -.875, ' ': .875, Home: -1e7, End: 1e7 };
+  function pageKey(e, keys) {
+    if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || !keys.includes(e.key)) return;
+    let d = PAGE_KEYS[e.key]; if (Math.abs(d) < 1) d *= geo.H; if (e.key === ' ' && e.shiftKey) d = -d;
+    e.preventDefault();
+    const y = Math.min(docMax(), Math.max(0, scrollY_() + d));
+    lenis ? lenis.scrollTo(y, { duration: Math.abs(d) > 200 ? .9 : .35 }) : scrollTo(0, y);
+  }
+  function forwardWheel(w) {
+    w.addEventListener('wheel', (e) => {
+      if (e.ctrlKey || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;    // 핀치 확대·가로 휠은 창 안에서
+      e.preventDefault();
+      if (lenis) window.dispatchEvent(new WheelEvent('wheel', { deltaX: e.deltaX, deltaY: e.deltaY, deltaMode: e.deltaMode, bubbles: true, cancelable: true }));
+      else scrollBy(0, e.deltaY * (e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? geo.H : 1));   // 줄·쪽 단위 휠도 픽셀로
+    }, { passive: false });
+  }
+  shelfFrame.addEventListener('load', () => {
+    try {
+      const w = shelfFrame.contentWindow; forwardWheel(w);
+      w.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if (shelfOpen > .6) leaveShelf(); return; } pageKey(e, ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End']); });   // ↑↓ 는 책장이 안 쓸 때만(책장이 쓰면 defaultPrevented)
+    } catch (e) { /* 다른 주소면 건너뜀 */ }
+  });
+
+  // ---------- Surface: 가까워지면 창 안에 바로 띄우고, 창 빛을 둘레에 번지게 ----------
+  const surfSec = $('#surface'), room = $('#surface .room'), surf = $('#surface iframe'), amb = $('#surface .amb'), actx = amb.getContext('2d');
+  new IntersectionObserver((es, o) => es.forEach((e) => { if (e.isIntersecting && !OFF.has('surface') && !surf.src) { surf.src = surf.dataset.src; o.disconnect(); } }), { rootMargin: '60% 0px' }).observe(surf);
+  // 필름이 앞으로 8초(또는 끝까지) 받아지기 전엔 Surface·책장을 미리 받지 않음: 회선을 첫 화면 필름에 먼저(11/3, 느린 망에서 필름이 거의 멈춰 있던 것)
+  // 필름을 지나 내려갔거나 20초가 지나면 그냥 시작. 가까이 내려가면 위의 IntersectionObserver 가 바로 불러옴
+  const filmFed = () => { const b = hero.buffered, t = hero.currentTime, end = Math.min(t + 8, (hero.duration || 20) - .3); for (let i = 0; i < b.length; i++) if (b.start(i) <= t + .2 && b.end(i) >= end) return true; return false; };
+  const whenFilmFed = (go) => { const t0 = performance.now(); const chk = () => (filmFed() || filmP > .5 || performance.now() - t0 > 20000) ? go() : setTimeout(chk, 500); chk(); };
+  const preload = () => whenFilmFed(() => setTimeout(() => loadCalm(surf, 'surface', () => setTimeout(() => loadCalm(shelfFrame, 'shelf'), 1500)), 1200));
+  document.readyState === 'complete' ? preload() : addEventListener('load', preload, { once: true });   // 이 코드가 load 뒤에 돌 수도 있음
+  let surfSeen = false, ambLast = 0, ambVer = -1, focusT = 0, focusV = 0;
+  const life = () => { try { return surf.contentWindow && surf.contentWindow.__life; } catch (e) { return null; } };
+  new IntersectionObserver((es) => es.forEach((e) => {                   // 화면 밖에선 Surface 를 쉬게
+    surfSeen = e.isIntersecting; const L = life(); if (L) (surfSeen ? L.resume() : L.pause());
+  }), { rootMargin: '20% 0px' }).observe(room);
+  const bezel = $('#surface .bezel'), win = $('#surface .win'), ghost = $('#surface .ghost');
+  function splash(x, y) {                                                // 누른 자리에서 물결 고리 세 겹이 퍼짐
+    if (reduce) return;
+    for (let i = 0; i < 3; i++) {
+      const o = document.createElement('i'); o.className = 'ring'; o.style.left = `${x}px`; o.style.top = `${y}px`; o.style.animationDelay = `${i * .13}s`;
+      win.appendChild(o); setTimeout(() => o.remove(), 1700);
+    }
+  }
+  let handAt = 0;                                                       // 마지막으로 사람이 만진 때
+  const light = (x, y) => { const r = bezel.getBoundingClientRect(); bezel.style.setProperty('--mx', `${x - r.left}px`); bezel.style.setProperty('--my', `${y - r.top}px`); };
+  const handNow = () => { handAt = Math.max(handAt, performance.now()); };   // 손가락으로 만진 뒤 늘려 둔 쉬는 시간을 줄이지 않게
+  room.addEventListener('pointerenter', () => { focusT = 1; surfSec.classList.add('focus'); handNow(); });
+  room.addEventListener('pointerleave', () => { focusT = 0; surfSec.classList.remove('focus'); handNow(); });
+  room.addEventListener('pointermove', (e) => { light(e.clientX, e.clientY); handNow(); });
+  surf.addEventListener('load', () => {                                  // 창 안(같은 주소) 움직임도 유리 빛에 반영
+    // 유령 커서가 보낸 움직임(isTrusted 아님)은 사람 손으로 치지 않음
+    try {
+      // 손가락으로 만지면 커서가 남지 않으니 유령 커서는 5초 넘게 기다렸다가 다시 움직임
+      const touched = (e) => { handAt = Math.max(handAt, performance.now() + (e.pointerType === 'touch' ? 4000 : 0)); };
+      surf.contentWindow.addEventListener('pointermove', (e) => { if (!e.isTrusted) return; const r = win.getBoundingClientRect(); light(r.left + e.clientX, r.top + e.clientY); touched(e); }, { passive: true });
+      surf.contentWindow.addEventListener('pointerdown', (e) => { if (!e.isTrusted) return; splash(e.clientX, e.clientY); touched(e); }, { passive: true });   // 사람이 눌러도 같은 고리
+      forwardWheel(surf.contentWindow);
+      surf.contentWindow.addEventListener('keydown', (e) => pageKey(e, ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End']));
+      if (!surfSeen) { const L = life(); if (L) L.pause(); }
+    } catch (e) { /* 다른 주소면 건너뜀 */ }
+  });
+  addEventListener('keydown', (e) => {                                    // Surface 위에 커서가 있으면 숫자·좌우 키를 창 안으로(창을 먼저 누르지 않아도)
+    if (focusT !== 1 || e.altKey || e.ctrlKey || e.metaKey || !['Digit1', 'Digit2', 'Digit3', 'ArrowLeft', 'ArrowRight'].includes(e.code)) return;
+    try { surf.contentWindow.dispatchEvent(new KeyboardEvent('keydown', { code: e.code, key: e.key })); e.preventDefault(); } catch (err) { /* 다른 주소면 건너뜀 */ }
+  });
+  let gT = 0, gLast = 0, gClick = 0;
+  function ghostTick(now) {
+    const idle = !reduce && surfSeen && focusT === 0 && now - handAt > 1600 && surf.contentDocument && surf.contentDocument.getElementById('stage');
+    ghost.classList.toggle('on', !!idle);
+    if (!idle) { gLast = now; return; }
+    gT += Math.min(50, now - gLast) / 1000; gLast = now;
+    const r = win.getBoundingClientRect();
+    const fx = .5 + .3 * Math.sin(gT * .55) + .06 * Math.sin(gT * 1.7), fy = .47 + .16 * Math.sin(gT * .9 + 1.2);
+    const x = fx * r.width, y = fy * r.height;
+    ghost.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+    const st = surf.contentDocument.getElementById('stage');
+    const fire = (type) => st.dispatchEvent(new PointerEvent(type, { clientX: x, clientY: y, pointerType: 'mouse', bubbles: true, isPrimary: true }));
+    fire('pointermove');                                                   // 글자가 유령 커서를 따라 표면을 옮겨 다님
+    if (now - gClick > 8000) {                                             // 8초마다 한 번 눌러 다음 사진으로
+      gClick = now; ghost.classList.add('press'); splash(x, y);
+      setTimeout(() => { fire('pointerdown'); fire('pointerup'); ghost.classList.remove('press'); }, 180);
+    }
+  }
+  function ambTick(now) {
+    if (!surfSeen || now - ambLast < 120) return; ambLast = now;
+    // 사진이 바뀐 때만 다시 그림(60px 흐림을 0.12초마다 새로 굽던 것, 11/3)
+    try { const ver = surf.contentWindow.__photoVer; if (ver === ambVer) return; const src = surf.contentDocument && surf.contentDocument.getElementById('photo'); if (src && src.width > 1) { actx.drawImage(src, 0, 0, 64, 36); ambVer = ver; } } catch (e) { /* 다른 주소면 건너뜀 */ }
+  }
+
+  // ---------- 아래 Life: 구간·꼭지마다 다른 세리프, 초당 12장으로 끊어서 ----------
+  // 겹치지 않게 고른 64개(글자 모양 겹침 66% 미만, 같은 집안은 하나만. 고른 과정은 작업 기록/서체 64)
+  const FONTS = ['Source Serif 4', 'EB Garamond', 'Abril Fatface', 'Cormorant Garamond', 'Ultra', 'Libre Baskerville', 'Rozha One', 'Italiana', 'Spectral', 'Bodoni Moda', 'IM Fell English', 'Crimson Pro', 'Gloock', 'Cinzel', 'Old Standard TT', 'Young Serif', 'Cardo', 'Bitter', 'Gilda Display', 'Prata', 'Bellefair', 'Marcellus', 'Almendra Display', 'UnifrakturMaguntia', 'MedievalSharp', 'Uncial Antiqua', 'Graduate', 'Cutive Mono', 'Eagle Lake', 'Ibarra Real Nova', 'Josefin Slab', 'Grenze Gotisch', 'New Rocker', 'Kurale', 'Federant', 'Holtwood One SC', 'Della Respira', 'Special Elite', 'Courier Prime', 'Limelight', 'Linden Hill', 'Vast Shadow', 'Diplomata', 'Pirata One', 'Stint Ultra Expanded', 'Kalnia', 'Nanum Myeongjo', 'Bentham', 'Kotta One', 'Junge', 'Fondamento', 'Gowun Batang', 'Goudy Bookletter 1911', 'Oranienbaum', 'Bona Nova', 'Trirong', 'Rye', 'Noto Serif Display', 'Metamorphous', 'Sedan', 'Coustard', 'Caudex', 'Elsie', 'Rufina'];
+  const capScale = {};
+  Promise.all(FONTS.map((f) => document.fonts.load(`40px "${f}"`, 'Life').catch(() => null))).then(() => {
+    const c = document.createElement('canvas').getContext('2d');
+    const h = (f) => { c.font = `100px "${f}"`; return c.measureText('L').actualBoundingBoxAscent || 70; };
+    const ref = h(FONTS[0]); FONTS.forEach((f) => (capScale[f] = ref / h(f)));
+  });
+  const widthOf = {};
+  document.fonts.ready.then(() => { const c = document.createElement('canvas').getContext('2d'); FONTS.forEach((f) => { c.font = `100px "${f}"`; widthOf[f] = c.measureText('Life').width / 100; }); });
+  const bigLife = $('#intent h2');
+  let bigSeen = false, bigAt = 0, bigIdx = 0;
+  new IntersectionObserver((es) => es.forEach((e) => (bigSeen = e.isIntersecting))).observe(bigLife);
+  function bigTick(now) {
+    if (!bigSeen || reduce || now - bigAt < 260) return;
+    const ready = FONTS.filter((f) => capScale[f] && widthOf[f]); if (!ready.length) return;
+    bigIdx = (bigIdx + 1 + Math.floor(Math.random() * 4)) % ready.length;
+    const f = ready[bigIdx], base = Math.min(230, Math.max(96, innerWidth * .15));
+    const k = Math.min(capScale[f], (bigLife.clientWidth * .94) / (widthOf[f] * base));
+    bigLife.style.fontFamily = `"${f}", "Source Serif 4", Georgia, serif`; bigLife.style.setProperty('--k', k.toFixed(3)); bigAt = now;
+  }
+
+  // ---------- 오른쪽 목차 ----------
+  const navLinks = [...document.querySelectorAll('#side a')];
+  function updateNav() {
+    let cur = 'film';
+    const y = scrollY_() + geo.H * .5;
+    for (const id of ['surface', 'readings']) if (geo[id] < y) cur = id;
+    navLinks.forEach((a) => a.classList.toggle('on', a.getAttribute('href') === '#' + cur));
+  }
+
+  // ---------- 스크롤 막대 ----------
+  const bar = $('#bar'), thumb = $('#bar i');
+  let barIdle = 0, thumbH = 40, trackH = 1;
+  const docMax = () => Math.max(1, (geo.docH || document.documentElement.scrollHeight) - geo.H);
+  function updateBar(active) {
+    trackH = geo.trackH;
+    thumbH = Math.max(36, trackH * geo.H / geo.docH);
+    thumb.style.height = thumbH + 'px';
+    thumb.style.transform = `translateY(${(Math.min(1, scrollY_() / docMax()) * (trackH - thumbH)).toFixed(1)}px)`;
+    if (active) { bar.classList.add('act'); clearTimeout(barIdle); barIdle = setTimeout(() => bar.classList.remove('act'), 900); }
+  }
+  const goTo = (y, immediate) => (lenis ? lenis.scrollTo(y, immediate ? { immediate: true, force: true } : { duration: 1.1 }) : scrollTo(0, y));
+  let grab = null;
+  bar.addEventListener('pointerdown', (e) => {
+    const r = thumb.getBoundingClientRect();
+    if (e.clientY >= r.top && e.clientY <= r.bottom) { grab = e.clientY - r.top; bar.setPointerCapture(e.pointerId); bar.classList.add('drag'); }
+    else if (trackH - thumbH > 1) goTo(((e.clientY - 12 - thumbH / 2) / (trackH - thumbH)) * docMax());
+    e.preventDefault();
+  });
+  bar.addEventListener('pointermove', (e) => { if (grab === null || trackH - thumbH <= 1) return; goTo(Math.min(1, Math.max(0, (e.clientY - 12 - grab) / (trackH - thumbH))) * docMax(), true); });
+  const drop = () => { grab = null; bar.classList.remove('drag'); };
+  bar.addEventListener('pointerup', drop); bar.addEventListener('pointercancel', drop);
+
+  // ---------- 물: 파동 방정식 두 벌(배경용·물빛용) ----------
+  const VS = `#version 300 es
+    in vec2 p; out vec2 uv; void main(){ uv = p * .5 + .5; gl_Position = vec4(p, 0., 1.); }`;
+  // 한 칸 = (지금 높이, 이전 높이). 이웃 평균의 두 배 - 이전 = 다음(감쇠). 물방울은 부드러운 원으로 더함
+  const SIM_FS = `#version 300 es
+    precision highp float; in vec2 uv; out vec4 o;
+    uniform sampler2D s; uniform vec2 px; uniform vec4 drops[16]; uniform int nd; uniform vec2 asp;
+    void main(){
+      vec2 c = texture(s, uv).rg;
+      float n = (texture(s, uv + vec2(px.x,0.)).r + texture(s, uv - vec2(px.x,0.)).r + texture(s, uv + vec2(0.,px.y)).r + texture(s, uv - vec2(0.,px.y)).r) * .5 - c.g;
+      n *= .994;
+      for (int i = 0; i < 16; i++) { if (i >= nd) break; vec4 d = drops[i];
+        float r = length((uv - d.xy) * asp); n += d.w * .5 * (1. + cos(3.14159 * min(r / d.z, 1.))) * step(r, d.z); }
+      o = vec4(n, c.r, 0., 1.);
+    }`;
+  function kit(cv, attrs, dprCap) {
+    const probe = document.createElement('canvas').getContext('webgl2');
+    if (!probe || !probe.getExtension('EXT_color_buffer_float')) return null;
+    probe.getExtension('WEBGL_lose_context')?.loseContext();
+    const gl = cv.getContext('webgl2', attrs);
+    if (!gl || !gl.getExtension('EXT_color_buffer_float')) return null;
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    const prog = (fs, vs = VS) => { const p = gl.createProgram(); gl.attachShader(p, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(p, sh(gl.FRAGMENT_SHADER, fs)); gl.bindAttribLocation(p, 0, 'p'); gl.linkProgram(p); if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p)); return p; };
+    const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+    const vao = gl.createVertexArray(); gl.bindVertexArray(vao); gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+    // 물 높이 시뮬레이션(화면의 1/3 크기)
+    const SIM = prog(SIM_FS), loc = (n) => gl.getUniformLocation(SIM, n);
+    const U = { s: loc('s'), px: loc('px'), drops: loc('drops'), nd: loc('nd'), asp: loc('asp') };
+    let SW = 0, SH = 0, tex = [], fbo = [], cur = 0;
+    const flat = new Float32Array(64);
+    const sim = {
+      size() {
+        SW = Math.max(240, Math.round(innerWidth / 2)); SH = Math.max(160, Math.round(innerHeight / 2));
+        tex.forEach((t) => gl.deleteTexture(t)); fbo.forEach((f) => gl.deleteFramebuffer(f)); tex = []; fbo = [];
+        for (let i = 0; i < 2; i++) {
+          const t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RG16F, SW, SH, 0, gl.RG, gl.HALF_FLOAT, null);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          const f = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, f); gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t, 0);
+          gl.clearColor(0, 0, 0, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+          tex.push(t); fbo.push(f);
+        }
+      },
+      step(drops) {
+        gl.disable(gl.BLEND); gl.viewport(0, 0, SW, SH); gl.useProgram(SIM);
+        gl.uniform2f(U.px, 1 / SW, 1 / SH); gl.uniform2f(U.asp, innerWidth / innerHeight, 1); gl.uniform1i(U.s, 0);
+        for (let k = 0; k < 2; k++) {                                     // 해상도가 두 배라 한 프레임에 두 번 돌려 속도를 맞춤
+          gl.bindFramebuffer(gl.FRAMEBUFFER, fbo[1 - cur]); gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex[cur]);
+          flat.fill(0); if (k === 0) drops.slice(0, 16).forEach((d, i) => flat.set(d, i * 4));
+          gl.uniform4fv(U.drops, flat); gl.uniform1i(U.nd, k === 0 ? Math.min(16, drops.length) : 0);
+          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); cur = 1 - cur;
+        }
+        return tex[cur];
+      },
+      px: () => [1 / SW, 1 / SH],
+    };
+    const fit = () => {
+      const dpr = Math.min(devicePixelRatio, dprCap), w = Math.round(innerWidth * dpr), h = Math.round(innerHeight * dpr);
+      if (cv.width === w && cv.height === h) return;
+      // 폰: 주소창이 접히고 펴질 때(높이만 조금)마다 캔버스·물결을 새로 만들면 스크롤 도중 멈추고 물결이 사라짐 → 그대로 늘려 씀(11/3)
+      if (coarse && cv.width === w && cv.height && Math.abs(h - cv.height) < cv.height * 0.2) return;
+      cv.width = w; cv.height = h; sim.size();
+    };
+    return { gl, prog, sim, fit };
+  }
+
+  // 물방울: 배경은 손이 지나간 자리 + 가끔 저절로, 물빛(글·사진 위)은 손이 지나간 자리만
+  let handDrops = [], ambDrops = [];
+  const addDrop = (list, x, y, r, s) => { if (list.length < 16) list.push([x, y, r, s]); };
+  let last = null;
+  const HAND = 0.6;                                         // 손이 만드는 물결 세기(10/18 훈램님 "너무 강하다, 약간 덜" → 0.6배). 저절로 떨어지는 잔물결·바람결은 그대로
+  addEventListener('pointermove', (e) => {
+    if (reduce) return;
+    if (last) {                                               // 지나간 선을 따라 물방울을 고르게 떨어뜨려 이어진 결을 만듦
+      const sp = Math.hypot(e.clientX - last.x, e.clientY - last.y);
+      if (sp > 1.5 && sp < 240) { const n = Math.min(8, Math.ceil(sp / 9)), k = Math.min(sp, 70);
+        for (let i = 1; i <= n; i++) { const t = i / n; addDrop(handDrops, (last.x + (e.clientX - last.x) * t) / innerWidth, 1 - (last.y + (e.clientY - last.y) * t) / innerHeight, 0.011 + k * 0.00012, HAND * (0.022 + k * 0.0012) / Math.sqrt(n)); } }
+    }
+    last = { x: e.clientX, y: e.clientY };
+  }, { passive: true });
+  addEventListener('pointerdown', (e) => !reduce && addDrop(handDrops, e.clientX / innerWidth, 1 - e.clientY / innerHeight, 0.016, HAND * 0.18), { passive: true });
+
+  // 배경: 필름 사진을 세로 띠로 이어 붙이고, 스크롤을 따라 천천히 내려감. 이음매는 물감이 번지듯 섞임
+  const ORDER = [11, 9, 31, 16, 23, 29, 27, 10, 13, 24, 20, 19, 26, 6, 22, 12, 25, 17, 14, 18, 33, 32, 21, 1, 3, 15, 7, 8, 2, 4, 5, 28, 30];  // 아래 끝 색 ↔ 다음 장 위 끝 색이 가까운 순서
+  const PAR = 0.42, OV = 0.42;                               // 스크롤 대비 띠 속도, 앞뒤 장이 겹치는 비율
+  const bg = (() => {
+    const K = kit($('#water'), { antialias: false, alpha: false, premultipliedAlpha: false }, 1.5);
+    if (!K) return null;
+    const { gl } = K;
+    const SHOW = K.prog(`#version 300 es
+      precision highp float; in vec2 uv; out vec4 o;
+      uniform sampler2D h; uniform vec2 px;
+      uniform sampler2D t0; uniform sampler2D t1; uniform sampler2D t2; uniform sampler2D t3;
+      uniform float j0; uniform float sy; uniform vec2 res; uniform float P; uniform float Hp; uniform float Wp;
+      uniform float dim; uniform float focus; uniform vec4 fade; uniform float time;
+      float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+      float noise(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3. - 2. * f);
+        return mix(mix(hash(i), hash(i + vec2(1., 0.)), f.x), mix(hash(i + vec2(0., 1.)), hash(i + vec2(1., 1.)), f.x), f.y); }
+      float fbm(vec2 p){ float a = .5, s = 0.; for (int i = 0; i < 4; i++) { s += a * noise(p); p *= 2.03; a *= .5; } return s; }
+      vec3 samp(float k, vec2 t, vec2 gx, vec2 gy){
+        if (k < .5) return textureGrad(t0, t, gx, gy).rgb * fade.x;
+        if (k < 1.5) return textureGrad(t1, t, gx, gy).rgb * fade.y;
+        if (k < 2.5) return textureGrad(t2, t, gx, gy).rgb * fade.z;
+        return textureGrad(t3, t, gx, gy).rgb * fade.w;
+      }
+      // sp = (화면 x, 띠 안의 y) 픽셀. 장 n 은 띠의 n*P 에서 시작하고 높이 Hp, 앞 장과 (Hp-P) 만큼 겹침
+      vec3 strip(vec2 sp, vec2 gx, vec2 gy){
+        float u = sp.y / P, n = floor(u), f = u - n, L = (Hp - P) / P;
+        float x = (sp.x - res.x * .5) / Wp + .5;
+        vec3 cn = samp(n - j0, vec2(x, (sp.y - n * P) / Hp), gx, gy);
+        if (f >= L) return cn;
+        vec3 cp = samp(n - 1. - j0, vec2(x, (sp.y - (n - 1.) * P) / Hp), gx, gy);
+        // 앞 장은 아래로 갈수록 어둠에 스며들고, 다음 장은 그 어둠에서 떠오름. 경계는 연기처럼 흩어짐
+        float t = f / L;
+        float w = (fbm(vec2(sp.x / res.x * 4.5, sp.y / Hp * 3.2)) - .5) * .7 * sin(3.14159 * t);
+        float a = 1. - smoothstep(0., .66, t + w), b = smoothstep(.34, 1., t + w);
+        return cp * a + cn * b;
+      }
+      // 바람결: 짧은 물결 네 갈래를 겹치고, 넓은 얼룩으로 세기를 바꿔 결이 고르지 않게(기울기만 돌려줌, 화면 px 기준)
+      vec2 breeze(vec2 p){
+        float m = .3 + noise(p / 260. + time * .05) * .9;
+        float w = noise(p / 90.) * 6.;
+        vec2 k1 = vec2(.29, .11), k2 = vec2(-.17, .26), k3 = vec2(.37, -.21), k4 = vec2(.07, .41);
+        vec2 gr = k1 * cos(dot(k1, p) - time * 1.9 + w) * .5 + k2 * cos(dot(k2, p) - time * 2.3 + w * .7) * .45
+                + k3 * cos(dot(k3, p) - time * 2.8 - w * .5) * .3 + k4 * cos(dot(k4, p) - time * 2.1 + w * 1.3) * .3;
+        return gr * m;
+      }
+      void main(){
+        float hc = texture(h, uv).r;
+        vec2 g = vec2(texture(h, uv + vec2(px.x,0.)).r - texture(h, uv - vec2(px.x,0.)).r, texture(h, uv + vec2(0.,px.y)).r - texture(h, uv - vec2(0.,px.y)).r);
+        vec2 bz = breeze(vec2(uv.x * res.x, (1. - uv.y) * res.y));
+        g += vec2(bz.x, -bz.y) * .028;
+        vec2 q = uv + g * .4;                                // 굴절: 물결 기울기만큼 사진이 밀림
+        vec2 sp = vec2(q.x * res.x, sy + (1. - q.y) * res.y);
+        vec2 base = vec2(sp.x / Wp, sp.y / Hp), gx = dFdx(base), gy = dFdy(base);
+        vec3 c = strip(sp, gx, gy);
+        if (focus > .01) {                                    // Surface 를 만지는 동안 둘레를 흐리게
+          float r = focus * 18.;
+          c = (c + strip(sp + vec2(r, 0.), gx, gy) + strip(sp - vec2(r, 0.), gx, gy) + strip(sp + vec2(0., r), gx, gy) + strip(sp - vec2(0., r), gx, gy)
+             + strip(sp + vec2(r, r) * .7, gx, gy) + strip(sp - vec2(r, r) * .7, gx, gy)) / 7.;
+        }
+        float l = dot(c, vec3(.299,.587,.114)); c = mix(vec3(l), c, .72) * dim * (1. - .4 * focus);
+        vec3 nrm = normalize(vec3(-g * 34., 1.)); float spec = pow(max(0., dot(nrm, normalize(vec3(-.35, .55, 1.)))), 70.);
+        c += vec3(.92,.9,.85) * spec * .3 + hc * .05;        // 물결 마루의 옅은 빛
+        c = mix(vec3(.071,.071,.063), c, .92);
+        o = vec4(c, 1.);
+      }`);
+    const loc = (n) => gl.getUniformLocation(SHOW, n);
+    const U = { h: loc('h'), px: loc('px'), t: [0, 1, 2, 3].map((i) => loc('t' + i)), j0: loc('j0'), sy: loc('sy'), res: loc('res'),
+      P: loc('P'), Hp: loc('Hp'), Wp: loc('Wp'), dim: loc('dim'), focus: loc('focus'), fade: loc('fade'), time: loc('time') };
+    // 사진 텍스처: 보이는 장 앞뒤만 올려 둠
+    const blank = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, blank);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([18, 18, 16, 255]));
+    const cache = new Map();                                  // 순번(띠 위치) → { tex, ready }
+    const photoOf = (n) => `../소재/shot_${String(ORDER[((n % ORDER.length) + ORDER.length) % ORDER.length]).padStart(2, '0')}.jpg`;
+    function want(n) {
+      if (cache.has(n)) return;
+      const e = { tex: gl.createTexture(), ready: false }; cache.set(n, e);
+      const im = new Image(); im.decoding = 'async'; im.src = photoOf(n);
+      im.decode().then(() => { if (cache.get(n) === e) upq.push([e, im]); }).catch(() => {});
+    }
+    const upq = [];                                                   // 풀린 사진은 줄을 세워 한 프레임에 한 장만 올림
+    function uploadOne() {
+      const it = upq.shift(); if (!it) return; const [e, im] = it;
+      if (![...cache.values()].includes(e)) return;
+      gl.bindTexture(gl.TEXTURE_2D, e.tex); gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im); gl.generateMipmap(gl.TEXTURE_2D);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      e.ready = true;
+    }
+    let good = null;                                          // 마지막으로 다 준비돼 있던 자리
+    const keep = (n, j0) => (n >= j0 - 6 && n <= j0 + 12) || (good && n >= good.j0 && n <= good.j0 + 3);
+    function trim(j0) { for (const [n, e] of cache) if (!keep(n, j0)) { gl.deleteTexture(e.tex); cache.delete(n); } }
+    const readyFor = (j0, sy, vh, P) => { for (let n = j0, last = Math.floor((sy + vh) / P); n <= last; n++) { const e = cache.get(n); if (!e || !e.ready) return false; } return true; };
+    let lastJ0 = null;
+    const fade = new Float32Array(4);
+    function render(drops, syWant, focus) {
+      const H = K.sim.step(drops);
+      const vw = innerWidth, vh = innerHeight;
+      const Hp = Math.max(vw * 9 / 16, vh * .92), Wp = Hp * 16 / 9, P = Hp * (1 - OV);
+      let sy = syWant, j0 = Math.floor(sy / P) - 1;
+      for (let n = j0 - 1; n <= j0 + 8; n++) want(n);          // 앞으로 내려올 장은 미리
+      uploadOne();
+      if (j0 !== lastJ0) { trim(j0); lastJ0 = j0; }
+      if (readyFor(j0, sy, vh, P)) good = { sy, j0, P };
+      else if (good && good.P === P && readyFor(good.j0, good.sy, vh, P)) { sy = good.sy; j0 = good.j0; }
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, gl.canvas.width, gl.canvas.height); gl.useProgram(SHOW);
+      gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, H); gl.uniform1i(U.h, 0);
+      const now = performance.now();
+      for (let k = 0; k < 4; k++) {
+        const e = cache.get(j0 + k), ok = e && e.ready;
+        if (ok && !e.shown) { e.shown = true; e.at = now; }
+        gl.activeTexture(gl.TEXTURE1 + k); gl.bindTexture(gl.TEXTURE_2D, ok ? e.tex : blank); gl.uniform1i(U.t[k], 1 + k); fade[k] = ok ? Math.min(1, (now - e.at) / 600) : 0;
+      }
+      gl.uniform4fv(U.fade, fade);
+      const [a, b] = K.sim.px(); gl.uniform2f(U.px, a, b);
+      gl.uniform1f(U.j0, j0); gl.uniform1f(U.sy, sy); gl.uniform2f(U.res, vw, vh);
+      gl.uniform1f(U.P, P); gl.uniform1f(U.Hp, Hp); gl.uniform1f(U.Wp, Wp); gl.uniform1f(U.dim, 0.32); gl.uniform1f(U.focus, focus);
+      gl.uniform1f(U.time, reduce ? 0 : now / 1000);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    }
+    return { fit: K.fit, render, cache };
+  })();
+
+  // 물빛: 글·사진 위로 지나가는 물결의 빛과 그늘. 필름 영상 위에는 그리지 않음
+  const gloss = (() => {
+    const K = kit($('#gloss'), { antialias: false, alpha: true, premultipliedAlpha: true }, 2);
+    if (!K) return null;
+    const { gl } = K;
+    const SHOW = K.prog(`#version 300 es
+      precision highp float; in vec2 uv; out vec4 o;
+      uniform sampler2D h; uniform vec2 px; uniform vec4 hole;
+      void main(){
+        vec2 g = vec2(texture(h, uv + vec2(px.x,0.)).r - texture(h, uv - vec2(px.x,0.)).r, texture(h, uv + vec2(0.,px.y)).r - texture(h, uv - vec2(0.,px.y)).r);
+        vec2 sl = -g * 26.;
+        vec3 nrm = normalize(vec3(sl, 1.));
+        float spec = pow(max(0., dot(nrm, normalize(vec3(-.35, .55, 1.)))), 60.);
+        float tilt = dot(sl, normalize(vec2(-.35, .55)));
+        float lit = clamp(spec * .3 + max(tilt, 0.) * .12, 0., .34), shade = clamp(max(-tilt, 0.) * .18, 0., .22);
+        float out_ = step(uv.x, hole.x) + step(hole.z, uv.x) + step(uv.y, hole.y) + step(hole.w, uv.y);
+        float keep = min(1., out_);
+        lit *= keep; shade *= keep;
+        o = vec4(vec3(.96, .94, .9) * lit, lit + shade);       // 마루는 밝게, 골은 살짝 어둡게(미리 곱한 알파)
+      }`);
+    // 사진 위: 같은 사진을 같은 자리에 겹쳐 그리되, 물결이 지나가는 곳만 굴절된 모습으로
+    const IMG = K.prog(`#version 300 es
+      precision highp float; in vec2 uv; out vec4 o;
+      uniform sampler2D h; uniform sampler2D im; uniform vec2 px; uniform vec4 crect; uniform float op;
+      void main(){
+        vec2 g = vec2(texture(h, uv + vec2(px.x,0.)).r - texture(h, uv - vec2(px.x,0.)).r, texture(h, uv + vec2(0.,px.y)).r - texture(h, uv - vec2(0.,px.y)).r);
+        float a = smoothstep(.003, .02, length(g)) * op;
+        vec2 q = uv + g * .2;
+        vec2 t = (q - crect.xy) / (crect.zw - crect.xy); t.y = 1. - t.y;
+        o = vec4(texture(im, t).rgb * a, a);
+      }`, `#version 300 es
+      in vec2 p; uniform vec4 rect; out vec2 uv;
+      void main(){ uv = mix(rect.xy, rect.zw, p * .5 + .5); gl_Position = vec4(uv * 2. - 1., 0., 1.); }`);
+    const loc = (n) => gl.getUniformLocation(SHOW, n), loc2 = (n) => gl.getUniformLocation(IMG, n);
+    const U = { h: loc('h'), px: loc('px'), hole: loc('hole') };
+    const V = { h: loc2('h'), im: loc2('im'), px: loc2('px'), crect: loc2('crect'), rect: loc2('rect'), op: loc2('op') };
+    const texOf = new Map();
+    const near = new Set();
+    const nearIO = new IntersectionObserver((es) => es.forEach((en) => {
+      if (en.isIntersecting) { near.add(en.target); const warm = () => idle(() => near.has(en.target) && photoTex(en.target), 800); en.target.complete && en.target.naturalWidth ? warm() : en.target.addEventListener('load', warm, { once: true }); }
+      else near.delete(en.target);
+    }), { rootMargin: '60% 0px' });
+    let list = null;
+    const photos = () => list || (list = [...document.querySelectorAll('.feat .ph img, #index li.open .more img')]);
+    function refresh() { list = null; photos().forEach((im) => nearIO.observe(im)); }
+    function photoTex(img) {
+      const e = texOf.get(img); if (e) return e.t;
+      const t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t); gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img); gl.generateMipmap(gl.TEXTURE_2D);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      texOf.set(img, { t }); return t;
+    }
+    function dropFar() { for (const [img, e] of texOf) if (!near.has(img)) { gl.deleteTexture(e.t); texOf.delete(img); } }   // 화면에서 멀어진 사진은 놓아 줌
+    const uvRect = (l, t, r, b) => [l / innerWidth, 1 - b / innerHeight, r / innerWidth, 1 - t / innerHeight];
+    let blank = false, lastDrop = -1e9;
+    function render(drops, hole, now) {
+      if (drops.length) lastDrop = now;
+      if (now - lastDrop > 6000) { clear(); return; }  // 손이 멈추고 물결이 가라앉으면 쉼
+      const H = K.sim.step(drops);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+      gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
+      const [a, b] = K.sim.px();
+      gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+      gl.useProgram(IMG); gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, H); gl.uniform1i(V.h, 0); gl.uniform1i(V.im, 1); gl.uniform2f(V.px, a, b);
+      for (const img of photos()) {
+        if (!near.has(img) || !img.complete || !img.naturalWidth) continue;
+        const clip = (img.closest('.ph') || img).getBoundingClientRect();
+        if (clip.bottom < 0 || clip.top > innerHeight) continue;
+        const ph = img.closest('.ph'), op = ph && (ph.dataset.busy || !ph.classList.contains('in')) ? 0 : 1;
+        if (op < 0.99) continue;
+        gl.uniform1f(V.op, op);
+        const r = img.getBoundingClientRect(), sc = Math.max(r.width / img.naturalWidth, r.height / img.naturalHeight);
+        const cw = img.naturalWidth * sc, ch = img.naturalHeight * sc, cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, photoTex(img));
+        gl.uniform4fv(V.rect, uvRect(clip.left, clip.top, clip.right, clip.bottom));
+        gl.uniform4fv(V.crect, uvRect(cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2));
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+      gl.useProgram(SHOW); gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, H); gl.uniform1i(U.h, 0);
+      gl.uniform2f(U.px, a, b); gl.uniform4fv(U.hole, hole);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); gl.disable(gl.BLEND); blank = false;
+      dropFar();
+    }
+    function clear() { dropFar(); if (blank) return; gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, gl.canvas.width, gl.canvas.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); blank = true; }
+    refresh();
+    return { fit: K.fit, render, clear, refresh };
+  })();
+  // WebGL 이 안 되는 브라우저: 사진 한 장을 어둡게 깔아 둠
+  if (!bg) $('#water').style.background = `linear-gradient(rgba(18,18,16,.7), rgba(18,18,16,.7)), url(../소재/shot_${String(ORDER[0]).padStart(2, '0')}.jpg) center / cover`;
+  const fitAll = () => { bg && bg.fit(); gloss && gloss.fit(); };
+  let fq = 0;
+  fitAll(); addEventListener('resize', () => { cancelAnimationFrame(fq); fq = requestAnimationFrame(fitAll); });
+
+  // ---------- 매 프레임 ----------
+  function tick(scrolled = true) { if (scrolled) lastScrollAt = performance.now(); updateFilm(); updatePar(); updateNav(); updateShelf(); updateBar(!!scrolled); }
+  let mq = 0;
+  const remeasure = () => { if (mq) return; mq = requestAnimationFrame(() => { mq = 0; measure(); tick(false); }); };
+  measure();
+  new ResizeObserver(remeasure).observe(document.body);              // 목록이 펼쳐지는 등 높이가 바뀌면 다시 잼
+  document.fonts.ready.then(remeasure);
+  lenis && lenis.on('scroll', tick);
+  addEventListener('scroll', () => { if (!lenis) tick(); }, { passive: true });
+  rmq.addEventListener && rmq.addEventListener('change', () => {
+    reduce = rmq.matches;
+    if (reduce && lenis) { lenis.destroy(); lenis = null; }
+    else if (!reduce && !lenis && window.Lenis) { lenis = makeLenis(); lenis.on('scroll', tick); }
+    tick();
+  });
+  addEventListener('resize', () => { remeasure(); bar.classList.remove('act'); });
+  let frames = 0, slow = 0, lastT = performance.now(), worst = 0, nextAmbient = 0;
+  const hole = new Float32Array(4);
+  function loop(now) {
+    lenis && lenis.raf(now);
+    ringTick(); ambTick(now); if (!OFF.has('ghost')) ghostTick(now); if (!OFF.has('big')) bigTick(now);
+    focusV += (focusT - focusV) * 0.08;
+    if (now > nextAmbient && !reduce) { addDrop(ambDrops, Math.random(), Math.random(), 0.005 + Math.random() * 0.007, 0.018 + Math.random() * 0.03); nextAmbient = now + 140 + Math.random() * 300; }   // 가는 빗방울처럼 작고 잦게
+    // 필름이 화면을 다 덮는 동안엔 물을 그리지 않음
+    // 필름이나 책장이 화면을 다 덮는 동안엔 물을 그리지 않음
+    const fr = frameRect;
+    const covered = (fr.left <= 0.5 && fr.top <= 0.5 && fr.right >= geo.W - 0.5 && fr.bottom >= geo.H - 0.5) || shelfOpen > .995;
+    if (!document.hidden && !covered) {
+      // 배경 띠는 책장이 화면을 덮고 있던 스크롤만큼은 건너뜀(책장 앞뒤 사진이 이어지고, 불러올 사진 수도 줄어듦)
+      const yy = scrollY_(), hidden = Math.min(Math.max(0, yy - geo.shelfTop), Math.max(0, geo.shelfH - geo.H));
+      if (bg && !OFF.has('bg')) bg.render(handDrops.concat(ambDrops).slice(0, 16), (yy - hidden) * PAR, focusV < 0.005 ? 0 : focusV);
+      if (gloss && !OFF.has('gloss')) {
+        if (fr.bottom > 0) { hole[0] = fr.left / geo.W; hole[1] = 1 - fr.bottom / geo.H; hole[2] = fr.right / geo.W; hole[3] = 1 - fr.top / geo.H; }
+        else hole.fill(-1);
+        gloss.render(handDrops, hole, now);
+      }
+    } else if (gloss) gloss.clear();
+    handDrops = []; ambDrops = [];
+    const dt = now - lastT; lastT = now; frames++; if (dt > 34) slow++; if (frames > 30) worst = Math.max(worst, dt);
+    requestAnimationFrame(loop);
+  }
+  tick(); bar.classList.remove('act'); requestAnimationFrame(loop);
+  window.__landing = { state: () => ({ film: +filmP.toFixed(3), water: !!bg, gloss: !!gloss, frames, slow, worst: Math.round(worst), lenis: !!lenis, started, photos: bg ? [...bg.cache.keys()] : [] }),
+    to: (y) => lenis ? lenis.scrollTo(y, { immediate: true, force: true }) : scrollTo(0, y), drop: (x, y) => { addDrop(handDrops, x, y, 0.05, 0.4); }, resetStats: () => { frames = 0; slow = 0; worst = 0; } };
+})();
+</script>
+</body>
+</html>

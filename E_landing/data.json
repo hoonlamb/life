@@ -1,0 +1,996 @@
+{
+ "readings": [
+  {
+   "n": 1,
+   "text": "The eye is the first circle; the horizon which it forms is the second; and throughout nature this primary figure is repeated without end. It is the highest emblem in the cipher of the world. St. Augustine described the nature of God as a circle whose centre was everywhere and its circumference nowhere.",
+   "source": "Ralph Waldo Emerson, Circles (1841)",
+   "photo": "../소재/shot_01.jpg",
+   "plate": "Earth limb",
+   "medium": "Photograph, ISS Expedition 61 (iss061e123823)",
+   "by": "NASA",
+   "lic": "Public domain"
+  },
+  {
+   "n": 2,
+   "text": "A child said What is the grass? fetching it to me with full hands; How could I answer the child? I do not know what it is any more than he. I guess it must be the flag of my disposition, out of hopeful green stuff woven.",
+   "source": "Walt Whitman, Song of Myself (1855)",
+   "photo": "../소재/shot_02.jpg",
+   "plate": "Lentil sprouts",
+   "medium": "Timelapse, 4K",
+   "by": "Always Shooting",
+   "lic": "CC BY 2.0"
+  },
+  {
+   "n": 3,
+   "text": "These roses under my window make no reference to former roses or to better ones; they are for what they are; they exist with God to-day. There is no time to them. There is simply the rose; it is perfect in every moment of its existence.",
+   "source": "Ralph Waldo Emerson, Self-Reliance (1841)",
+   "photo": "../소재/shot_03.jpg",
+   "plate": "Lotus bud",
+   "medium": "Video",
+   "by": "taro",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 4,
+   "text": "The same stream of life that runs through my veins night and day runs through the world and dances in rhythmic measures. It is the same life that shoots in joy through the dust of the earth in numberless blades of grass and breaks into tumultuous waves of leaves and flowers.",
+   "source": "Rabindranath Tagore, Gitanjali (1912)",
+   "photo": "../소재/shot_04.jpg",
+   "plate": "Peony",
+   "medium": "Timelapse",
+   "by": "adege",
+   "lic": "Pixabay Content License"
+  },
+  {
+   "n": 5,
+   "text": "Every morning was a cheerful invitation to make my life of equal simplicity, and I may say innocence, with Nature herself. I have been as sincere a worshipper of Aurora as the Greeks. I got up early and bathed in the pond; that was a religious exercise, and one of the best things which I did.",
+   "source": "Henry David Thoreau, Walden (1854)",
+   "photo": "../소재/shot_05.jpg",
+   "plate": "Adonis",
+   "medium": "Timelapse, 4K",
+   "by": "BeautifulMedia",
+   "lic": "CC BY 4.0"
+  },
+  {
+   "n": 6,
+   "text": "It is interesting to contemplate an entangled bank, clothed with many plants of many kinds, with birds singing on the bushes, with various insects flitting about, and with worms crawling through the damp earth, and to reflect that these elaborately constructed forms, so different from each other, and dependent on each other in so complex a manner, have all been produced by laws acting around us.",
+   "source": "Charles Darwin, On the Origin of Species (1859)",
+   "photo": "../소재/shot_06.jpg",
+   "plate": "Coneflower with honeybees",
+   "medium": "Video",
+   "by": "nickype",
+   "lic": "Pixabay Content License"
+  },
+  {
+   "n": 7,
+   "text": "Use thyself therefore often to meditate upon this, that the nature of the universe delights in nothing more, than in altering those things that are, and in making others like unto them. So that we may say, that whatsoever is, is but as it were the seed of that which shall be.",
+   "source": "Marcus Aurelius, Meditations, tr. Meric Casaubon (1634)",
+   "photo": "../소재/shot_07.jpg",
+   "plate": "Hibiscus pollen grain",
+   "medium": "Scanning electron micrograph",
+   "by": "Dietzel65",
+   "lic": "CC BY-SA 4.0"
+  },
+  {
+   "n": 8,
+   "text": "One generation passeth away, and another generation cometh: but the earth abideth for ever. The sun also ariseth, and the sun goeth down, and hasteth to his place where he arose. The wind goeth toward the south, and turneth about unto the north; it whirleth about continually, and the wind returneth again according to his circuits.",
+   "source": "Ecclesiastes 1:4-7, King James Version (1611)",
+   "photo": "../소재/shot_08.jpg",
+   "plate": "Dandelion seed heads",
+   "medium": "Timelapse",
+   "by": "ICYMI",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 9,
+   "text": "I went to the woods because I wished to live deliberately, to front only the essential facts of life, and see if I could not learn what it had to teach, and not, when I came to die, discover that I had not lived.",
+   "source": "Henry David Thoreau, Walden (1854)",
+   "photo": "../소재/shot_09.jpg",
+   "plate": "Bumblebee taking off",
+   "medium": "Slow motion, 4K",
+   "by": "TimePRO TV",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 10,
+   "text": "When we try to pick out anything by itself, we find it hitched to everything else in the universe. One fancies a heart like our own must be beating in every crystal and cell, and we feel like stopping to speak to the plants and animals as friendly fellow mountaineers.",
+   "source": "John Muir, My First Summer in the Sierra (1911)",
+   "photo": "../소재/shot_10.jpg",
+   "plate": "Fly agaric",
+   "medium": "Video",
+   "by": "Justin Stretch",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 11,
+   "text": "If the doors of perception were cleansed everything would appear to man as it is, infinite. For man has closed himself up, till he sees all things through narrow chinks of his cavern.",
+   "source": "William Blake, The Marriage of Heaven and Hell (1790)",
+   "photo": "../소재/shot_11.jpg",
+   "plate": "Cells in a microscope field",
+   "medium": "Video through a microscope eyepiece",
+   "by": "Rony Way",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 12,
+   "text": "Light, my light, the world-filling light, the eye-kissing light, heart-sweetening light! Ah, the light dances, my darling, at the centre of my life; the light strikes, my darling, the chords of my love; the sky opens, the wind runs wild, laughter passes over the earth. The butterflies spread their sails on the sea of light.",
+   "source": "Rabindranath Tagore, Gitanjali (1912)",
+   "photo": "../소재/shot_12.jpg",
+   "plate": "Bumblebee on verbena",
+   "medium": "Slow motion, 4x, 4K",
+   "by": "Alexis Jazz",
+   "lic": "CC BY 4.0"
+  },
+  {
+   "n": 13,
+   "text": "Man at his birth is supple and weak; at his death, firm and strong. (So it is with) all things. Trees and plants, in their early growth, are soft and brittle; at their death, dry and withered.",
+   "source": "Laozi, Tao Te Ching, tr. James Legge (1891)",
+   "photo": "../소재/shot_13.jpg",
+   "plate": "Mushroom gills",
+   "medium": "Video",
+   "by": "Mixkit",
+   "lic": "Mixkit Stock Video Free License"
+  },
+  {
+   "n": 14,
+   "text": "To every thing there is a season, and a time to every purpose under the heaven: A time to be born, and a time to die; a time to plant, and a time to pluck up that which is planted; A time to kill, and a time to heal; a time to break down, and a time to build up; A time to weep, and a time to laugh; a time to mourn, and a time to dance;",
+   "source": "Ecclesiastes 3:1-4, King James Version (1611)",
+   "photo": "../소재/shot_14.jpg",
+   "plate": "Iznik dish",
+   "medium": "Photograph of a dish, Iznik, Turkey, 1585-1590, Al Thani Collection",
+   "by": "Faqscl",
+   "lic": "CC BY-SA 4.0"
+  },
+  {
+   "n": 15,
+   "text": "The utility of living consists not in the length of days, but in the use of time; a man may have lived long, and yet lived but a little. Make use of time while it is present with you. It depends upon your will, and not upon the number of days, to have a sufficient length of life.",
+   "source": "Michel de Montaigne, Essays, tr. Charles Cotton (1685)",
+   "photo": "../소재/shot_15.jpg",
+   "plate": "Ranunculus",
+   "medium": "Timelapse",
+   "by": "adege",
+   "lic": "Pixabay Content License"
+  },
+  {
+   "n": 16,
+   "text": "The lover of nature is he whose inward and outward senses are still truly adjusted to each other; who has retained the spirit of infancy even into the era of manhood. His intercourse with heaven and earth, becomes part of his daily food. In the presence of nature, a wild delight runs through the man, in spite of real sorrows.",
+   "source": "Ralph Waldo Emerson, Nature (1836)",
+   "photo": "../소재/shot_16.jpg",
+   "plate": "Honeybee on a pink flower",
+   "medium": "Video",
+   "by": "mike-media",
+   "lic": "Pixabay Content License"
+  },
+  {
+   "n": 17,
+   "text": "Man is but a reed, the most feeble thing in nature; but he is a thinking reed. The entire universe need not arm itself to crush him. A vapour, a drop of water suffices to kill him. But, if the universe were to crush him, man would still be more noble than that which killed him, because he knows that he dies and the advantage which the universe has over him; the universe knows nothing of this.",
+   "source": "Blaise Pascal, Pensées, tr. W. F. Trotter (1910)",
+   "photo": "../소재/shot_17.jpg",
+   "plate": "Sidalcea pollen grain",
+   "medium": "Scanning electron micrograph",
+   "by": "Louisa Howard, Dartmouth College EM Facility",
+   "lic": "Public Domain"
+  },
+  {
+   "n": 18,
+   "text": "To suffer change can be no hurt; as no benefit it is, by change to attain to being. The age and time of the world is as it were a flood and swift current, consisting of the things that are brought to pass in the world. For as soon as anything hath appeared, and is passed away, another succeeds, and that also will presently out of sight.",
+   "source": "Marcus Aurelius, Meditations, tr. Meric Casaubon (1634)",
+   "photo": "../소재/shot_18.jpg",
+   "plate": "Dandelion clock",
+   "medium": "Timelapse",
+   "by": "adege",
+   "lic": "Pixabay Content License"
+  },
+  {
+   "n": 19,
+   "text": "I bequeath myself to the dirt to grow from the grass I love, If you want me again look for me under your boot-soles. You will hardly know who I am or what I mean, But I shall be good health to you nevertheless, And filter and fibre your blood. Failing to fetch me at first keep encouraged, Missing me one place search another, I stop somewhere waiting for you.",
+   "source": "Walt Whitman, Song of Myself (1855)",
+   "photo": "../소재/shot_19.jpg",
+   "plate": "Dandelion seeds in a gust",
+   "medium": "Slow motion",
+   "by": "frank minjarez",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 20,
+   "text": "The West of which I speak is but another name for the Wild; and what I have been preparing to say is, that in Wildness is the preservation of the World. Every tree sends its fibers forth in search of the Wild. The cities import it at any price. Men plow and sail for it.",
+   "source": "Henry David Thoreau, Walking (1862)",
+   "photo": "../소재/shot_20.jpg",
+   "plate": "Slime mould",
+   "medium": "Timelapse",
+   "by": "Tim Tim (VD fr)",
+   "lic": "CC BY-SA 4.0"
+  },
+  {
+   "n": 21,
+   "text": "Look within; within is the fountain of all good. Such a fountain, where springing waters can never fail, so thou dig still deeper and deeper.",
+   "source": "Marcus Aurelius, Meditations, tr. Meric Casaubon (1634)",
+   "photo": "../소재/shot_21.jpg",
+   "plate": "Hibiscus stem, cross-section",
+   "medium": "Micrograph",
+   "by": "Theofilus Christian",
+   "lic": "CC BY-SA 4.0"
+  },
+  {
+   "n": 22,
+   "text": "I believe a leaf of grass is no less than the journey work of the stars, And the pismire is equally perfect, and a grain of sand, and the egg of the wren, And the tree-toad is a chef-d’œuvre for the highest, And the running blackberry would adorn the parlors of heaven…",
+   "source": "Walt Whitman, Song of Myself (1855)",
+   "photo": "../소재/shot_22.jpg",
+   "plate": "Pincushion flowers",
+   "medium": "Timelapse",
+   "by": "adonyig",
+   "lic": "Pixabay Content License"
+  },
+  {
+   "n": 23,
+   "text": "There is grandeur in this view of life, with its several powers, having been originally breathed into a few forms or into one; and that, whilst this planet has gone cycling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being, evolved.",
+   "source": "Charles Darwin, On the Origin of Species (1859)",
+   "photo": "../소재/shot_23.jpg",
+   "plate": "Seed head, plant study",
+   "medium": "Plate, Urformen der Kunst series",
+   "by": "Karl Blossfeldt, Rijksmuseum",
+   "lic": "CC0"
+  },
+  {
+   "n": 24,
+   "text": "Standing on the bare ground,--my head bathed by the blithe air, and uplifted into infinite space,--all mean egotism vanishes. I become a transparent eye-ball; I am nothing; I see all; the currents of the Universal Being circulate through me; I am part or particle of God.",
+   "source": "Ralph Waldo Emerson, Nature (1836)",
+   "photo": "../소재/shot_24.jpg",
+   "plate": "Coneflower with hoverfly",
+   "medium": "Video",
+   "by": "William G Hobbs",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 25,
+   "text": "Hope is the thing with feathers That perches in the soul, And sings the tune without the words, And never stops at all, And sweetest in the gale is heard; And sore must be the storm That could abash the little bird That kept so many warm.",
+   "source": "Emily Dickinson, Poems (1891)",
+   "photo": "../소재/shot_25.jpg",
+   "plate": "Flower fly on zinnia",
+   "medium": "Video",
+   "by": "Dennis.insect.filmer",
+   "lic": "CC BY-SA 4.0"
+  },
+  {
+   "n": 26,
+   "text": "Thou hast made me endless, such is thy pleasure. This frail vessel thou emptiest again and again, and fillest it ever with fresh life. This little flute of a reed thou hast carried over hills and dales, and hast breathed through it melodies eternally new.",
+   "source": "Rabindranath Tagore, Gitanjali (1912)",
+   "photo": "../소재/shot_26.jpg",
+   "plate": "Sunflower disc",
+   "medium": "Video",
+   "by": "Justin Stretch",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 27,
+   "text": "I would always have a man to be doing, and, as much as in him lies, to extend and spin out the offices of life; and then let death take me planting my cabbages, indifferent to him, and still less of my gardens not being finished.",
+   "source": "Michel de Montaigne, Essays, tr. Charles Cotton (1685)",
+   "photo": "../소재/shot_27.jpg",
+   "plate": "Strawberry Thief",
+   "medium": "Textile, designed 1883, printed ca. 1934",
+   "by": "William Morris (design)",
+   "lic": "Public domain"
+  },
+  {
+   "n": 28,
+   "text": "There is nothing in the world more soft and weak than water, and yet for attacking things that are firm and strong there is nothing that can take precedence of it;--for there is nothing (so effectual) for which it can be changed.",
+   "source": "Laozi, Tao Te Ching, tr. James Legge (1891)",
+   "photo": "../소재/shot_28.jpg",
+   "plate": "Red amaryllis",
+   "medium": "Timelapse",
+   "by": "Townsend Walton",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 29,
+   "text": "Heaven is under our feet as well as over our heads. Early in the morning, while all things are crisp with frost, men come with fishing reels and slender lunch, and let down their fine lines through the snowy field to take pickerel and perch…",
+   "source": "Henry David Thoreau, Walden (1854)",
+   "photo": "../소재/shot_29.jpg",
+   "plate": "Chamomile with dew",
+   "medium": "Photograph",
+   "by": "Conall from Downpatrick, Northern Ireland",
+   "lic": "CC BY 4.0"
+  },
+  {
+   "n": 30,
+   "text": "As generation is, so also death, a secret of nature's wisdom: a mixture of elements, resolved into the same elements again, a thing surely which no man ought to be ashamed of…",
+   "source": "Marcus Aurelius, Meditations, tr. Meric Casaubon (1634)",
+   "photo": "../소재/shot_30.jpg",
+   "plate": "Daffodil",
+   "medium": "Timelapse, 4K",
+   "by": "Ross Harrison",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 31,
+   "text": "And, like the baseless fabric of this vision, The cloud-capp’d towers, the gorgeous palaces, The solemn temples, the great globe itself, Yea, all which it inherit, shall dissolve, And, like this insubstantial pageant faded, Leave not a rack behind. We are such stuff As dreams are made on, and our little life Is rounded with a sleep.",
+   "source": "William Shakespeare, The Tempest (1611)",
+   "photo": "../소재/shot_31.jpg",
+   "plate": "Pink rose with water droplets",
+   "medium": "Video",
+   "by": "myflowerstoyou",
+   "lic": "Pexels License"
+  },
+  {
+   "n": 32,
+   "text": "Why, who makes much of a miracle? As to me I know of nothing else but miracles, Whether I walk the streets of Manhattan, Or dart my sight over the roofs of houses toward the sky, Or wade with naked feet along the beach just in the edge of the water, Or stand under trees in the woods…",
+   "source": "Walt Whitman, Miracles (1856)",
+   "photo": "../소재/shot_32.jpg",
+   "plate": "Apricot decorative dahlia",
+   "medium": "Photograph",
+   "by": "Acabashi",
+   "lic": "CC BY-SA 4.0"
+  },
+  {
+   "n": 33,
+   "text": "The light which puts out our eyes is darkness to us. Only that day dawns to which we are awake. There is more day to dawn. The sun is but a morning star.",
+   "source": "Henry David Thoreau, Walden (1854)",
+   "photo": "../소재/shot_33.jpg",
+   "plate": "Pot marigold bud with water drops",
+   "medium": "Photograph",
+   "by": "Ermell",
+   "lic": "CC BY-SA 4.0"
+  }
+ ],
+ "spreads": 19,
+ "filmCredits": "Life, 소재 출처 (영상에 쓴 순서)\n\n첫 화면·끝 화면: Earth limb, ISS Expedition 61 (iss061e123823), NASA, 퍼블릭 도메인. https://images.nasa.gov/details/iss061e123823\n\n01. Always Shooting, CC BY 2.0. https://commons.wikimedia.org/wiki/File:Lentil_sprouting_Haft-sin_time_lapse.webm\n02. taro, Pexels License. https://www.pexels.com/video/vibrant-flower-bud-5120346/\n03. adege, Pixabay Content License. https://pixabay.com/videos/flower-blooming-blossom-plant-41710/\n04. BeautifulMedia, CC BY 4.0. https://commons.wikimedia.org/wiki/File:Adonis_ramosa_%27Sani%27_Franch.,_in_Bull._Soc._Philom._s%C3%A9r._8,_vi._(1894)_91._-ramosus-._(51118301743).webm\n05. nickype, Pixabay Content License. https://pixabay.com/videos/bee-flower-insect-blossom-85673/\n06. Dietzel65, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:2016-07-28-Hibiscus-Pollen3_001.jpg\n07. ICYMI, Pexels License. https://www.pexels.com/video/a-dandelion-seed-on-a-black-background-17486252/\n08. TimePRO TV, Pexels License. https://www.pexels.com/video/stunning-close-up-of-bumblebee-on-pink-flower-32033606/\n09. Justin Stretch, Pexels License. https://www.pexels.com/video/close-up-of-flybane-mushroom-14172102/\n10. Rony Way, Pexels License. https://www.pexels.com/video/microscopic-view-of-bacteria-or-cells-in-motion-38533119/\n11. Alexis Jazz, CC BY 4.0. https://commons.wikimedia.org/wiki/File:Bumblebee_looking_for_nectar_in_verbena_up_close,_4_times_slower.webm\n12. Mixkit, Mixkit Stock Video Free License. https://mixkit.co/free-stock-video/underside-of-wild-mushroom-78/\n13. Faqscl, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Dish_-_Turkey,_Iznik_-_1585-1590_-_Al_Thani_Collection.jpg\n14. adege, Pixabay Content License. https://pixabay.com/videos/ranunculus-flower-plant-blossom-343177/\n15. mike-media, Pixabay Content License. https://pixabay.com/videos/bee-honeybee-pollination-flower-308507/\n16. Louisa Howard, Dartmouth College EM Facility, Public Domain. https://commons.wikimedia.org/wiki/File:Sildalcea_malviflora_pollen.jpg\n17. adege, Pixabay Content License. https://pixabay.com/videos/dandelion-faded-seeds-23263/\n18. frank minjarez, Pexels License. https://www.pexels.com/video/slow-motion-dandelion-seeds-blowing-away-35910939/\n19. Tim Tim (VD fr), CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Australian_physarum_polycephalum_timelapse.webm\n20. Theofilus Christian, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Cross_section_of_Hibiscus_sabdariffa_caulis.jpg\n21. adonyig, Pixabay Content License. https://pixabay.com/videos/pincushion-flower-plant-pin-cushion-38459/\n22. Karl Blossfeldt (Rijksmuseum 소장), CC0. https://commons.wikimedia.org/wiki/File:Plantstudie_Urformen_der_Kunst_(serietitel),_RP-F-2008-51-2170-11.jpg\n23. William G Hobbs, Pexels License. https://www.pexels.com/video/shallow-focus-of-a-honeybee-on-a-flower-5940595/\n24. Dennis.insect.filmer, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Black_margined_flower_fly.webm\n25. Justin Stretch, Pexels License. https://www.pexels.com/video/close-up-of-sunflower-13676209/\n26. William Morris (디자인), Public domain. https://commons.wikimedia.org/wiki/File:Textile,_Strawberry_Thief,_designed_1883,_printed_ca._1934_(CH_18340065).jpg\n27. Townsend Walton, Pexels License. https://www.pexels.com/video/timelapse-of-vibrant-red-amaryllis-in-full-bloom-35304485/\n28. Conall from Downpatrick, Northern Ireland, CC BY 4.0. https://commons.wikimedia.org/wiki/File:A_wet_Chamomile_flower_-_Flickr_-_conall...jpg\n29. Ross Harrison, Pexels License. https://www.pexels.com/video/time-lapse-of-a-blooming-yellow-daffodil-11396868/\n30. myflowerstoyou, Pexels License. https://www.pexels.com/video/a-pink-rose-with-water-droplets-on-it-18903377/\n31. Acabashi, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Apricot_decorative_dahlia_Easton_Lodge_Gardens_walled_garden_02_darker.jpg\n32. Ermell, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Ringelblume_Wassertropfen-20200619-RM-080740.jpg\n\n음악: 직접 합성(작업/music.py), 저작권 문제 없음.\n글꼴: New York (Apple 시스템 글꼴).\n\nCC BY / CC BY-SA 소재가 있어 공개할 때는 이 목록(또는 링크)을 설명란에 붙여야 해요.\nPexels·Pixabay·Mixkit 클립은 각 사이트 라이선스로 출처 표기 의무는 없지만, 원본 클립을 그대로 다시 배포하는 것은 금지예요.",
+ "film": [
+  {
+   "n": "",
+   "by": "Earth limb, ISS Expedition 61 (iss061e123823), NASA",
+   "lic": "public domain",
+   "url": "https://images.nasa.gov/details/iss061e123823"
+  },
+  {
+   "n": "01",
+   "by": "Always Shooting",
+   "lic": "CC BY 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Lentil_sprouting_Haft-sin_time_lapse.webm"
+  },
+  {
+   "n": "02",
+   "by": "taro",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/vibrant-flower-bud-5120346/"
+  },
+  {
+   "n": "03",
+   "by": "adege",
+   "lic": "Pixabay Content License",
+   "url": "https://pixabay.com/videos/flower-blooming-blossom-plant-41710/"
+  },
+  {
+   "n": "04",
+   "by": "BeautifulMedia",
+   "lic": "CC BY 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Adonis_ramosa_%27Sani%27_Franch.,_in_Bull._Soc._Philom._s%C3%A9r._8,_vi._(1894)_91._-ramosus-._(51118301743).webm"
+  },
+  {
+   "n": "05",
+   "by": "nickype",
+   "lic": "Pixabay Content License",
+   "url": "https://pixabay.com/videos/bee-flower-insect-blossom-85673/"
+  },
+  {
+   "n": "06",
+   "by": "Dietzel65",
+   "lic": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:2016-07-28-Hibiscus-Pollen3_001.jpg"
+  },
+  {
+   "n": "07",
+   "by": "ICYMI",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/a-dandelion-seed-on-a-black-background-17486252/"
+  },
+  {
+   "n": "08",
+   "by": "TimePRO TV",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/stunning-close-up-of-bumblebee-on-pink-flower-32033606/"
+  },
+  {
+   "n": "09",
+   "by": "Justin Stretch",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/close-up-of-flybane-mushroom-14172102/"
+  },
+  {
+   "n": "10",
+   "by": "Rony Way",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/microscopic-view-of-bacteria-or-cells-in-motion-38533119/"
+  },
+  {
+   "n": "11",
+   "by": "Alexis Jazz",
+   "lic": "CC BY 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Bumblebee_looking_for_nectar_in_verbena_up_close,_4_times_slower.webm"
+  },
+  {
+   "n": "12",
+   "by": "Mixkit",
+   "lic": "Mixkit Stock Video Free License",
+   "url": "https://mixkit.co/free-stock-video/underside-of-wild-mushroom-78/"
+  },
+  {
+   "n": "13",
+   "by": "Faqscl",
+   "lic": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Dish_-_Turkey,_Iznik_-_1585-1590_-_Al_Thani_Collection.jpg"
+  },
+  {
+   "n": "14",
+   "by": "adege",
+   "lic": "Pixabay Content License",
+   "url": "https://pixabay.com/videos/ranunculus-flower-plant-blossom-343177/"
+  },
+  {
+   "n": "15",
+   "by": "mike-media",
+   "lic": "Pixabay Content License",
+   "url": "https://pixabay.com/videos/bee-honeybee-pollination-flower-308507/"
+  },
+  {
+   "n": "16",
+   "by": "Louisa Howard, Dartmouth College EM Facility",
+   "lic": "public domain",
+   "url": "https://commons.wikimedia.org/wiki/File:Sildalcea_malviflora_pollen.jpg"
+  },
+  {
+   "n": "17",
+   "by": "adege",
+   "lic": "Pixabay Content License",
+   "url": "https://pixabay.com/videos/dandelion-faded-seeds-23263/"
+  },
+  {
+   "n": "18",
+   "by": "frank minjarez",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/slow-motion-dandelion-seeds-blowing-away-35910939/"
+  },
+  {
+   "n": "19",
+   "by": "Tim Tim (VD fr)",
+   "lic": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Australian_physarum_polycephalum_timelapse.webm"
+  },
+  {
+   "n": "20",
+   "by": "Theofilus Christian",
+   "lic": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Cross_section_of_Hibiscus_sabdariffa_caulis.jpg"
+  },
+  {
+   "n": "21",
+   "by": "adonyig",
+   "lic": "Pixabay Content License",
+   "url": "https://pixabay.com/videos/pincushion-flower-plant-pin-cushion-38459/"
+  },
+  {
+   "n": "22",
+   "by": "Karl Blossfeldt, Rijksmuseum",
+   "lic": "CC0",
+   "url": "https://commons.wikimedia.org/wiki/File:Plantstudie_Urformen_der_Kunst_(serietitel),_RP-F-2008-51-2170-11.jpg"
+  },
+  {
+   "n": "23",
+   "by": "William G Hobbs",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/shallow-focus-of-a-honeybee-on-a-flower-5940595/"
+  },
+  {
+   "n": "24",
+   "by": "Dennis.insect.filmer",
+   "lic": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Black_margined_flower_fly.webm"
+  },
+  {
+   "n": "25",
+   "by": "Justin Stretch",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/close-up-of-sunflower-13676209/"
+  },
+  {
+   "n": "26",
+   "by": "William Morris",
+   "lic": "public domain",
+   "url": "https://commons.wikimedia.org/wiki/File:Textile,_Strawberry_Thief,_designed_1883,_printed_ca._1934_(CH_18340065).jpg"
+  },
+  {
+   "n": "27",
+   "by": "Townsend Walton",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/timelapse-of-vibrant-red-amaryllis-in-full-bloom-35304485/"
+  },
+  {
+   "n": "28",
+   "by": "Conall from Downpatrick, Northern Ireland",
+   "lic": "CC BY 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:A_wet_Chamomile_flower_-_Flickr_-_conall...jpg"
+  },
+  {
+   "n": "29",
+   "by": "Ross Harrison",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/time-lapse-of-a-blooming-yellow-daffodil-11396868/"
+  },
+  {
+   "n": "30",
+   "by": "myflowerstoyou",
+   "lic": "Pexels License",
+   "url": "https://www.pexels.com/video/a-pink-rose-with-water-droplets-on-it-18903377/"
+  },
+  {
+   "n": "31",
+   "by": "Acabashi",
+   "lic": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Apricot_decorative_dahlia_Easton_Lodge_Gardens_walled_garden_02_darker.jpg"
+  },
+  {
+   "n": "32",
+   "by": "Ermell",
+   "lic": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Ringelblume_Wassertropfen-20200619-RM-080740.jpg"
+  }
+ ],
+ "books": [
+  {
+   "title": "A Little Life",
+   "author": "Hanya Yanagihara",
+   "publisher": "Picador",
+   "year": 2025,
+   "photos": [
+    "Amazon"
+   ]
+  },
+  {
+   "title": "12 Rules for Life",
+   "author": "Jordan B. Peterson",
+   "publisher": "Allen Lane",
+   "year": 2018,
+   "photos": [
+    "Amazon"
+   ]
+  },
+  {
+   "title": "The Life and Opinions of Tristram Shandy",
+   "author": "Laurence Sterne",
+   "publisher": "Easton Press",
+   "year": 1980,
+   "photos": [
+    "AbeBooks"
+   ]
+  },
+  {
+   "title": "Life of Pi",
+   "author": "Yann Martel",
+   "publisher": "Harcourt",
+   "year": 2007,
+   "photos": [
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "Salm-ui hangaunde (Mitte des Lebens)",
+   "author": "Luise Rinser, tr. Park Chan-il",
+   "publisher": "Minumsa",
+   "year": 1999,
+   "photos": [
+    "Aladin"
+   ]
+  },
+  {
+   "title": "The Immortal Life of Henrietta Lacks",
+   "author": "Rebecca Skloot",
+   "publisher": "Crown Publishers",
+   "year": 2010,
+   "photos": [
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "The Secret Life of Bees",
+   "author": "Sue Monk Kidd",
+   "publisher": "Viking Press",
+   "year": 2002,
+   "photos": [
+    "AbeBooks",
+    "Rare Book Cellar"
+   ]
+  },
+  {
+   "title": "Narrative of the Life of Frederick Douglass",
+   "author": "Frederick Douglass",
+   "publisher": "Barnes & Noble",
+   "year": 2012,
+   "photos": [
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "The Diversity of Life",
+   "author": "Edward O. Wilson",
+   "publisher": "Belknap Press of Harvard University Press",
+   "year": 1992,
+   "photos": [
+    "Type Punch Matrix"
+   ]
+  },
+  {
+   "title": "Life Among the Savages",
+   "author": "Shirley Jackson",
+   "publisher": "Farrar, Straus and Young",
+   "year": 1953,
+   "photos": [
+    "Etsy"
+   ]
+  },
+  {
+   "title": "The Hidden Life of Trees",
+   "author": "Peter Wohlleben",
+   "publisher": "Greystone Books",
+   "year": 2016,
+   "photos": [
+    "Amazon"
+   ]
+  },
+  {
+   "title": "Life",
+   "author": "Keith Richards",
+   "publisher": "Little, Brown and Company",
+   "year": 2010,
+   "photos": [
+    "AbeBooks",
+    "Amazon"
+   ]
+  },
+  {
+   "title": "The Private Life of Plants",
+   "author": "David Attenborough",
+   "publisher": "Princeton University Press",
+   "year": 1995,
+   "photos": [
+    "AbeBooks",
+    "Amazon"
+   ]
+  },
+  {
+   "title": "The Life of Birds",
+   "author": "David Attenborough",
+   "publisher": "Princeton University Press",
+   "year": 1998,
+   "photos": [
+    "AbeBooks",
+    "Amazon"
+   ]
+  },
+  {
+   "title": "The Life of Mammals",
+   "author": "David Attenborough",
+   "publisher": "Princeton University Press",
+   "year": 2002,
+   "photos": [
+    "Rare Book Cellar",
+    "Amazon"
+   ]
+  },
+  {
+   "title": "A Life of Picasso, Volume II: 1907-1917 - The Painter of Modern Life",
+   "author": "John Richardson and Marilyn McCully",
+   "publisher": "Random House",
+   "year": 1996,
+   "photos": [
+    "Amazon"
+   ]
+  },
+  {
+   "title": "A Life of Picasso III: The Triumphant Years",
+   "author": "John Richardson",
+   "publisher": "Knopf",
+   "year": 2007,
+   "photos": [
+    "Amazon"
+   ]
+  },
+  {
+   "title": "The Life of Graham Greene: Volume Two: 1939-1955",
+   "author": "Norman Sherry",
+   "publisher": "Viking Adult",
+   "year": 1995,
+   "photos": [
+    "Amazon"
+   ]
+  },
+  {
+   "title": "The Life of Graham Greene, Volume 3: 1955-1991",
+   "author": "Norman Sherry",
+   "publisher": "Viking Adult",
+   "year": 2004,
+   "photos": [
+    "Amazon"
+   ]
+  },
+  {
+   "title": "The Life You Can Save: Acting Now to End World Poverty",
+   "author": "Peter Singer",
+   "publisher": "Random House",
+   "year": 2009,
+   "photos": [
+    "AbeBooks",
+    "Amazon"
+   ]
+  },
+  {
+   "title": "The Trials of Life: A Natural History of Animal Behavior",
+   "author": "David Attenborough",
+   "publisher": "Little Brown & Co.",
+   "year": 1991,
+   "photos": [
+    "AbeBooks",
+    "Amazon"
+   ]
+  },
+  {
+   "title": "Bodies: Life and Death in Music",
+   "author": "Ian Winwood",
+   "publisher": "Faber & Faber",
+   "year": 2022,
+   "photos": [
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "Funny Woman: The Life and Times of Fanny Brice",
+   "author": "Barbara Wallace Grossman",
+   "publisher": "Indiana University Press",
+   "year": 1991,
+   "photos": [
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "The Last Victim: A True-Life Journey into the Mind of the Serial Killer",
+   "author": "Jason Moss with Jeffrey Kottler",
+   "publisher": "Warner Books / Warner Vision",
+   "year": 2000,
+   "photos": [
+    "AbeBooks",
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "The Hot House: Life Inside Leavenworth Prison",
+   "author": "Pete Earley",
+   "publisher": "Bantam Books",
+   "year": 1992,
+   "photos": [
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "Manson: The Life and Times of Charles Manson",
+   "author": "Jeff Guinn",
+   "publisher": "Simon & Schuster",
+   "year": 2013,
+   "photos": [
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "Like the Roman: The Life of Enoch Powell",
+   "author": "Simon Heffer",
+   "publisher": "Weidenfeld & Nicolson",
+   "year": 1998,
+   "photos": [
+    "Rare Books Boutique"
+   ]
+  },
+  {
+   "title": "The Great Beast: The Life and Magick of Aleister Crowley",
+   "author": "John Symonds",
+   "publisher": "Macdonald & Co.",
+   "year": 1971,
+   "photos": [
+    "Rare Books Boutique"
+   ]
+  },
+  {
+   "title": "Almost Lost: The True Story of an Anonymous Teenager’s Life on the Streets",
+   "author": "Beatrice Sparks (editor)",
+   "publisher": "Avon Flare",
+   "year": 1996,
+   "photos": [
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "The Remarkable Life of Don Diego",
+   "author": "Diego de Torres Villarroel, translated by William C. Atkinson",
+   "publisher": "The Folio Society",
+   "year": 1958,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "Life of the Aztecs in Ancient Mexico",
+   "author": "Pierre Soisson and Janine Soisson",
+   "publisher": "Liber / Éditions Minerva",
+   "year": 1987,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "Johnson’s Life of London: The People Who Made the City That Made the World",
+   "author": "Boris Johnson",
+   "publisher": "Riverhead Books",
+   "year": null,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "Dr Johnson’s Dictionary of Modern Life",
+   "author": "Tom Morton",
+   "publisher": "Square Peg",
+   "year": 2010,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "A Soldier’s Life: General Sir Ian Hamilton 1853–1947",
+   "author": "John Lee",
+   "publisher": "Macmillan",
+   "year": 2000,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "Still Life with Woodpecker",
+   "author": "Tom Robbins",
+   "publisher": "Bantam",
+   "year": 2003,
+   "photos": [
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "Ted Hughes: The Life of a Poet",
+   "author": "Elaine Feinstein",
+   "publisher": "W. W. Norton",
+   "year": 2001,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "The Unruly Life of Woody Allen",
+   "author": "Marion Meade",
+   "publisher": "Weidenfeld & Nicolson",
+   "year": 2000,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "The Life Science: Current Ideas of Biology",
+   "author": "P. B. Medawar and J. S. Medawar",
+   "publisher": null,
+   "year": null,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "The Secret Life of Walter Mitty",
+   "author": "James Thurber",
+   "publisher": "Penguin Modern Classics",
+   "year": 2016,
+   "photos": [
+    "Bookshop Apocalypse"
+   ]
+  },
+  {
+   "title": "My Life in Pieces: An Alternative Autobiography",
+   "author": "Simon Callow",
+   "publisher": "Nick Hern Books",
+   "year": 2010,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "A Way of Life",
+   "author": "Reg Kray",
+   "publisher": "Sidgwick & Jackson",
+   "year": 2000,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "The Love of Many Things: A Life of Vincent Van Gogh",
+   "author": "David Sweetman",
+   "publisher": "John Curtis / Hodder & Stoughton",
+   "year": 1990,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "Stephen Spender: A Life in Modernism",
+   "author": "David Leeming",
+   "publisher": "Henry Holt and Company",
+   "year": null,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "Everyday Life of the Aztecs",
+   "author": "Warwick Bray",
+   "publisher": "B. T. Batsford",
+   "year": 1968,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "The Time of My Life",
+   "author": "Denis Healey",
+   "publisher": "Michael Joseph",
+   "year": 1989,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "A New History of Life: The Radical New Discoveries about the Origins and Evolution of Life on Earth",
+   "author": "Peter Ward and Joe Kirschvink",
+   "publisher": "Bloomsbury",
+   "year": 2015,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "Fracture: Life and Culture in the West, 1918-1938",
+   "author": "Philipp Blom",
+   "publisher": "Atlantic Books",
+   "year": 2015,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "Charles Dickens: A Life",
+   "author": "Claire Tomalin",
+   "publisher": "Viking",
+   "year": 2011,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "Life on Air: Memoirs of a Broadcaster",
+   "author": "David Attenborough",
+   "publisher": "BBC Books",
+   "year": 2002,
+   "photos": [
+    "F‑B‑A"
+   ]
+  },
+  {
+   "title": "Warrior: A Life of War in Anglo-Saxon Britain",
+   "author": "Edoardo Albert with Paul Gething",
+   "publisher": "Granta",
+   "year": 2019,
+   "photos": [
+    "F‑B‑A"
+   ]
+  }
+ ]
+}
