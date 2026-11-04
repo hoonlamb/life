@@ -452,6 +452,13 @@
   const firstWords = (t) => { const w = t.split(' '); return w.slice(0, 9).join(' ').replace(/[,;:.]$/, '') + (w.length > 9 ? '…' : ''); };
   $('#index').innerHTML = R.map((r) => `<li><button class="row grid rv" type="button" aria-expanded="false"><span class="n num">${pad(r.n)}</span><span class="first">${esc(firstWords(r.text))}</span><span class="who">${esc(r.source)}</span></button>
     <div class="more"><div class="in grid"><blockquote class="rv">${esc(r.text)}</blockquote><figure><div class="ph rv"><img data-src="${r.photo}" alt="" style="--pan:${8 + (r.n % 4) * 1.2}s"></div>${cap(r)}</figure></div></div></li>`).join('');
+  // 꼭지 사진은 줄이 화면 가까이 오면 미리 받아 풀어 둠(누르는 순간 풀면 펼치는 도중 0.1~0.2초 멈춤, 11/4 측정)
+  const preIO = new IntersectionObserver((es) => es.forEach((en) => {
+    if (!en.isIntersecting) return; preIO.unobserve(en.target);
+    const im = en.target.querySelector('img[data-src]'); if (!im) return;
+    im.decoding = 'async'; im.src = im.dataset.src; im.removeAttribute('data-src'); im.decode().catch(() => {});
+  }), { rootMargin: '100% 0px' });
+  $('#index').querySelectorAll('li').forEach((li) => preIO.observe(li));
   let wheelAt = 0;
   addEventListener('wheel', () => { wheelAt = performance.now(); }, { passive: true });
   addEventListener('touchstart', () => { wheelAt = performance.now(); }, { passive: true });
